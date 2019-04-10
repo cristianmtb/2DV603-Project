@@ -2,7 +2,7 @@
 ## Project for the course 2dv603 Software Engineering - Design
 
 ## Authors: 
-   Ahmad Abdilrahim,\ 
+   Ahmad Abdilrahim,\
    Ahmad Sadia,\
    Caesar Alhawi,\
    Cristian Babes,\
