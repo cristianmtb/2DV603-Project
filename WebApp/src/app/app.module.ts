@@ -6,6 +6,7 @@ import { WelcomePageComponent } from './components/welcome-page/welcome-page.com
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { SingupPageComponent } from './components/singup-page/singup-page.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { AuthService } from './services/auth/auth.service';
 
 
 
@@ -20,7 +21,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 
