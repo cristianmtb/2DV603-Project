@@ -1,4 +1,4 @@
-# 2DV603-Project 
+# 2DV603-Project - Client
 ## Project for the course 2dv603 Software Engineering - Design
 The aim of the project is to create a thesis management system for Linnaeus University.
 ### Authors: 
@@ -7,3 +7,5 @@ The aim of the project is to create a thesis management system for Linnaeus Univ
    Caesar Alhawi,\
    Cristian Babes,\
    Marcello Vendruscolo.
+
+### Technologies
