@@ -7,6 +7,3 @@ The aim of the project is to create a thesis management system for Linnaeus Univ
    Caesar Alhawi,\
    Cristian Babes,\
    Marcello Vendruscolo.
-## Technologies
-### Back end
-### Front end
