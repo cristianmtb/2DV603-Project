@@ -2,5 +2,9 @@ export class User
 {
     username: string;
     password: string;
-    role_id: number;  
+    coordinator: boolean;  
+    student: boolean;
+    supervisor: boolean;
+    reader: boolean;
+    opponent: boolean;
 }

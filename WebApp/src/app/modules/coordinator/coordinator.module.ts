@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { CoordinatorRoutingModule } from './coordinator-routing.module';
+import { RootComponent } from './components/root/root.component';
+
 @NgModule({
-  declarations: [],
+  declarations: [
+    RootComponent
+  ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    CoordinatorRoutingModule
+  ],
 })
 export class CoordinatorModule { }
