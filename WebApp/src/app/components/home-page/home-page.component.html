@@ -1,5 +1,46 @@
 <div *ngIf="this.auth.isLoggedIn(); else elseBlock">
-    Welcome {{userName}}
+  <div class="container">
+    <p class="text-uppercase" class="text-monospace"  class="font-weight-bold">Welcome {{userName}}.</p>
+
+</div>
+
+  <div class="container">
+    <h3>Deadlines</h3>
+    <div class="list-group">
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">3rd September 2019, 8:00</h5>
+          <small>3 days ago</small>
+        </div>
+        <p class="mb-1">Project description .</p>
+        <small>Donec id elit non mi porta.</small>
+      </a>
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">3rd September 2019, 8:00</h5>
+          <small class="text-muted">3 days ago</small>
+        </div>
+        <p class="mb-1">Project plan.</p>
+        <small class="text-muted">Donec id elit non mi porta.</small>
+      </a>
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">3rd September 2019, 8:00</h5>
+          <small class="text-muted">3 days ago</small>
+        </div>
+        <p class="mb-1">Report Draft.</p>
+        <small class="text-muted">Donec id elit non mi porta.</small>
+      </a>
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">3rd September 2019, 8:00</h5>
+          <small class="text-muted">3 days ago</small>
+        </div>
+        <p class="mb-1">Final Report.</p>
+        <small class="text-muted">Donec id elit non mi porta.</small>
+      </a>
+    </div>
+  </div>
 </div>
 <ng-template #elseBlock>
   <welcome-page></welcome-page>
