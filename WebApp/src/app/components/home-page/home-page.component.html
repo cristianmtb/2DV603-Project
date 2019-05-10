@@ -1,3 +1,6 @@
-<p>
-  home-page works!
-</p>
+<div *ngIf="this.auth.isLoggedIn(); else elseBlock">
+    Welcome {{userName}}
+</div>
+<ng-template #elseBlock>
+  <welcome-page></welcome-page>
+</ng-template>

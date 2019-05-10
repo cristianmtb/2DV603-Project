@@ -9,9 +9,9 @@ export class WelcomePageComponent implements OnInit {
 
   title = 'T.M.S.';
   constructor() {
-
-   }
-
+    
+  }
+  
   ngOnInit() {
   }
 

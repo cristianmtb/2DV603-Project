@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'login-page',
@@ -8,18 +10,22 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor(private auth : AuthService) { }
+  constructor(
+    private auth:AuthService, 
+    private router: Router, 
 
+    ) { }
   ngOnInit() {
-    console.log('in');
-  }
 
+  }
+  username:string ="";
+  password:string = "";
   login() 
   {
-    console.log('button works');
-    if(this.auth.login("admind", "admin") == true)
+    if(this.auth.login(this.username,this.password ) === true)
     {
       console.log("login works");
+      this.router.navigate(['']);
     }
   }
 
