@@ -1,7 +1,7 @@
-# 2DV603-Project
+# 2DV603-Project 
 ## Project for the course 2dv603 Software Engineering - Design
-
-## Authors: 
+The aim of the project is to create a thesis management system for Linnaeus University.
+### Authors: 
    Ahmad Abdilrahim,\
    Ahmad Sadia,\
    Caesar Alhawi,\

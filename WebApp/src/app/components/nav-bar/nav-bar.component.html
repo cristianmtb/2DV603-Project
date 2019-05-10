@@ -1,0 +1,78 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark unique-color" [containerInside]="false">
+
+  <!-- Navbar brand -->
+  <mdb-navbar-brand><a class="navbar-brand" href="#">Navbar</a></mdb-navbar-brand>
+
+  <!-- Collapsible content -->
+  <links>
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <div>
+            <a class="nav-link waves-light" routerLink="" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+        </div>
+      </li>
+      <li class="nav-item ">
+        <div *ngIf="this.auth.isLoggedIn()">
+            <a class="nav-link waves-light" routerLink="" mdbWavesEffect>Student<span class="sr-only">(current)</span></a>
+        </div>
+      </li>
+      <li class="nav-item ">
+        <div *ngIf="this.auth.isLoggedIn()">
+            <a class="nav-link waves-light" routerLink="" mdbWavesEffect>Supervisor<span class="sr-only">(current)</span></a>
+        </div>
+      </li>
+      <li class="nav-item ">
+        <div *ngIf="this.auth.isLoggedIn()">
+            <a class="nav-link waves-light" routerLink="" mdbWavesEffect>Reader<span class="sr-only">(current)</span></a>
+        </div>
+      </li>
+      <li class="nav-item ">
+        <div *ngIf="this.auth.isLoggedIn()">
+            <a class="nav-link waves-light" routerLink="" mdbWavesEffect>Opponent<span class="sr-only">(current)</span></a>
+        </div>
+      </li>
+    </ul>
+    <!-- Links -->
+
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+      <li class="nav-item">
+          <div *ngIf="this.auth.isLoggedIn(); else elseBlock">
+              <a class="nav-link waves-light" (click)='logout()' mdbWavesEffect>Logout</a>
+          </div>
+          <ng-template #elseBlock>
+            <a class="nav-link waves-light" routerLink="login" mdbWavesEffect>Login</a>
+          </ng-template>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">
+          <mdb-icon fab icon="twitter"></mdb-icon>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">
+          <mdb-icon fab icon="google-plus"></mdb-icon>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">
+          <div class="btn-group" mdbDropdown>
+            <mdb-icon fas icon="user" mdbDropdownToggle></mdb-icon>
+            <div class="dropdown-menu dropdown-menu-right dropdown-primary">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="divider dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </links>
+  <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->
