@@ -20,13 +20,14 @@ import { AuthService } from './services/auth/auth.service';
     LoginPageComponent,
     SingupPageComponent,
     HomePageComponent,
-    NavBarComponent  ],
+    NavBarComponent,
+    ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
     MDBBootstrapModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
