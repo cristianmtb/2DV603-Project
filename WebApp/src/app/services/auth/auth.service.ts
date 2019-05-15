@@ -7,6 +7,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/models/user';
+import { Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -36,28 +37,36 @@ export class AuthService {
 
   login(username: string, password: string)
   {
-    if(username === 'coord' && password === 'coord') 
-    {
-      this.currentUser = new User;
-      this.currentUser.password = 'coord';
-      this.currentUser.username = 'coord';
-      this.currentUser.coordinator = true;
-      this.currentUser.supervisor = true;
-      return true;
-    }
-    if(username === 'admin' && password === 'admin') 
-    {
-      this.currentUser = new User;
-      this.currentUser.password = 'admin';
-      this.currentUser.username = 'admin';
-      this.currentUser.reader = true;
-      this.currentUser.student = true;
-      this.currentUser.opponent = true;
-      return true;
-    }
+    // if(username === 'coord' && password === 'coord') 
+    // {
+    //   this.currentUser = new User;
+    //   this.currentUser.password = 'coord';
+    //   this.currentUser.username = 'coord';
+    //   this.currentUser.coordinator = true;
+    //   this.currentUser.supervisor = true;
+    //   return true;
+    // }
+    this.getUser(username, password).subscribe((data: User) => this.currentUser = {
+      username: data['username'],
+      password: data['password'],
+      roleID: data['roleId'],
+      coordinator: true,
+      supervisor: false,
+      student: false,
+      reader: false,
+      opponent: false
+    });
+    console.log(this.getUser(username, password));
+   // console.log(this.currentUser.username);
+    if(this.currentUser.username === 'coord' && this.currentUser.password === 'coord') return true;
     return false;
-     //return this.http.post<any>(`${config.apiUrl}/users/authenticate`, { username, password })
   }
+
+  private getUser (username: string, password: string) 
+  {
+    return this.http.get<User>(`localhost:8080/api/users/get/?username=${username}&password=${password}`);
+  }
+
   isCoordinator()
   {
     if(this.isLoggedIn() && this.currentUser.coordinator === true) return true;
