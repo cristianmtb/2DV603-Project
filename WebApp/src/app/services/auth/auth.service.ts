@@ -64,7 +64,7 @@ export class AuthService {
 
   private getUser (username: string, password: string) 
   {
-    return this.http.get<User>(`localhost:8080/api/users/get/?username=${username}&password=${password}`);
+    return this.http.get<User>(`http://192.168.1.21:8080/api/users/get/?username=${username}&password=${password}`);
   }
 
   isCoordinator()
