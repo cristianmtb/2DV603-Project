@@ -13,10 +13,10 @@ export class RootComponent implements OnInit {
 
   ngOnInit() 
   {
-    if(this.auth.isCoordinator() === false)
-    {
-      this.router.navigate(["login"]);
-    }
+    // if(this.auth.isCoordinator() === false)
+    // {
+    //   this.router.navigate(["login"]);
+    // }
   }
 
 }

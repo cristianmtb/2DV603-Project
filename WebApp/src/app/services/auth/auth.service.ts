@@ -75,19 +75,23 @@ export class AuthService {
     switch(usar.roleID)
     {
       case 1:
-        usar.coordinator = true;
+        usar.student = true;
         break;
       case 2:
-        usar.coordinator = true;
+        usar.opponent = true;
         break;
       case 3:
-        usar.coordinator = true;
+        usar.supervisor = true;
         break;
       case 4:
-        usar.coordinator = true;
+        usar.reader = true;
         break;
       case 5:
         usar.coordinator = true;
+        break;
+      case 6:
+        usar.student = true;
+        usar.opponent = true;
         break;
       default:
         ;
