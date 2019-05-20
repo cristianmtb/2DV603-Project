@@ -7,10 +7,10 @@
       </div>
     </div>
   </div>
-  </div>
+</div>
   <!-- Editable table -->
   <div class="card">
-    <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Users List</h3>
+    <h3 class="card-header text-center font-weight-bold text-uppercase py-4">USERS LIST</h3>
     <div class="card-body">
       <div id="table" class="table-editable">
       <span class="table-add float-right mb-3 mr-2">
@@ -24,7 +24,6 @@
 
           <th  class="text-center" [mdbTableSort]="personList" sortBy="id">ID</th>
           <th  [mdbTableSort]="personList" sortBy="userName" class="text-center">UserName</th>
-          <th  [mdbTableSort]="personList" sortBy="role" class="text-center">Role</th>
           <th  [mdbTableSort]="personList" sortBy="firstName" class="text-center">Name</th>
           <th  [mdbTableSort]="personList" sortBy="email" class="text-center">Email Address</th>
           <th class="text-center">Remove</th>
@@ -41,18 +40,6 @@
           </td>
           <td>
             <span contenteditable="true" (keyup)="changeValue(id, 'email', $event)" (blur)="updateList(id, 'email', $event)">{{person.email}}</span>
-          </td>
-          <td>
-            <span class="table-up">
-              <a class="indigo-text">
-                <mdb-icon fas icon="long-arrow-alt-up"></mdb-icon>
-              </a>
-            </span>
-            <span class="table-down">
-              <a class="indigo-text">
-                <mdb-icon fas icon="long-arrow-alt-down"></mdb-icon>
-              </a>
-            </span>
           </td>
           <td>
             <span class="table-remove">
