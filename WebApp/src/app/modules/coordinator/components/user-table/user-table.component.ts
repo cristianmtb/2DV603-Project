@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import { UserService } from 'src/app/services/userService/user.service';
 import {User} from "../../../../models/user";
+import {MdbTableDirective} from "angular-bootstrap-md";
 
 
 @Component({
@@ -9,8 +10,16 @@ import {User} from "../../../../models/user";
   styleUrls: ['./user-table.component.scss']
 })
 export class UserTableComponent implements OnInit {
-
+  @ViewChild(MdbTableDirective) mdbTable: MdbTableDirective;
+  headElements = ['ID', 'First', 'Last', 'Handle'];
+  searchText: string = '';
+  previous: string;
   constructor(private uservice:UserService ) { }
+
+  @HostListener('input') oninput() {
+    this.searchItems();
+  }
+
 
   editField: string;
   personList: Array<User>;
@@ -58,6 +67,21 @@ export class UserTableComponent implements OnInit {
   changeValue(id: number, property: string, event: any) {
     this.editField = event.target.textContent;
   }
+
+  searchItems() {
+    const prev = this.mdbTable.getDataSource();
+
+    if (!this.searchText) {
+      this.mdbTable.setDataSource(this.previous);
+      this.personList = this.mdbTable.getDataSource();
+    }
+
+    if (this.searchText) {
+      this.personList = this.mdbTable.searchLocalDataBy(this.searchText);
+      this.mdbTable.setDataSource(prev);
+    }
+  }
+
 
 
 }

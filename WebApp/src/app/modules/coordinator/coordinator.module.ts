@@ -5,6 +5,7 @@ import { CoordinatorRoutingModule } from './coordinator-routing.module';
 import { RootComponent } from './components/root.component';
 import { UserTableComponent } from './components/user-table/user-table.component';
 import {MDBBootstrapModule} from "angular-bootstrap-md";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import {MDBBootstrapModule} from "angular-bootstrap-md";
   imports: [
     CommonModule,
     CoordinatorRoutingModule,
-    MDBBootstrapModule
+    MDBBootstrapModule,
+    FormsModule
   ],
 })
 export class CoordinatorModule { }
