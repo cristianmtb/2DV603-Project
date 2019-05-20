@@ -6,7 +6,7 @@ export class Deadline
     private time: Time;
     private description: string //name of the submission
 
-    public constructor(date:Date, description:string )
+    public constructor(date:Date, description:string)
     {
         this.date = date;
         this.description = description;

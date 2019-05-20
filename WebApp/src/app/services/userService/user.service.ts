@@ -22,6 +22,13 @@ export class UserService {
       console.log(this.userList)
     });
   }
+
+  public getSupervisors()
+  {
+    
+  }
+
+
   private toUser(res: Response)
   {
     let user:Array<User> = new Array<User>();
