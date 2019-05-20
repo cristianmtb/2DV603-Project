@@ -8,7 +8,7 @@ import { User } from 'src/app/models/user';
 export class UserService {
   private userList: Array<User> = null;
   private response:Response = null;
-
+  private serverUrl:string;
   constructor(private http: HttpClient) { }
 
   public getUsers ():Array<User> 
@@ -25,9 +25,18 @@ export class UserService {
     return null;
   }
 
-  public getSupervisors()
+  public getSupervisors():Array<User> 
   {
-    
+    this.http.get<Response>(`http://192.168.1.21:8080/api/users/get/?roleId=3`).subscribe((data)=>{
+      while(data == null)
+      {
+        ;
+      }
+      return this.toUser(data);
+      // console.log(this.userList)
+      // return userList
+    });
+    return null;
   }
 
 
