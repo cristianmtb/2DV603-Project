@@ -18,53 +18,53 @@ export class UserService {
       {
         ;
       }
-      console.log(data);
-      this.response = data;
-      this.userList = this.toUser(this.response);
+      this.userList = this.toUser(data);
       console.log(this.userList)
     });
   }
   private toUser(res: Response)
   {
     let user:Array<User> = new Array<User>();
-    for(let i = 0; i < res.user.length; i++)
+    for(let i = 0; i < res.users.length; i++)
     {
-      user[i].username = res.user[i].username;
-      user[i].roleID = res.user[i].roleId;
-      user[i].id = res.user[i].id;
-      user[i].name = res.user[i].firstName;
-      user[i].email = res.user[i].email;
-      switch(user[i].roleID)
+      let auxUser:User = new User;
+      auxUser.username = res.users[i].username;
+      auxUser.roleID = res.users[i].roleId;
+      auxUser.id = res.users[i].id;
+      auxUser.name = res.users[i].firstName;
+      auxUser.email = res.users[i].email;
+      switch(auxUser.roleID)
       {
         case 1:
-          user[i].student = true;
+          auxUser.student = true;
           break;
         case 2:
-          user[i].opponent = true;
+          auxUser.opponent = true;
           break;
         case 3:
-          user[i].supervisor = true;
+          auxUser.supervisor = true;
           break;
         case 4:
-          user[i].reader = true;
+          auxUser.reader = true;
           break;
         case 5:
-          user[i].coordinator = true;
+          auxUser.coordinator = true;
           break;
         case 6:
-          user[i].student = true;
-          user[i].opponent = true;
+          auxUser.student = true;
+          auxUser.opponent = true;
           break;
         default:
           ;
       }
+      user.push(auxUser);
     }
     
     return user;
   }
 }
 class Response{
-  user:Array<UserRes>;
+  users:Array<UserRes>;
 
   
 }
