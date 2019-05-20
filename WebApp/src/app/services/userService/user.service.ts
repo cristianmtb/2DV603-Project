@@ -6,41 +6,22 @@ import { User } from 'src/app/models/user';
   providedIn: 'root'
 })
 export class UserService {
-  private userList: Array<User> = null;
-  private response:Response = null;
-  private serverUrl:string;
+  private serverUrl:string = 'http://192.168.1.21:8080';
   constructor(private http: HttpClient) { }
 
-  public getUsers ():Array<User> 
+  public getUsers ()
 
   {
-    this.http.get<Response>(`http://192.168.1.21:8080/api/users/get/`).subscribe((data)=>{
-      while(data == null)
-      {
-        ;
-      }
-      return this.toUser(data);
-      // console.log(this.userList)
-    });
-    return null;
+    return this.http.get<Response>(`${this.serverUrl}/api/users/get/`);
   }
 
-  public getSupervisors():Array<User> 
+  public getSupervisors()
   {
-    this.http.get<Response>(`http://192.168.1.21:8080/api/users/get/?roleId=3`).subscribe((data)=>{
-      while(data == null)
-      {
-        ;
-      }
-      return this.toUser(data);
-      // console.log(this.userList)
-      // return userList
-    });
-    return null;
+    this.http.get<Response>(`${this.serverUrl}/api/users/get/?roleId=3`);
   }
 
 
-  private toUser(res: Response)
+  public toUser(res: Response)
   {
     let user:Array<User> = new Array<User>();
     for(let i = 0; i < res.users.length; i++)

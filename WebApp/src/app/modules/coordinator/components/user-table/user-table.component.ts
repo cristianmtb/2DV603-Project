@@ -13,13 +13,7 @@ export class UserTableComponent implements OnInit {
   constructor(private uservice:UserService ) { }
 
   editField: string;
-  personList: Array<User> = [
-    {id: 1, username: 'aa224fn', roleID: 1, name: 'Ahmad', email: 'adadawda@gmail.com', password:"", coordinator:false, student:true, opponent:false, reader:false, supervisor:false},
-    {id: 2, username: 'aa224fn', roleID: 1, name: 'Ahmad', email: 'adadawda@gmail.com', password:"", coordinator:false, student:true, opponent:false, reader:false, supervisor:false}, {id: 1, username: 'aa224fn', roleID: 4, name: 'Ahmad', email: 'adadawda@gmail.com', password:"", coordinator:false, student:true, opponent:false, reader:false, supervisor:false},
-
-
-
-  ];
+  personList: Array<User>;
 
   awaitingPersonList: Array<any> = [
     // {id: 6, userName: '', role: '', firstName: '', lastName: '', email: ''},
@@ -33,16 +27,13 @@ export class UserTableComponent implements OnInit {
 
 
   ngOnInit() {
-    this.uservice.getUsers();
-    // for (let i = 1; i <= 11; i++) {
-    //   this.personList.push({
-    //     id: i,
-    //     firstName:'firstName' + i ,
-    //     last: 'LastName ' + i,
-    //     Role: 'role ' + i,
-    //     userName: 'userName' + i,
-    //     email:'email' + i
-    //   });}
+    this.uservice.getUsers().subscribe((data)=>{
+      while(data == null)
+      {
+        ;
+      }
+      this.personList = this.uservice.toUser(data);
+    });
   }
 
 

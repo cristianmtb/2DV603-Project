@@ -27,13 +27,13 @@
             <span (keyup)="changeValue(id, 'id', $event)" (blur)="updateList(id, 'id', $event)" contenteditable="false">{{person.id}}</span>
           </td>
           <td>
-            <span (keyup)="changeValue(id, 'userName', $event)" (blur)="updateList(id, 'userName', $event)" contenteditable="true">{{person.userName}}</span>
+            <span (keyup)="changeValue(id, 'userName', $event)" (blur)="updateList(id, 'userName', $event)" contenteditable="true">{{person.username}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'role', $event)" (blur)="updateList(id, 'role', $event)">{{person.role}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'role', $event)" (blur)="updateList(id, 'role', $event)">{{person.roleId}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'firstName', $event)" (blur)="updateList(id, 'firstName', $event)">{{person.firstName}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'firstName', $event)" (blur)="updateList(id, 'firstName', $event)">{{person.name}}</span>
           </td>
           <td>
             <span contenteditable="true" (keyup)="changeValue(id, 'lastName', $event)" (blur)="updateList(id, 'lastName', $event)">{{person.lastName}}</span>
