@@ -12,7 +12,7 @@ export class LoginPageComponent implements OnInit {
 
   constructor(
     private auth:AuthService, 
-    private router: Router, 
+    
 
     ) { }
   ngOnInit() {
@@ -22,11 +22,7 @@ export class LoginPageComponent implements OnInit {
   password:string = "";
   login() 
   {
-    if(this.auth.login(this.username,this.password ) === true)
-    {
-      console.log("login works");
-      this.router.navigate(['']);
-    }
+    this.auth.login(this.username,this.password )
   }
 
 }
