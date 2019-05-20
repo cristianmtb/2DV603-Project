@@ -22,13 +22,7 @@ export class UserTableComponent implements OnInit {
 
 
   editField: string;
-  personList: Array<User> = [
-    {id: 1, username: 'aa224fn', roleID: 1, name: 'Ahmad', email: 'adadawda@gmail.com', password:"", coordinator:false, student:true, opponent:false, reader:false, supervisor:false},
-    {id: 2, username: 'zzzzzzzzzzz', roleID: 1, name: 'adadadww', email: 'adadawda@gmail.com', password:"", coordinator:false, student:true, opponent:false, reader:false, supervisor:false}, {id: 1, username: 'ssssssssss', roleID: 4, name: 'hhhhhhhhhhhh', email: 'adadawda@gmail.com', password:"", coordinator:false, student:true, opponent:false, reader:false, supervisor:false},
-
-
-
-  ];
+  personList: Array<User>;
 
   awaitingPersonList: Array<any> = [
     // {id: 6, userName: '', role: '', firstName: '', lastName: '', email: ''},
@@ -42,8 +36,13 @@ export class UserTableComponent implements OnInit {
 
 
   ngOnInit() {
-
-
+    this.uservice.getUsers().subscribe((data)=>{
+      while(data == null)
+      {
+        ;
+      }
+      this.personList = this.uservice.toUser(data);
+    });
   }
 
 
