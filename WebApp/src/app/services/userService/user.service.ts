@@ -12,6 +12,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   public getUsers ():Array<User> 
+
   {
     this.http.get<Response>(`http://192.168.1.21:8080/api/users/get/`).subscribe((data)=>{
       while(data == null)
@@ -20,7 +21,6 @@ export class UserService {
       }
       return this.toUser(data);
       // console.log(this.userList)
-      // return userList
     });
     return null;
   }
