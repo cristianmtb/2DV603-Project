@@ -11,7 +11,8 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  public getUsers () :Array<User>
+  public getUsers ():Array<User> 
+
   {
     this.http.get<Response>(`http://192.168.1.21:8080/api/users/get/`).subscribe((data)=>{
       while(data == null)
