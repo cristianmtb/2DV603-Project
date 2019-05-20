@@ -7,6 +7,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/models/user';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +15,15 @@ import { User } from 'src/app/models/user';
 
 export class AuthService {
   private currentUser: User = null;
-  constructor(private http: HttpClient) { }
+  private response:Response = null;
+
+  constructor(private http: HttpClient, private router: Router) { }
+
 
   isLoggedIn()
   {
-    if (this.currentUser !== null) return true;
-    else return false;
+    if (this.currentUser == null) return false;
+    else return true;
   }
   getUserName()
   {
@@ -36,28 +40,66 @@ export class AuthService {
 
   login(username: string, password: string)
   {
-    if(username === 'coord' && password === 'coord') 
-    {
-      this.currentUser = new User;
-      this.currentUser.password = 'coord';
-      this.currentUser.username = 'coord';
-      this.currentUser.coordinator = true;
-      this.currentUser.supervisor = true;
-      return true;
-    }
-    if(username === 'admin' && password === 'admin') 
-    {
-      this.currentUser = new User;
-      this.currentUser.password = 'admin';
-      this.currentUser.username = 'admin';
-      this.currentUser.reader = true;
-      this.currentUser.student = true;
-      this.currentUser.opponent = true;
-      return true;
-    }
-    return false;
-     //return this.http.post<any>(`${config.apiUrl}/users/authenticate`, { username, password })
+    this.getUser(username, password).subscribe((data) =>{
+      while(data == null)
+      {
+        ;
+      }
+      console.log(data);
+      this.response = data;
+      if(this.response.user.username == username && this.response.user.password == password)
+      {
+        this.currentUser = this.toUser(this.response);
+        console.log(this.currentUser);
+        this.router.navigate(['']);
+      } 
+    });
   }
+
+
+  private getUser (username: string, password: string) 
+  {
+    return this.http.get<Response>(`http://192.168.1.21:8080/api/user/get/?username=${username}&password=${password}`);
+  }
+
+  public toUser(res: Response):User
+  {
+    let usar:User = new User;
+    
+    usar.username = res.user.username;
+    usar.password = res.user.password;
+    usar.roleID = res.user.roleId;
+    usar.id = res.user.id;
+    usar.name = res.user.firstName;
+    usar.email = res.user.email;
+    switch(usar.roleID)
+    {
+      case 1:
+        usar.student = true;
+        break;
+      case 2:
+        usar.opponent = true;
+        break;
+      case 3:
+        usar.supervisor = true;
+        break;
+      case 4:
+        usar.reader = true;
+        break;
+      case 5:
+        usar.coordinator = true;
+        break;
+      case 6:
+        usar.student = true;
+        usar.opponent = true;
+        break;
+      default:
+        ;
+
+    }
+    return usar;
+  }
+
   isCoordinator()
   {
     if(this.isLoggedIn() && this.currentUser.coordinator === true) return true;
@@ -84,3 +126,20 @@ export class AuthService {
     return false;
   }
 }
+
+class Response{
+  user:UserRes;
+
+  
+}
+class UserRes{
+  username: string;
+  password: string;
+  roleId: number;
+  id;
+  email;
+  deleted;
+  singedIn;
+  firstName;
+}
+
