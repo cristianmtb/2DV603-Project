@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CoordinatorRoutingModule } from './coordinator-routing.module';
 import { RootComponent } from './components/root.component';
 import { UserTableComponent } from './components/user-table/user-table.component';
+import {MDBBootstrapModule} from "angular-bootstrap-md";
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { UserTableComponent } from './components/user-table/user-table.component
   ],
   imports: [
     CommonModule,
-    CoordinatorRoutingModule
+    CoordinatorRoutingModule,
+    MDBBootstrapModule
   ],
 })
 export class CoordinatorModule { }
