@@ -15,10 +15,10 @@ export class UserTableComponent implements OnInit {
   searchText: string = '';
   previous: string;
   constructor(private uservice:UserService ) { }
+
   @HostListener('input') oninput() {
     this.searchItems();
   }
-
 
 
   editField: string;
