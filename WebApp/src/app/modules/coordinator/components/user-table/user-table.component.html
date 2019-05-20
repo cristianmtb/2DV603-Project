@@ -1,3 +1,69 @@
-<p>
-  user-table works!
-</p>
+
+  <!-- Editable table -->
+<div class="card">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Editable table</h3>
+  <div class="card-body">
+    <div id="table" class="table-editable">
+      <span class="table-add float-right mb-3 mr-2">
+        <a class="text-success" (click)="add()">
+          <mdb-icon fas icon="plus" size="2x"></mdb-icon>
+        </a>
+      </span>
+      <table class="table table-bordered table-responsive-md table-striped text-center">
+        <tr>
+
+
+          <th  class="text-center" [mdbTableSort]="personList" sortBy="id">ID</th>
+          <th  [mdbTableSort]="personList" sortBy="userName" class="text-center">UserName</th>
+          <th  [mdbTableSort]="personList" sortBy="role" class="text-center">Role</th>
+          <th  [mdbTableSort]="personList" sortBy="firstName" class="text-center">First Name</th>
+          <th  [mdbTableSort]="personList" sortBy="lastName" class="text-center">Last Name</th>
+          <th  [mdbTableSort]="personList" sortBy="email" class="text-center">Email Address</th>
+          <th class="text-center">Sort</th>
+          <th class="text-center">Remove</th>
+        </tr>
+        <tr *ngFor="let person of personList; let id = index"  >
+          <td >
+            <span (keyup)="changeValue(id, 'id', $event)" (blur)="updateList(id, 'id', $event)" contenteditable="false">{{person.id}}</span>
+          </td>
+          <td>
+            <span (keyup)="changeValue(id, 'userName', $event)" (blur)="updateList(id, 'userName', $event)" contenteditable="true">{{person.username}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue(id, 'role', $event)" (blur)="updateList(id, 'role', $event)">{{person.roleId}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue(id, 'firstName', $event)" (blur)="updateList(id, 'firstName', $event)">{{person.name}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue(id, 'lastName', $event)" (blur)="updateList(id, 'lastName', $event)">{{person.lastName}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue(id, 'email', $event)" (blur)="updateList(id, 'email', $event)">{{person.email}}</span>
+          </td>
+          <td>
+            <span class="table-up">
+              <a class="indigo-text">
+                <mdb-icon fas icon="long-arrow-alt-up"></mdb-icon>
+              </a>
+            </span>
+            <span class="table-down">
+              <a class="indigo-text">
+                <mdb-icon fas icon="long-arrow-alt-down"></mdb-icon>
+              </a>
+            </span>
+          </td>
+          <td>
+            <span class="table-remove">
+              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove(id)">Remove</button>
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- Editable table -->
+
+
+
