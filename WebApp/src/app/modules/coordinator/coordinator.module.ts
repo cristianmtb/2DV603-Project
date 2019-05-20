@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 
 import { CoordinatorRoutingModule } from './coordinator-routing.module';
 import { RootComponent } from './components/root.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { UserTableComponent } from './components/user-table/user-table.component';
+
 
 @NgModule({
   declarations: [
     RootComponent,
-    SidebarComponent
+    UserTableComponent,
+
   ],
   imports: [
     CommonModule,
