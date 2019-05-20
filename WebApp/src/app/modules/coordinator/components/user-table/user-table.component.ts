@@ -1,4 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/userService/user.service';
+import {User} from "../../../../models/user";
+
 
 @Component({
   selector: 'user-table',
@@ -7,16 +10,15 @@ import {Component, OnInit} from '@angular/core';
 })
 export class UserTableComponent implements OnInit {
 
-  constructor() {
-  }
+  constructor(private uservice:UserService ) { }
 
   editField: string;
-  personList: Array<any> = [
-    {id: 1, userName: 'aa224fn', role: 'Student', firstName: 'Ahmad', lastName: 'AR', email: 'adadawda@gmail.com'},
-    {id: 2, userName: 'cb224fn', role: 'Student', firstName: 'cris', lastName: 'babes', email: 'adadadadadada'},
-    {id: 3, userName: 'as224zk', role: 'Student', firstName: 'ahmad', lastName: 'sadia', email: ''},
-    {id: 4, userName: 'ch223tf', role: 'Student', firstName: 'ceasaer', lastName: 'alhawi', email: ''},
-    {id: 5, userName: 'bitch', role: 'bitch', firstName: 'bitch', lastName: 'bitch', email: 'bitch@hotmai.com'},
+  personList: Array<User> = [
+    {id: 1, username: 'aa224fn', roleID: 1, name: 'Ahmad', email: 'adadawda@gmail.com', password:"", coordinator:false, student:true, opponent:false, reader:false, supervisor:false},
+    {id: 2, username: 'aa224fn', roleID: 1, name: 'Ahmad', email: 'adadawda@gmail.com', password:"", coordinator:false, student:true, opponent:false, reader:false, supervisor:false}, {id: 1, username: 'aa224fn', roleID: 4, name: 'Ahmad', email: 'adadawda@gmail.com', password:"", coordinator:false, student:true, opponent:false, reader:false, supervisor:false},
+
+
+
   ];
 
   awaitingPersonList: Array<any> = [
@@ -31,6 +33,7 @@ export class UserTableComponent implements OnInit {
 
 
   ngOnInit() {
+    this.uservice.getUsers();
     // for (let i = 1; i <= 11; i++) {
     //   this.personList.push({
     //     id: i,
