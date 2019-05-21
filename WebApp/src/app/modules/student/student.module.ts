@@ -9,6 +9,6 @@ import { RootComponent } from './components/root/root.component';
   imports: [
     CommonModule,
     StudentRoutingModule
-  ]
+  ],
 })
 export class StudentModule { }
