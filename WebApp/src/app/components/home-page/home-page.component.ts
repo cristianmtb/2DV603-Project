@@ -9,14 +9,20 @@ import { Deadline } from 'src/app/models/deadline';
 })
 export class HomePageComponent implements OnInit {
   userName = "nope";
+
+  
   deadline:Deadline;
+ 
+
+
   constructor(private auth:AuthService)
   {
     this.userName = this.auth.getUserName();
   }
 
   ngOnInit() {
-    //deadline=new Deadline()
+    this.deadline=new Deadline( new Date() ,'');
+    console.log(this.deadline);
   }
-
+ 
 }
