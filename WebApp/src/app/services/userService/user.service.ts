@@ -1,27 +1,38 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/models/user';
-
+import config from "../../../config.json";
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private serverUrl:string = 'http://192.168.1.21:8080';
   constructor(private http: HttpClient) { }
 
   
 
   public getUsers ()
-
   {
-    return this.http.get<Response>(`${this.serverUrl}/api/users/get/`);
+    return this.http.get<Response>(`${config.serverUrl}/api/users/get/`);
   }
 
   public getSupervisors()
   {
-    this.http.get<Response>(`${this.serverUrl}/api/users/get/?roleId=3`);
+    return this.http.get<Response>(`${config.serverUrl}/api/users/get/?roleId=3`);
   }
 
+  public addUser(newUser:User)
+  {
+    // let user: Send = new Send;
+    // user.user = new UserRes();
+    // user.user.email = newUser.email;
+    // user.user.firstName = newUser.name;
+    // user.user.password = "asd";
+    // user.user.roleId = 1;
+    // user.user.username = newUser.username;
+    // this.http.post<Send>(`${this.serverUrl}/api/user/add/`, user).subscribe((data)=>{
+    //   console.log(data);
+    // })
+  }
 
   public toUser(res: Response)
   {
@@ -63,13 +74,23 @@ export class UserService {
     
     return user;
   }
+  private generateRoleId()
+  {
+    return 1;
+  }
 }
-class Response{
-  users:Array<UserRes>;
 
-  
+class Send
+{
+  user:UserRes;
 }
-class UserRes{
+
+class Response
+{
+  users:Array<UserRes>;
+}
+class UserRes
+{
   username: string;
   password: string;
   roleId: number;

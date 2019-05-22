@@ -24,15 +24,7 @@ export class UserTableComponent implements OnInit {
   editField: string;
   personList: Array<User>;
 
-  awaitingPersonList: Array<any> = [
-    // {id: 6, userName: '', role: '', firstName: '', lastName: '', email: ''},
-    //     // {id: 7, userName: '', role: '', firstName: '', lastName: '', email: ''},
-    //     // {id: 8, userName: '', role: '', firstName: '', lastName: '', email: ''},
-    //     // {id: 9, userName: '', role: '', firstName: '', lastName: '', email: ''},
-    //     // {id: 10, userName: '', role: '', firstName: '', lastName: '', email: ''},
-
-
-  ];
+  awaitingPersonList: Array<any> = [ ];
 
 
   ngOnInit() {
@@ -42,7 +34,9 @@ export class UserTableComponent implements OnInit {
         ;
       }
       this.personList = this.uservice.toUser(data);
+      this.uservice.addUser(this.personList[2]);
     });
+    
   }
 
 
