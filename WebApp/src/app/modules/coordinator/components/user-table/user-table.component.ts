@@ -24,7 +24,15 @@ export class UserTableComponent implements OnInit {
   editField: string;
   personList: Array<User>;
 
-  awaitingPersonList: Array<any> = [ ];
+  awaitingPersonList: Array<any> = [
+    // {id: 6, userName: '', role: '', firstName: '', lastName: '', email: ''},
+    //     // {id: 7, userName: '', role: '', firstName: '', lastName: '', email: ''},
+    //     // {id: 8, userName: '', role: '', firstName: '', lastName: '', email: ''},
+    //     // {id: 9, userName: '', role: '', firstName: '', lastName: '', email: ''},
+    //     // {id: 10, userName: '', role: '', firstName: '', lastName: '', email: ''},
+
+
+  ];
 
 
   ngOnInit() {
@@ -34,9 +42,7 @@ export class UserTableComponent implements OnInit {
         ;
       }
       this.personList = this.uservice.toUser(data);
-      this.uservice.addUser(this.personList[2]);
     });
-    
   }
 
 
@@ -46,16 +52,17 @@ export class UserTableComponent implements OnInit {
   }
 
   remove(id: any) {
-    this.awaitingPersonList.push(this.personList[id]);
+    //this.awaitingPersonList.push(this.personList[id]);
     this.personList.splice(id, 1);
   }
 
   add() {
-    if (this.awaitingPersonList.length > 0) {
-      const person = this.awaitingPersonList[0];
-      this.personList.push(person);
-      this.awaitingPersonList.splice(0, 1);
-    }
+    // if (this.awaitingPersonList.length > 0) {
+    //   const person = this.awaitingPersonList[0];
+    const person = new User();
+    this.personList.push(person);
+    this.awaitingPersonList.splice(0, 1);
+    // }
   }
 
   changeValue(id: number, property: string, event: any) {
