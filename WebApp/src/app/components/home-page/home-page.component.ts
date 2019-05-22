@@ -10,14 +10,20 @@ import { DocumentService } from 'src/app/services/documentService/document.servi
 })
 export class HomePageComponent implements OnInit {
   userName = "nope";
+
+  
   deadline:Deadline;
+
   constructor(private auth:AuthService, private doc:DocumentService)
+
   {
     this.userName = this.auth.getUserName();
   }
 
   ngOnInit() {
     this.doc.getDoc();
+    this.deadline=new Deadline( new Date() ,'');
+    console.log(this.deadline);
   }
-
+ 
 }
