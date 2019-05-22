@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/models/user';
 import { Router } from '@angular/router';
-
+import config from "../../../config.json";
 @Injectable({
   providedIn: 'root'
 })
@@ -59,7 +59,7 @@ export class AuthService {
 
   private getUser (username: string, password: string) 
   {
-    return this.http.get<Response>(`http://192.168.1.21:8080/api/user/get/?username=${username}&password=${password}`);
+    return this.http.get<Response>(`${config.serverUrl}/api/user/get/?username=${username}&password=${password}`);
   }
 
   public toUser(res: Response):User

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Deadline } from 'src/app/models/deadline';
 import { HttpClient } from '@angular/common/http';
-
+import config from "../../../config.json";
 @Injectable({
   providedIn: 'root'
 })
