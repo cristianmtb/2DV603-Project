@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/models/user';
 import { Router } from '@angular/router';
-
+import config from "../../../config.json";
 @Injectable({
   providedIn: 'root'
 })
@@ -59,45 +59,45 @@ export class AuthService {
 
   private getUser (username: string, password: string) 
   {
-    return this.http.get<Response>(`http://192.168.1.21:8080/api/user/get/?username=${username}&password=${password}`);
+    return this.http.get<Response>(`${config.serverUrl}/api/user/get/?username=${username}&password=${password}`);
   }
 
   public toUser(res: Response):User
   {
-    let usar:User = new User;
+    let user:User = new User;
     
-    usar.username = res.user.username;
-    usar.password = res.user.password;
-    usar.roleID = res.user.roleId;
-    usar.id = res.user.id;
-    usar.name = res.user.firstName;
-    usar.email = res.user.email;
-    switch(usar.roleID)
+    user.username = res.user.username;
+    user.password = res.user.password;
+    user.roleID = res.user.roleId;
+    user.id = res.user.id;
+    user.name = res.user.firstName;
+    user.email = res.user.email;
+    switch(user.roleID)
     {
       case 1:
-        usar.student = true;
+        user.student = true;
         break;
       case 2:
-        usar.opponent = true;
+        user.opponent = true;
         break;
       case 3:
-        usar.supervisor = true;
+        user.supervisor = true;
         break;
       case 4:
-        usar.reader = true;
+        user.reader = true;
         break;
       case 5:
-        usar.coordinator = true;
+        user.coordinator = true;
         break;
       case 6:
-        usar.student = true;
-        usar.opponent = true;
+        user.student = true;
+        user.opponent = true;
         break;
       default:
         ;
 
     }
-    return usar;
+    return user;
   }
 
   isCoordinator()
