@@ -22,16 +22,16 @@ export class UserService {
 
   public addUser(newUser:User)
   {
-    // let user: Send = new Send;
-    // user.user = new UserRes();
-    // user.user.email = newUser.email;
-    // user.user.firstName = newUser.name;
-    // user.user.password = "asd";
-    // user.user.roleId = 1;
-    // user.user.username = newUser.username;
-    // this.http.post<Send>(`${this.serverUrl}/api/user/add/`, user).subscribe((data)=>{
-    //   console.log(data);
-    // })
+    let user: Send = new Send;
+    user.user = new UserRes();
+    user.user.email = "newUser.email";
+    user.user.firstName = "newUser.name";
+    user.user.password = "asd";
+    user.user.roleId = 1;
+    user.user.username = "newUser.username";
+    this.http.post<Send>(`${config.serverUrl}/api/user/add/`, user).subscribe((data)=>{
+      console.log(data);
+    })
   }
 
   public toUser(res: Response)
