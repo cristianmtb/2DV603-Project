@@ -45,12 +45,10 @@ export class AuthService {
       {
         ;
       }
-      console.log(data);
       this.response = data;
       if(this.response.user.username == username && this.response.user.password == password)
       {
         this.currentUser = this.toUser(this.response);
-        console.log(this.currentUser);
         this.router.navigate(['']);
       } 
     });
@@ -64,13 +62,14 @@ export class AuthService {
 
   public toUser(res: Response):User
   {
-    let user:User = new User;
+    let user:User;
     
     user.username = res.user.username;
     user.password = res.user.password;
     user.roleID = res.user.roleId;
     user.id = res.user.id;
-    user.name = res.user.firstName;
+    user.firstName = res.user.firstName;
+    user.lastName = res.user.lastName;
     user.email = res.user.email;
     switch(user.roleID)
     {
@@ -137,6 +136,7 @@ class UserRes{
   password: string;
   roleId: number;
   id;
+  lastName;
   email;
   deleted;
   singedIn;

@@ -2,13 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/models/user';
 import config from "../../../config.json";
+import {createFormData} from "../formData";
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   constructor(private http: HttpClient) { }
-
-  
 
   public getUsers ()
   {
@@ -22,28 +21,22 @@ export class UserService {
 
   public addUser(newUser:User)
   {
-    let user: Send = new Send;
-    user.user = new UserRes();
-    user.user.email = "newUser.email";
-    user.user.firstName = "newUser.name";
-    user.user.password = "asd";
-    user.user.roleId = 1;
-    user.user.username = "newUser.username";
-    this.http.post<Send>(`${config.serverUrl}/api/user/add/`, user).subscribe((data)=>{
+    this.http.post<UserRes>(`${config.serverUrl}/api/user/add/`, createFormData(this.toBeSent(newUser)), {}).subscribe((data)=>{
       console.log(data);
-    })
+    });
   }
-
+ 
   public toUser(res: Response)
   {
     let user:Array<User> = new Array<User>();
     for(let i = 0; i < res.users.length; i++)
     {
-      let auxUser:User = new User;
+      let auxUser:User;
       auxUser.username = res.users[i].username;
       auxUser.roleID = res.users[i].roleId;
       auxUser.id = res.users[i].id;
-      auxUser.name = res.users[i].firstName;
+      auxUser.firstName = res.users[i].firstName;
+      auxUser.firstName = res.users[i].lastName;
       auxUser.email = res.users[i].email;
       switch(auxUser.roleID)
       {
@@ -66,6 +59,23 @@ export class UserService {
           auxUser.student = true;
           auxUser.opponent = true;
           break;
+        case 7:
+          auxUser.student = true;
+          auxUser.reader = true;
+          break;
+        case 8:
+          auxUser.supervisor = true;
+          auxUser.reader = true;
+          break;
+        case 9:
+          auxUser.supervisor = true;
+          auxUser.opponent = true;
+          break;
+        case 10:
+          auxUser.reader = true;
+          auxUser.opponent = true;
+          break;
+                      
         default:
           ;
       }
@@ -74,15 +84,60 @@ export class UserService {
     
     return user;
   }
-  private generateRoleId()
+  private toBeSent(newUser:User):UserRes
   {
-    return 1;
+    let user = new UserRes();
+    user.username = newUser.username;
+    user.password = newUser.password;
+    user.firstName = newUser.firstName;
+    user.lastName = newUser.lastName;
+    user.email = newUser.email;
+    user.roleId = this.generateRoleId(newUser)
+    return user;
   }
-}
-
-class Send
-{
-  user:UserRes;
+  private generateRoleId(user:User)
+  {
+    if(user.student == true)
+    {
+      if(user.reader == true)
+      {
+        return 7;
+      }
+      if(user.opponent == true)
+      {
+        return 6;
+      }
+      return 1;
+    }
+    if(user.coordinator == true)
+    {
+      return 5;
+    }
+    if(user.supervisor == true)
+    {
+      if(user.reader == true)
+      {
+        return 8;
+      }
+      if(user.opponent == true)
+      {
+        return 9;
+      }
+      return 3;
+    }
+    if(user.opponent == true)
+    {
+      if(user.reader == true)
+      {
+        return 10;
+      }
+      return 2;
+    }
+    if(user.reader == true)
+    {
+      return 4;
+    }
+  }
 }
 
 class Response
@@ -99,4 +154,5 @@ class UserRes
   deleted;
   singedIn;
   firstName;
+  lastName;
 }
