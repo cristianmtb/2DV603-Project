@@ -31,7 +31,7 @@ export class UserService {
     let user:Array<User> = new Array<User>();
     for(let i = 0; i < res.users.length; i++)
     {
-      let auxUser:User;
+      let auxUser:User = new User;
       auxUser.username = res.users[i].username;
       auxUser.roleID = res.users[i].roleId;
       auxUser.id = res.users[i].id;

@@ -18,7 +18,7 @@ export class User
     opponent: boolean;
     //
 
-    constructor(username: string, password: string, email: string, firstName: string, lastName: string, coordinator?: boolean, supervisor?: boolean, student?: boolean, reader?: boolean, opponent?: boolean)
+    constructor(username?: string, password?: string, email?: string, firstName?: string, lastName?: string, coordinator?: boolean, supervisor?: boolean, student?: boolean, reader?: boolean, opponent?: boolean)
     {
         this.username = username;
         this.password = password;

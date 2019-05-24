@@ -62,7 +62,7 @@ export class AuthService {
 
   public toUser(res: Response):User
   {
-    let user:User;
+    let user:User = new User;
     
     user.username = res.user.username;
     user.password = res.user.password;
