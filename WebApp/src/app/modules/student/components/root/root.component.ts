@@ -1,5 +1,7 @@
+
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { DocumentService } from 'src/app/services/documentService/document.service';
+
 @Component({
   selector: 'root',
   templateUrl: './root.component.html',
@@ -13,6 +15,7 @@ export class RootComponent implements OnInit {
   ngOnInit(): void {
     //this.doc.uploadDocument(142,"muie", "projectPlan", "adsfdsaasgddsf");
     this.doc.downloadDoc(1);
+
   }
 
 }
