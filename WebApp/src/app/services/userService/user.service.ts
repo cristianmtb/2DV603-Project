@@ -34,7 +34,7 @@ export class UserService {
       auxUser.roleID = res.users[i].roleId;
       auxUser.id = res.users[i].id;
       auxUser.firstName = res.users[i].firstName;
-      auxUser.firstName = res.users[i].lastName;
+      auxUser.lastName = res.users[i].lastName;
       auxUser.email = res.users[i].email;
       switch(auxUser.roleID)
       {
