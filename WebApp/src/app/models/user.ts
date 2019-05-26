@@ -1,6 +1,3 @@
-
-import { last } from '@angular/router/src/utils/collection';
-
 export class User 
 {
     username: string;
@@ -16,7 +13,6 @@ export class User
     supervisor: boolean;
     reader: boolean;
     opponent: boolean;
-    //
 
     constructor(username?: string, password?: string, email?: string, firstName?: string, lastName?: string, coordinator?: boolean, supervisor?: boolean, student?: boolean, reader?: boolean, opponent?: boolean)
     {
