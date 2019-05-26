@@ -11,12 +11,11 @@ import { User } from 'src/app/models/user';
 export class WelcomePageComponent implements OnInit {
 
   title = 'T.M.S.';
-  constructor(private us:UsersService) {
+  constructor() {
     
   }
   
   ngOnInit() {
-    this.us.add(new User("test", "test","test","test","test",false, true, false, false, false));
   }
 
 }
