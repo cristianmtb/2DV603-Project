@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule }   from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app.component';
@@ -24,6 +24,7 @@ import { UserService } from './services/userService/user.service';
     NavBarComponent,
     ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     FormsModule,
     MDBBootstrapModule.forRoot(),

@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
-import { UserService } from 'src/app/services/userService/user.service';
-import { MdbTableDirective} from 'angular-bootstrap-md';
-import { User } from 'src/app/models/user';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
+import {UserService} from 'src/app/services/userService/user.service';
+import {MdbTableDirective} from 'angular-bootstrap-md';
+import {User} from 'src/app/models/user';
 
 @Component({
   selector: 'app-supervisor-table',
@@ -13,7 +13,9 @@ export class SupervisorTableComponent implements OnInit {
   headElements = ['ID', 'First', 'Last', 'Handle'];
   searchText: string = '';
   previous: string;
-  constructor(private uservice:UserService ) { }
+
+  constructor(private uservice: UserService) {
+  }
 
   @HostListener('input') oninput() {
     this.searchItems();
@@ -21,21 +23,20 @@ export class SupervisorTableComponent implements OnInit {
 
 
   editField: string;
- 
+
   personList: Array<User>;
-  awaitingPersonList: Array<any> = [ ];
+  awaitingPersonList: Array<any> = [];
 
 
   ngOnInit() {
-    this.uservice.getSupervisors().subscribe((data)=>{
-      while(data == null)
-      {
+    this.uservice.getSupervisors().subscribe((data) => {
+      while (data == null) {
         ;
       }
       this.personList = this.uservice.toUser(data);
       this.uservice.addUser(this.personList[2]);
     });
-    
+
   }
 
 
