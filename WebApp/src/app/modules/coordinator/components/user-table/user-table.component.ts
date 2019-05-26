@@ -26,7 +26,6 @@ export class UserTableComponent implements OnInit {
   editField: string;
   personList: Array<User>;
 
-  awaitingPersonList: Array<any> = [];
 
 
   ngOnInit() {
