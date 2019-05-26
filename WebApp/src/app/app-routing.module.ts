@@ -19,15 +19,15 @@ const routes: Routes = [
   },
   {
     path: "supervisor",
-    loadChildren: "./modules/student/supervisor.module#SupervisorModule"
+    loadChildren: "./modules/supervisor/supervisor.module#SupervisorModule"
   },
   {
     path: "opponent",
-    loadChildren: "./modules/student/opponent.module#OpponentModule"
+    loadChildren: "./modules/opponent/opponent.module#OpponentModule"
   },
   {
     path: "reader",
-    loadChildren: "./modules/student/reader.module#ReaderModule"
+    loadChildren: "./modules/reader/reader.module#ReaderModule"
   }
 ];
 

@@ -1,5 +1,5 @@
 import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
-import { UserService } from 'src/app/services/userService/user.service';
+import {UserService} from 'src/app/services/userService/user.service';
 import {User} from "../../../../models/user";
 import {MdbTableDirective} from "angular-bootstrap-md";
 
@@ -11,39 +11,33 @@ import {MdbTableDirective} from "angular-bootstrap-md";
 })
 export class UserTableComponent implements OnInit {
   @ViewChild(MdbTableDirective) mdbTable: MdbTableDirective;
-  headElements = ['ID', 'First', 'Last', 'Handle'];
   searchText: string = '';
   previous: string;
-  constructor(private uservice:UserService ) { }
-
-  @HostListener('input') oninput() {
-    this.searchItems();
+  private  person = new User("", "", "", "", "", false, true, false, false, false);
+  constructor(private uservice: UserService, private us: UserService) {
   }
+
+  // @HostListener('input') oninput() {
+  //   this.searchItems();
+  // }
 
 
   editField: string;
   personList: Array<User>;
 
-  awaitingPersonList: Array<any> = [
-    // {id: 6, userName: '', role: '', firstName: '', lastName: '', email: ''},
-    //     // {id: 7, userName: '', role: '', firstName: '', lastName: '', email: ''},
-    //     // {id: 8, userName: '', role: '', firstName: '', lastName: '', email: ''},
-    //     // {id: 9, userName: '', role: '', firstName: '', lastName: '', email: ''},
-    //     // {id: 10, userName: '', role: '', firstName: '', lastName: '', email: ''},
-
-
-  ];
+  awaitingPersonList: Array<any> = [];
 
 
   ngOnInit() {
-    this.uservice.getUsers().subscribe((data)=>{
-      while(data == null)
-      {
+    this.uservice.getUsers().subscribe((data) => {
+      while (data == null) {
         ;
       }
       this.personList = this.uservice.toUser(data);
       console.log(data);
     });
+
+
   }
 
 
@@ -52,38 +46,37 @@ export class UserTableComponent implements OnInit {
     this.personList[id][property] = editField;
   }
 
+
   remove(id: any) {
     //this.awaitingPersonList.push(this.personList[id]);
     this.personList.splice(id, 1);
   }
 
   add() {
-    // if (this.awaitingPersonList.length > 0) {
-    //   const person = this.awaitingPersonList[0];
-    const person = new User();
-    this.personList.push(person);
-    this.awaitingPersonList.splice(0, 1);
-    // }
+    this.personList.push(this.person);
+  }
+
+  confirmAdd(id: number) {
+    this.us.addUser(this.personList[id]).subscribe();
   }
 
   changeValue(id: number, property: string, event: any) {
     this.editField = event.target.textContent;
   }
 
-  searchItems() {
-    const prev = this.mdbTable.getDataSource();
-
-    if (!this.searchText) {
-      this.mdbTable.setDataSource(this.previous);
-      this.personList = this.mdbTable.getDataSource();
-    }
-
-    if (this.searchText) {
-      this.personList = this.mdbTable.searchLocalDataBy(this.searchText);
-      this.mdbTable.setDataSource(prev);
-    }
-  }
-
+  // searchItems() {
+  //   const prev = this.mdbTable.getDataSource();
+  //
+  //   if (!this.searchText) {
+  //     this.mdbTable.setDataSource(this.previous);
+  //     this.personList = this.mdbTable.getDataSource();
+  //   }
+  //
+  //   if (this.searchText) {
+  //     this.personList = this.mdbTable.searchLocalDataBy(this.searchText);
+  //     this.mdbTable.setDataSource(prev);
+  //   }
+  // }
 
 
 }

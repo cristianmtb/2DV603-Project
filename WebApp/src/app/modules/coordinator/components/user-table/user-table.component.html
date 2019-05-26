@@ -22,9 +22,10 @@
         <tr>
           <th class="text-center" [mdbTableSort]="personList" sortBy="id">ID</th>
           <th [mdbTableSort]="personList" sortBy="username" class="text-center">UserName</th>
-          <th [mdbTableSort]="personList" sortBy="name" class="text-center">Name</th>
+          <th [mdbTableSort]="personList" sortBy="firstName" class="text-center">First Name</th>
+          <th [mdbTableSort]="personList" sortBy="lastName" class="text-center">Last Name</th>
           <th [mdbTableSort]="personList" sortBy="email" class="text-center">Email Address</th>
-          <th class="text-center">Remove</th>
+          <th class="text-center">add</th>
         </tr>
         <tr *ngFor="let person of personList; let id = index">
           <td>
@@ -36,19 +37,29 @@
                   contenteditable="true">{{person.username}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'name', $event)"
-                  (blur)="updateList(id, 'name', $event)">{{person.name}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'firstName', $event)"
+                  (blur)="updateList(id, 'firstName', $event)">{{person.firstName}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue(id, 'lastName', $event)"
+                  (blur)="updateList(id, 'lastName', $event)">{{person.lastName}}</span>
           </td>
           <td>
             <span contenteditable="true" (keyup)="changeValue(id, 'email', $event)"
                   (blur)="updateList(id, 'email', $event)">{{person.email}}</span>
           </td>
           <td>
-            <span class="table-remove">
-              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove(id)">Remove</button>
+            <span class="table-add">
+              <button type="button" mdbBtn color="blue" rounded="true" size="sm" class="my-0 "
+                      (click)="confirmAdd(id)">add</button>
             </span>
           </td>
         </tr>
+        <!--          <td>-->
+        <!--            <span class="table-remove">-->
+        <!--              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove(id)">Remove</button>-->
+        <!--            </span>-->
+        <!--          </td>-->
       </table>
     </div>
   </div>
