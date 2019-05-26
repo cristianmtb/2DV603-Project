@@ -1,7 +1,8 @@
 export class Document 
 {
     authorId: number;
-    title:number;
+    title:string;
+    type:string;
     opponentId:number;
     supervisorId:number;
     readerFeedbackId:number;

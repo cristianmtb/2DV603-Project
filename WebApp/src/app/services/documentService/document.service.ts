@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-// import * as firebase from "firebase/app";
-// import "firebase/auth";
-// import "firebase/firestore";
 import { HttpClient } from '@angular/common/http';
 import {Document} from '../../models/document'
 import config from "../../../config.json";
+import {createFormData} from "../formData";
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +18,28 @@ export class DocumentService {
   {
     return res.document;
   }
-  public addDocument()
+  public uploadDocument(userID:number,title:string, type:string, data)
   {
-    
+    let doc = new Document()
+    doc.authorId = userID;
+    doc.type = type;
+    doc.title = title;
+    this.http.post<any>(`${config.serverUrl}/api/document/add`, createFormData(doc)).subscribe((data)=>{
+      console.log(data)
+
+    });
+  }
+  public downloadDoc(docID)
+  {
+    this.http.get(`${config.serverUrl}/api/document/download/?id=${docID}`, {responseType: "blob"}).subscribe((data)=>{
+      //console.log(data);
+      var blob = new Blob([data], {type: 'application/pdf'});
+      var url = window.URL.createObjectURL(blob);
+      var pwa = window.open(url);
+      if (!pwa || pwa.closed || typeof pwa.closed == 'undefined') {
+          alert( 'Please disable your Pop-up blocker and try again.');
+      }
+    })
   }
 }
 

@@ -23,7 +23,6 @@ export class UserService {
   {
     return this.http.post<UserRes>(`${config.serverUrl}/api/user/add/`, createFormData(this.toBeSent(newUser)));
   }
- 
   public toUser(res: Response)
   {
     let user:Array<User> = new Array<User>();
@@ -79,9 +78,9 @@ export class UserService {
       }
       user.push(auxUser);
     }
-    
     return user;
   }
+
   private toBeSent(newUser:User):UserRes
   {
     let user = new UserRes();
@@ -93,6 +92,7 @@ export class UserService {
     user.roleId = this.generateRoleId(newUser)
     return user;
   }
+
   private generateRoleId(user:User)
   {
     if(user.student == true)
