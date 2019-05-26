@@ -1,9 +1,10 @@
 <div style="padding:50px">
-  <form #uploadForm="ngForm">
+  <form [formGroup]="form">
     <div class="md-form">
-      <input type="file" class="custom-file-input" id="inputGroupFile01" (change)="onFileChange($event)">
-      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+      <input  type="file" class="custom-file-input" name="file" (change)="onFileChange($event)">
+      <label class="custom-file-label">Choose file</label>
     </div>
   </form>
-  <button mdbBtn type="submit" color="yellow" (click)='upload($event)' value="login" mdbWaveEffect>Upload</button>
+
+  <button mdbBtn type="submit" color="yellow" (click)='upload()' value="login" mdbWaveEffect>Upload</button>
 </div>

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth/auth.service';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from 'src/app/services/auth/auth.service';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 
 @Component({
@@ -10,19 +10,35 @@ import { Router } from '@angular/router';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor(
-    private auth:AuthService, 
-    
+  form: FormGroup;
+  error = null;
+  working = false;
 
-    ) { }
+  constructor(
+    private auth: AuthService,
+    private formBuilder: FormBuilder
+  ) {
+    this.form = this.formBuilder.group({
+      username: ['', [Validators.required, Validators.minLength(1)]],
+      password: ['', [Validators.required, Validators.minLength(1)]],
+    });
+  }
+
   ngOnInit() {
 
   }
-  username:string ="";
-  password:string = "";
-  login() 
-  {
-    this.auth.login(this.username,this.password )
+
+  login() {
+    if (!this.form.valid) {
+      Object.keys(this.form.controls).forEach(field => {
+        const control = this.form.get(field);
+        control.markAsTouched({onlySelf: true});
+      });
+      return false;
+    }
+    this.working = true;
+
+    this.auth.login(this.form.controls.username.value, this.form.controls.password.value);
   }
 
 }

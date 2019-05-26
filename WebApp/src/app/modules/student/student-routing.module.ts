@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {RootComponent} from './components/root/root.component';
 import {SubmitDocumentComponent} from './components/submit-document/submit-document.component';
-import {SupervisorTableComponent} from './components/supervisor-table/supervisor-table.component';
+import {SupervisorTableComponent} from './components/supervisors/supervisor-table.component';
 
 const routes: Routes = [
   {
