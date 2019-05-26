@@ -1,8 +1,9 @@
-import { Injectable, SystemJsNgModuleLoader } from '@angular/core';
+import { Injectable } from '@angular/core';
 // import * as firebase from "firebase/app";
 // import "firebase/auth";
 // import "firebase/firestore";
 import { HttpClient } from '@angular/common/http';
+import {Document} from '../../models/document'
 import config from "../../../config.json";
 
 @Injectable({
@@ -11,10 +12,17 @@ import config from "../../../config.json";
 export class DocumentService {
   constructor(private http: HttpClient) { }
 
-  public getDoc()
+  public getDoc(authorId)
   {
-    this.http.get<any>(`${config.serverUrl}/api/document/get/`).subscribe((data)=>{
-      console.log(data);
-    });
+    return this.http.get<Response>(`${config.serverUrl}/api/document/get/?authorId=${authorId}`);
   }
+  public toDoc(res: Response):Document
+  {
+    return res.document;
+  }
+}
+
+class Response
+{
+  document:Document;
 }
