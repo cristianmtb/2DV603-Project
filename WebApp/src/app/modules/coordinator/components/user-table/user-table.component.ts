@@ -2,6 +2,8 @@ import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import {UserService} from 'src/app/services/userService/user.service';
 import {User} from "../../../../models/user";
 import {MdbTableDirective} from "angular-bootstrap-md";
+import {forEach} from "@angular/router/src/utils/collection";
+import {element} from "protractor";
 
 
 @Component({
@@ -14,7 +16,7 @@ export class UserTableComponent implements OnInit {
   searchText: string = '';
   previous: string;
   private person = new User("", "", "", "", "", false, true, false, false, false);
-
+  show: boolean = false;
   constructor(private uservice: UserService, private us: UserService) {
   }
 
@@ -46,7 +48,12 @@ export class UserTableComponent implements OnInit {
   }
 
   add() {
+
     this.personList.push(this.person);
+
+    this.show = true;
+
+
   }
 
   confirmAdd(id: number) {
