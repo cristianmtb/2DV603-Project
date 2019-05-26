@@ -21,9 +21,7 @@ export class UserService {
 
   public addUser(newUser:User)
   {
-    this.http.post<UserRes>(`${config.serverUrl}/api/user/add/`, createFormData(this.toBeSent(newUser)), {}).subscribe((data)=>{
-      console.log(data);
-    });
+    return this.http.post<UserRes>(`${config.serverUrl}/api/user/add/`, createFormData(this.toBeSent(newUser)));
   }
  
   public toUser(res: Response)
