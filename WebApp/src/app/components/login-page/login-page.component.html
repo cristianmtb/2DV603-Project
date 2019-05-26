@@ -8,7 +8,7 @@
       {{error}}
     </div>
 
-    <form [formGroup]="form">
+    <form [formGroup]="form" (keydown.enter)="login()">
       <div class="md-form">
         <label for="username">Username</label>
         <input mdbInput mdbValidate type="text" [formControl]="form.controls.username" id="username"

@@ -29,13 +29,14 @@ export class SupervisorTableComponent implements OnInit {
 
 
   ngOnInit() {
-    this.uservice.getSupervisors().subscribe((data) => {
-      while (data == null) {
-        ;
-      }
-      this.personList = this.uservice.toUser(data);
-      this.uservice.addUser(this.personList[2]);
-    });
+    this.uservice.getSupervisors()
+      .subscribe(
+        (data) => {
+          this.personList = data
+          // this.uservice.addUser(this.personList[2]);
+        }, (error) => {
+
+        });
 
   }
 
