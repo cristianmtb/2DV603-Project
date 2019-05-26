@@ -13,7 +13,8 @@ export class UserTableComponent implements OnInit {
   @ViewChild(MdbTableDirective) mdbTable: MdbTableDirective;
   searchText: string = '';
   previous: string;
-  private  person = new User("", "", "", "", "", false, true, false, false, false);
+  private person = new User("", "", "", "", "", false, true, false, false, false);
+
   constructor(private uservice: UserService, private us: UserService) {
   }
 
@@ -40,16 +41,9 @@ export class UserTableComponent implements OnInit {
 
   }
 
-
   updateList(id: number, property: string, event: any) {
     const editField = event.target.textContent;
     this.personList[id][property] = editField;
-  }
-
-
-  remove(id: any) {
-    //this.awaitingPersonList.push(this.personList[id]);
-    this.personList.splice(id, 1);
   }
 
   add() {
@@ -57,7 +51,14 @@ export class UserTableComponent implements OnInit {
   }
 
   confirmAdd(id: number) {
-    this.us.addUser(this.personList[id]).subscribe();
+    this.us.addUser(this.personList[id]).subscribe(
+      (next) => {
+
+      },
+      (error) => {
+
+      }
+    );
   }
 
   changeValue(id: number, property: string, event: any) {
