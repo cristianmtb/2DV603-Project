@@ -16,6 +16,18 @@ const routes: Routes = [
   {
     path: "student",
     loadChildren: "./modules/student/student.module#StudentModule"
+  },
+  {
+    path: "supervisor",
+    loadChildren: "./modules/student/supervisor.module#SupervisorModule"
+  },
+  {
+    path: "opponent",
+    loadChildren: "./modules/student/opponent.module#OpponentModule"
+  },
+  {
+    path: "reader",
+    loadChildren: "./modules/student/reader.module#ReaderModule"
   }
 ];
 

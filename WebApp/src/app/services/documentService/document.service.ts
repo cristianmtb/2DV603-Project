@@ -12,13 +12,17 @@ import config from "../../../config.json";
 export class DocumentService {
   constructor(private http: HttpClient) { }
 
-  public getDoc(authorId)
+  public getDocuments(authorId)
   {
     return this.http.get<Response>(`${config.serverUrl}/api/document/get/?authorId=${authorId}`);
   }
   public toDoc(res: Response):Document
   {
     return res.document;
+  }
+  public addDocument()
+  {
+    
   }
 }
 
