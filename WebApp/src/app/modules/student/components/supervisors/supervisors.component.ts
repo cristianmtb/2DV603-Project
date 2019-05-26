@@ -41,16 +41,16 @@ export class SupervisorsComponent implements OnInit {
   }
 
   searchItems() {
-    const prev = this.mdbTable.getDataSource();
+    // const prev = this.mdbTable.getDataSource();
 
-    if (!this.searchText) {
-      this.mdbTable.setDataSource(this.previous);
-      this.personList = this.mdbTable.getDataSource();
-    }
+    // if (!this.searchText) {
+    //   this.mdbTable.setDataSource(this.previous);
+    //   this.personList = this.mdbTable.getDataSource();
+    // }
 
-    if (this.searchText) {
-      this.personList = this.mdbTable.searchLocalDataBy(this.searchText);
-      this.mdbTable.setDataSource(prev);
-    }
+    // if (this.searchText) {
+    //   this.personList = this.mdbTable.searchLocalDataBy(this.searchText);
+    //   this.mdbTable.setDataSource(prev);
+    // }
   }
 }
