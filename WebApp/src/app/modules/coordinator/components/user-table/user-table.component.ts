@@ -58,12 +58,16 @@ export class UserTableComponent implements OnInit {
 
   confirmAdd(id: number) {
     this.us.addUser(this.personList[id]).subscribe(
+      (data)=>{
+        console.log(data);
+      },
+
       (next) => {
 
       },
-      (error) => {
+     // (error) => {
 
-      }
+      //}
     );
   }
 
