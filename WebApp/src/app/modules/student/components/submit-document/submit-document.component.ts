@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {UploadService} from "../../../../services/upload.service";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-submit-document',
@@ -6,10 +8,39 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./submit-document.component.scss']
 })
 export class SubmitDocumentComponent implements OnInit {
+  form: FormGroup;
+  error = null;
+  working = false;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder,
+              private uploadService: UploadService) {
+    this.form = this.formBuilder.group({
+      file: ['', [Validators.required]],
+    });
+  }
 
   ngOnInit() {
+  }
+
+  onFileChange(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.form.get('file').setValue(file);
+    }
+  }
+
+  upload() {
+    if (!this.form.valid) {
+      Object.keys(this.form.controls).forEach(field => {
+        const control = this.form.get(field);
+        control.markAsTouched({onlySelf: true});
+      });
+      return false;
+    }
+    this.working = true;
+
+
+    this.uploadService.upload(this.form.controls.file.value)
   }
 
 }

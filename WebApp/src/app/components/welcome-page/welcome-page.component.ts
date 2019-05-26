@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/userService/user.service';
+import { UsersService } from 'src/app/services/userService/users.service';
 import { User } from 'src/app/models/user';
 
 
@@ -11,12 +11,12 @@ import { User } from 'src/app/models/user';
 export class WelcomePageComponent implements OnInit {
 
   title = 'T.M.S.';
-  constructor(private us:UserService) {
+  constructor(private us:UsersService) {
     
   }
   
   ngOnInit() {
-    this.us.addUser(new User("test", "test","test","test","test",false, true, false, false, false));
+    this.us.add(new User("test", "test","test","test","test",false, true, false, false, false));
   }
 
 }
