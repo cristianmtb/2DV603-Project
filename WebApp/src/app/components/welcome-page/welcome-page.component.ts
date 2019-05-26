@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/userService/user.service';
+import { User } from 'src/app/models/user';
+
 
 @Component({
   selector: 'welcome-page',
@@ -8,11 +11,12 @@ import { Component, OnInit } from '@angular/core';
 export class WelcomePageComponent implements OnInit {
 
   title = 'T.M.S.';
-  constructor() {
+  constructor(private us:UserService) {
     
   }
   
   ngOnInit() {
+    this.us.addUser(new User("test", "test","test","test","test",false, true, false, false, false));
   }
 
 }

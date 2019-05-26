@@ -21,9 +21,9 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.doc.getDoc();
+    //this.doc.getDoc();
     this.deadline=new Deadline( new Date() ,'');
-    console.log(this.deadline);
+    //console.log(this.deadline);
   }
  
 }

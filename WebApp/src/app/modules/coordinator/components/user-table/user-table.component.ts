@@ -42,6 +42,7 @@ export class UserTableComponent implements OnInit {
         ;
       }
       this.personList = this.uservice.toUser(data);
+      console.log(data);
     });
   }
 
