@@ -1,66 +1,43 @@
 import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
-import {UserService} from 'src/app/services/userService/user.service';
+import {UsersService} from 'src/app/services/userService/users.service';
 import {MdbTableDirective} from 'angular-bootstrap-md';
 import {User} from 'src/app/models/user';
 
 @Component({
   selector: 'app-supervisor-table',
-  templateUrl: './supervisor-table.component.html',
-  styleUrls: ['./supervisor-table.component.scss']
+  templateUrl: './supervisors.component.html',
+  styleUrls: ['./supervisors.component.scss']
 })
-export class SupervisorTableComponent implements OnInit {
+export class SupervisorsComponent implements OnInit {
   @ViewChild(MdbTableDirective) mdbTable: MdbTableDirective;
   headElements = ['ID', 'First', 'Last', 'Handle'];
   searchText: string = '';
   previous: string;
 
-  constructor(private uservice: UserService) {
+  constructor(private usersService: UsersService) {
   }
 
   @HostListener('input') oninput() {
     this.searchItems();
   }
 
-
-  editField: string;
-
   personList: Array<User>;
-  awaitingPersonList: Array<any> = [];
 
 
   ngOnInit() {
-    this.uservice.getSupervisors()
+    this.usersService.get({roleId: 3})
       .subscribe(
         (data) => {
           this.personList = data
-          // this.uservice.addUser(this.personList[2]);
         }, (error) => {
 
         });
 
   }
 
+  suggest() {
 
-  updateList(id: number, property: string, event: any) {
-    const editField = event.target.textContent;
-    this.personList[id][property] = editField;
-  }
 
-  remove(id: any) {
-    this.awaitingPersonList.push(this.personList[id]);
-    this.personList.splice(id, 1);
-  }
-
-  add() {
-    if (this.awaitingPersonList.length > 0) {
-      const person = this.awaitingPersonList[0];
-      this.personList.push(person);
-      this.awaitingPersonList.splice(0, 1);
-    }
-  }
-
-  changeValue(event: any) {
-    this.editField = event.target.textContent;
   }
 
   searchItems() {

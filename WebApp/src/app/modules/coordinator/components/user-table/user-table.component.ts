@@ -1,5 +1,5 @@
 import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
-import {UserService} from 'src/app/services/userService/user.service';
+import {UsersService} from 'src/app/services/userService/users.service';
 import {User} from "../../../../models/user";
 import {MdbTableDirective} from "angular-bootstrap-md";
 
@@ -15,7 +15,7 @@ export class UserTableComponent implements OnInit {
   searchText: string = '';
   previous: string;
 
-  constructor(private uservice: UserService) {
+  constructor(private uservice: UsersService) {
   }
 
   @HostListener('input') oninput() {
@@ -30,7 +30,7 @@ export class UserTableComponent implements OnInit {
 
 
   ngOnInit() {
-    this.uservice.getUsers()
+    this.uservice.get()
       .subscribe((data) => {
         this.personList = data;
         console.log(data);

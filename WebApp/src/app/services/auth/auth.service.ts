@@ -40,7 +40,7 @@ export class AuthService {
 
   login(username: string, password: string): Promise<User> {
     return new Promise((resolve, reject) => {
-      this.http.get<Response>(`${config.serverUrl}/api/user/get/?username=${username}&password=${password}`)
+      this.http.get<any>(`${config.serverUrl}/api/user/get/?username=${username}&password=${password}`)
         .pipe(map(
           actions => {
             return new User(actions.user);

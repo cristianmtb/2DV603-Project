@@ -11,7 +11,7 @@ import { SingupPageComponent } from './components/singup-page/singup-page.compon
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { AuthService } from './services/auth/auth.service';
-import { UserService } from './services/userService/user.service';
+import { UsersService } from './services/userService/users.service';
 
 
 @NgModule({
@@ -31,7 +31,7 @@ import { UserService } from './services/userService/user.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AuthService, UserService],
+  providers: [AuthService, UsersService],
   bootstrap: [AppComponent]
 })
 

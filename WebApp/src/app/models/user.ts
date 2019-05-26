@@ -13,13 +13,17 @@ export class User {
     }
   }
 
-  fromDocument(document) {
+  private fromDocument(document) {
     this.username = document.username;
     this.password = document.password;
     this.email = document.email;
     this.firstName = document.firstName;
     this.lastName = document.lastName;
     this.roleId = document.roleId;
+  }
+
+  getFullName() {
+    return this.firstName + ' ' + this.lastName;
   }
 
   isStudent() {
@@ -29,7 +33,6 @@ export class User {
   isOpponent() {
     return this.roleId == 2 || this.roleId == 6 || this.roleId == 9 || this.roleId == 10;
   }
-
 
   isSupervisor() {
     return this.roleId == 3 || this.roleId == 8 || this.roleId == 9;

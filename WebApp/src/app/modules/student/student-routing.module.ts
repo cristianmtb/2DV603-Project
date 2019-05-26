@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {RootComponent} from './components/root/root.component';
 import {SubmitDocumentComponent} from './components/submit-document/submit-document.component';
-import {SupervisorTableComponent} from './components/supervisors/supervisor-table.component';
+import {SupervisorsComponent} from './components/supervisors/supervisors.component';
 
 const routes: Routes = [
   {
@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'supervisor',
-    component: SupervisorTableComponent
+    component: SupervisorsComponent
   }
 ];
 
