@@ -1,12 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RootComponent } from './components/root/root.component';
+import { SubmitDocumentComponent } from './components/submit-document/submit-document.component';
+import { SupervisorTableComponent } from './components/supervisor-table/supervisor-table.component';
 
 const routes: Routes = [
   {
     path: '',
     component: RootComponent
   },
+  {
+    path: 'submit',
+    component: SubmitDocumentComponent
+  },
+  {
+    path: 'supervisor',
+    component: SupervisorTableComponent
+  }
 ];
 
 @NgModule({
