@@ -11,7 +11,7 @@ const routes: Routes = [
     component: RootComponent
   },
   {
-    path: 'users',
+    path: '/coordinator/users',
     component: UserTableComponent
   }
 ];
