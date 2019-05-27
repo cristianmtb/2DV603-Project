@@ -15,7 +15,6 @@ export class UserTableComponent implements OnInit {
   searchText: string = '';
   previous: string;
   private person = new User();
-  show: boolean = false;
 
   constructor(private usersService: UsersService) {
   }
@@ -46,25 +45,13 @@ export class UserTableComponent implements OnInit {
     this.personList[id][property] = editField;
   }
 
-  add() {
+  add(user) {
 
-    this.personList.push(this.person);
-
-    this.show = true;
+    this.personList.push(user);
 
 
-  }
 
-  confirmAdd(id: number) {
 
-    this.usersService.add(this.personList[id]).subscribe(
-      (next) => {
-
-      },
-       (error) => {
-
-      }
-    );
   }
 
   changeValue(id: number, property: string, event: any) {

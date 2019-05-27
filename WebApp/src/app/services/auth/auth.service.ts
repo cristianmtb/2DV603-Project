@@ -34,6 +34,10 @@ export class AuthService {
     return this.currentUser;
   }
 
+  getCurrentUserId() {
+    return this.currentUser.id;
+  }
+
   logout() {
     this.currentUser = null;
   }

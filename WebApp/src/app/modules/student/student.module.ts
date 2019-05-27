@@ -7,6 +7,9 @@ import {SubmitDocumentComponent} from './components/submit-document/submit-docum
 import {SupervisorsComponent} from './components/supervisors/supervisors.component';
 import {UploadService} from "../../services/upload.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {UserService} from "../../services/userService/user.service";
+import {UsersService} from "../../services/userService/users.service";
+import {DocumentService} from "../../services/documentService/document.service";
 
 @NgModule({
   declarations: [
@@ -20,7 +23,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     MDBBootstrapModule,
     ReactiveFormsModule,
   ],
-  providers: [UploadService],
+  providers: [UploadService, UserService, UsersService, DocumentService],
 
 })
 export class StudentModule {

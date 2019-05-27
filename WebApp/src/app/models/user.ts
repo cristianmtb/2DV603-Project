@@ -14,6 +14,7 @@ export class User {
   }
 
   private fromDocument(document) {
+    this.id = document.id;
     this.username = document.username;
     this.password = document.password;
     this.email = document.email;
