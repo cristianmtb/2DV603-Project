@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {StudentComponent} from './student.component';
-import {SubmitDocumentComponent} from './components/submit-document/submit-document.component';
+import {SubmitDocumentComponent} from './components/description/submit-document.component';
 import {SupervisorComponent} from './components/supervisor/supervisor.component';
 
 const routes: Routes = [

@@ -1,14 +1,14 @@
 import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {UsersService} from "../../../../services/userService/users.service";
-import {User} from "../../../../models/user";
+import {User} from "../../../../../../models/user";
+import {UserService} from "../../../../../../services/userService/user.service";
 
 @Component({
-  selector: 'app-coordinator-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss']
+  selector: 'app-coordinator-users-edit',
+  templateUrl: './edit.component.html',
+  styleUrls: ['./edit.component.scss']
 })
-export class AddComponent implements OnInit {
+export class EditComponent implements OnInit {
   form: FormGroup;
   error = null;
   working = false;
@@ -16,7 +16,7 @@ export class AddComponent implements OnInit {
   @Output() userAdded = new EventEmitter<User>();
   @ViewChild("basicModal") basicModal;
 
-  constructor(private usersServerice: UsersService,
+  constructor(private userService: UserService,
               private formBuilder: FormBuilder,
   ) {
     this.form = this.formBuilder.group({
@@ -42,7 +42,8 @@ export class AddComponent implements OnInit {
     this.error = null;
     this.working = true;
 
-    this.usersServerice.add(this.form.value)
+    /*
+    this.userService.add(this.form.value)
       .subscribe((next) => {
           this.userAdded.emit(next.user);
           this.basicModal.hide();
@@ -51,7 +52,7 @@ export class AddComponent implements OnInit {
           this.error = 'invalid input';
         }
       )
-
+  */
 
   }
 

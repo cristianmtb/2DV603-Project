@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {StudentComponent} from './student.component';
-import {SubmitDocumentComponent} from './components/submit-document/submit-document.component';
+import {SubmitDocumentComponent} from './components/description/submit-document.component';
 import {SupervisorComponent} from './components/supervisor/supervisor.component';
 import {UploadService} from "../../services/upload.service";
 import {UserService} from "../../services/userService/user.service";

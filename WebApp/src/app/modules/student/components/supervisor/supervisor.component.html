@@ -1,13 +1,13 @@
 <div class="page-content">
   <app-breadcrumb></app-breadcrumb>
   <div class="app-page-title">Supervisor</div>
-  <div class="card">
+  <div class="">
     <div class="card-body">
-      <div id="table" class="table-editable">
+      <div>
         <table class="table table-responsive-md table-striped">
           <tr>
-            <th [mdbTableSort]="personList" sortBy="id">ID</th>
-            <th [mdbTableSort]="personList" sortBy="Email">User Name</th>
+            <th [mdbTableSort]="personList" sortBy="id">Id</th>
+            <th [mdbTableSort]="personList" sortBy="Email">Email</th>
           </tr>
           <tr *ngFor="let person of personList">
             <td>

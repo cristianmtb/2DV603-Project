@@ -56,5 +56,4 @@ export class StudentComponent implements OnInit {
   load() {
 
   }
-
 }

@@ -1,22 +1,12 @@
 <div class="page-content">
   <app-breadcrumb></app-breadcrumb>
-
-  <!-- Editable table -->
   <div class="app-page-title">Coordinator</div>
   <div class="card">
     <div class="card-body">
       <div id="table" class="table-editable">
       <span class="table-add float-right mb-3 mr-2">
-
-
-        <app-coordinator-add (userAdded)="add($event)">
-
-
-
-        </app-coordinator-add>
-
+        <app-coordinator-users-add (userAdded)="add($event)"></app-coordinator-users-add>
       </span>
-
         <table class="table table-bordered table-responsive-md table-striped text-center">
           <tr>
             <th class="text-center" [mdbTableSort]="personList" sortBy="id">ID</th>
@@ -24,7 +14,6 @@
             <th [mdbTableSort]="personList" sortBy="firstName" class="text-center">First Name</th>
             <th [mdbTableSort]="personList" sortBy="lastName" class="text-center">Last Name</th>
             <th [mdbTableSort]="personList" sortBy="email" class="text-center">Email Address</th>
-
           </tr>
           <tr *ngFor="let person of personList; let id = index">
             <td>
@@ -36,25 +25,18 @@
               contenteditable="false">{{person.username}}</span>
             </td>
             <td>
-              <span contenteditable="false" >{{person.firstName}}</span>
+              <span contenteditable="false">{{person.firstName}}</span>
             </td>
             <td>
-              <span contenteditable="false" >{{person.lastName}}</span>
+              <span contenteditable="false">{{person.lastName}}</span>
             </td>
             <td>
-              <span contenteditable="false" >{{person.email}}</span>
+              <span contenteditable="false">{{person.email}}</span>
             </td>
           </tr>
         </table>
       </div>
     </div>
   </div>
-  <!-- Editable table -->
-
-
-
-
-
-
 </div>
 
