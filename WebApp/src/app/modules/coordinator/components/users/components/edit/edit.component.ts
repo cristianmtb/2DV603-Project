@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../../../../../models/user";
 import {UserService} from "../../../../../../services/userService/user.service";
@@ -13,8 +13,10 @@ export class EditComponent implements OnInit {
   error = null;
   working = false;
 
+
+  @Input() show;
   @Output() userAdded = new EventEmitter<User>();
-  @ViewChild("basicModal") basicModal;
+  @ViewChild("userEditModal") modal;
 
   constructor(private userService: UserService,
               private formBuilder: FormBuilder,
