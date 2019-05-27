@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {SupervisorsComponent} from './supervisors.component';
+import {SupervisorComponent} from './supervisor.component';
 
 describe('SupervisorTableComponent', () => {
-  let component: SupervisorsComponent;
-  let fixture: ComponentFixture<SupervisorsComponent>;
+  let component: SupervisorComponent;
+  let fixture: ComponentFixture<SupervisorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [SupervisorsComponent]
+      declarations: [SupervisorComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SupervisorsComponent);
+    fixture = TestBed.createComponent(SupervisorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
