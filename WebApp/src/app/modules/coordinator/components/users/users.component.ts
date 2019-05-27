@@ -40,4 +40,10 @@ export class UsersComponent implements OnInit {
         });
 
   }
+
+
+
+  openEditComponent(person: User) {
+
+  }
 }

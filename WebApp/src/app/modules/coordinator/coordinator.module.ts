@@ -8,6 +8,7 @@ import {MDBBootstrapModule} from "angular-bootstrap-md";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AddComponent} from "./components/users/components/add/add.component";
 import {SharedModule} from "../../shared.module";
+import {EditComponent} from "./components/users/components/edit/edit.component";
 
 
 
@@ -16,6 +17,7 @@ import {SharedModule} from "../../shared.module";
     CoordinatorComponent,
     UsersComponent,
     AddComponent,
+    EditComponent,
 
   ],
   imports: [
