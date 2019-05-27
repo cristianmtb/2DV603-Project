@@ -6,10 +6,10 @@ import {AuthService} from "../../../../services/auth/auth.service";
 
 @Component({
   selector: 'app-submit-document',
-  templateUrl: './submit-document.component.html',
-  styleUrls: ['./submit-document.component.scss']
+  templateUrl: './submit.component.html',
+  styleUrls: ['./submit.component.scss']
 })
-export class SubmitDocumentComponent implements OnInit {
+export class SubmitComponent implements OnInit {
   form: FormGroup;
   error = null;
   working = false;
@@ -54,5 +54,4 @@ export class SubmitDocumentComponent implements OnInit {
 
       })
   }
-
 }

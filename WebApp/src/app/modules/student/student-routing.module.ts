@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {StudentComponent} from './student.component';
-import {SubmitDocumentComponent} from './components/description/submit-document.component';
 import {SupervisorComponent} from './components/supervisor/supervisor.component';
+import {DescriptionComponent} from "./components/description/description.component";
 
 const routes: Routes = [
   {
@@ -10,8 +10,8 @@ const routes: Routes = [
     component: StudentComponent
   },
   {
-    path: 'submit',
-    component: SubmitDocumentComponent
+    path: 'description',
+    component: DescriptionComponent
   },
   {
     path: 'supervisor',

@@ -31,7 +31,7 @@ export class StudentComponent implements OnInit {
 
   constructor(private doc: DocumentService, private router: Router) {
     this.items.push(new Item(
-      1,'Description', 'Project description', 'fas fa-file-alt', 'submit', false));
+      1,'Description', 'Project description', 'fas fa-file-alt', 'description', false));
     this.items.push(new Item(
       2,'Supervisor', 'Pick a supervisor', 'fas fa-user-tie', 'supervisor', false));
     this.items.push(new Item(
