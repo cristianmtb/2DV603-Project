@@ -50,6 +50,8 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['coordinator']);
         } else if (next.isReader()) {
           this.router.navigate(['reader']);
+        } else if (next.isSupervisor()) {
+          this.router.navigate(['supervisor']);
         }
         // ToDo: add other routers
 

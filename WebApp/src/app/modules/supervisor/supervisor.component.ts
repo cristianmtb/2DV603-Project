@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../../../../services/auth/auth.service";
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from "../../services/auth/auth.service";
 import {Router} from "@angular/router";
 
 
@@ -22,12 +22,13 @@ class Item {
 
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './root.component.html',
-  styleUrls: ['./root.component.scss']
+  selector: 'app-supervisor',
+  templateUrl: './supervisor.component.html',
+  styleUrls: ['./supervisor.component.scss']
 })
-export class RootComponent implements OnInit {
+export class SupervisorComponent implements OnInit {
   items: Item[] = [];
+
   constructor(private auth: AuthService, private router: Router) {
 
     this.items.push(new Item(
@@ -42,11 +43,10 @@ export class RootComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.auth.isCoordinator() === false) {
+    if (!this.auth.isSupervisor()) {
       this.router.navigate(["login"]);
     }
     this.load();
-
   }
 
   navigate(item) {
