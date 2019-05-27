@@ -8,6 +8,7 @@ class Item {
   icon: string;
   url: string;
   locked: boolean;
+  step: number;
 
   constructor(title, description, icon, url, locked = true) {
     this.title = title;
@@ -28,12 +29,16 @@ export class StudentComponent implements OnInit {
   items: Item[] = [];
 
   constructor(private doc: DocumentService, private router: Router) {
-    this.items.push(new Item('Description', 'Project description', 'fas fa-file-alt',
-      'submit', false));
-    this.items.push(new Item('Supervisor', 'Pick a supervisor', 'fas fa-user-tie', ''));
-    this.items.push(new Item('Project Plan', 'Project plan', '', 'plan'));
-    this.items.push(new Item('Report', 'Project description', '', 'report'));
-    this.items.push(new Item('Final Report', 'Final report', '', 'final'));
+    this.items.push(new Item(
+      'Description', 'Project description', 'fas fa-file-alt', '/submit', false));
+    this.items.push(new Item(
+      'Supervisor', 'Pick a supervisor', 'fas fa-user-tie', ''));
+    this.items.push(new Item(
+      'Project Plan', 'Submit your project plan', 'fas fa-file', 'plan'));
+    this.items.push(new Item(
+      'Report', 'Submit your report', 'fas fa-file-alt', 'report'));
+    this.items.push(new Item(
+      'Final Report', 'Submit your final report', 'fas fa-file-pdf', 'final'));
   }
 
   ngOnInit(): void {
