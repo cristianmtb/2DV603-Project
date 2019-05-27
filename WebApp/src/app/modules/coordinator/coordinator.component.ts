@@ -21,13 +21,13 @@ class Item {
 
 
 @Component({
-  selector: 'root',
-  templateUrl: './root.component.html',
-  styleUrls: ['./root.component.scss']
+  selector: 'app-coordinator',
+  templateUrl: './coordinator.component.html',
+  styleUrls: ['./coordinator.component.scss']
 })
 
 
-export class RootComponent implements OnInit {
+export class CoordinatorComponent implements OnInit {
   items: Item[] = [];
 
   constructor(private auth: AuthService, private router: Router) {
@@ -51,7 +51,7 @@ export class RootComponent implements OnInit {
     if (item.locked) {
       return;
     }
-    this.router.navigate([item.url]);
+    this.router.navigate(['/coordinator/' + item.url]);
   }
 
   load() {

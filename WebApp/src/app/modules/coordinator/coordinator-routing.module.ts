@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RootComponent } from './components/root/root.component';
-import { UserTableComponent } from './components/user-table/user-table.component';
+import { CoordinatorComponent } from './coordinator.component';
+import { UsersComponent } from './components/users/users.component';
 
 
 const routes: Routes = [
   {
     
     path: '',
-    component: RootComponent
+    component: CoordinatorComponent
   },
   {
-    path: '/coordinator/users',
-    component: UserTableComponent
+    path: 'users',
+    component: UsersComponent
   }
 ];
 

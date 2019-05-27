@@ -7,10 +7,10 @@ import {Observable} from "rxjs";
 
 @Component({
   selector: 'user-table',
-  templateUrl: './user-table.component.html',
-  styleUrls: ['./user-table.component.scss']
+  templateUrl: './users.component.html',
+  styleUrls: ['./users.component.scss']
 })
-export class UserTableComponent implements OnInit {
+export class UsersComponent implements OnInit {
   @ViewChild(MdbTableDirective) mdbTable: MdbTableDirective;
   searchText: string = '';
   previous: string;
@@ -48,8 +48,6 @@ export class UserTableComponent implements OnInit {
   add(user) {
 
     this.personList.push(user);
-
-
 
 
   }
