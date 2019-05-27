@@ -1,28 +1,48 @@
 export class User {
   username: string;
   password: string;
-  roleID: number;
+  roleId: number;
   id: number;
   email: string;
   firstName: string;
   lastName: string;
-  //role check
-  coordinator: boolean;
-  student: boolean;
-  supervisor: boolean;
-  reader: boolean;
-  opponent: boolean;
 
-  constructor(username?: string, password?: string, email?: string, firstName?: string, lastName?: string, coordinator?: boolean, supervisor?: boolean, student?: boolean, reader?: boolean, opponent?: boolean) {
-    this.username = username;
-    this.password = password;
-    this.email = email;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.coordinator = coordinator;
-    this.supervisor = supervisor;
-    this.student = student;
-    this.reader = reader;
-    this.opponent = opponent;
+  constructor(document = null) {
+    if (document != null) {
+      this.fromDocument(document);
+    }
+  }
+
+  private fromDocument(document) {
+    this.username = document.username;
+    this.password = document.password;
+    this.email = document.email;
+    this.firstName = document.firstName;
+    this.lastName = document.lastName;
+    this.roleId = document.roleId;
+  }
+
+  getFullName() {
+    return this.firstName + ' ' + this.lastName;
+  }
+
+  isStudent() {
+    return this.roleId == 1 || this.roleId == 6 || this.roleId == 7;
+  }
+
+  isOpponent() {
+    return this.roleId == 2 || this.roleId == 6 || this.roleId == 9 || this.roleId == 10;
+  }
+
+  isSupervisor() {
+    return this.roleId == 3 || this.roleId == 8 || this.roleId == 9;
+  }
+
+  isReader() {
+    return this.roleId == 4|| this.roleId == 7 || this.roleId == 8 || this.roleId == 10;
+  }
+
+  isCoordinator() {
+    return this.roleId == 5;
   }
 }

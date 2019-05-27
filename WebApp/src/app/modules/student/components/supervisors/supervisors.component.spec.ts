@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {SubmitDocumentComponent} from './submit-document.component';
+import {SupervisorsComponent} from './supervisors.component';
 
-describe('SubmitDocumentComponent', () => {
-  let component: SubmitDocumentComponent;
-  let fixture: ComponentFixture<SubmitDocumentComponent>;
+describe('SupervisorTableComponent', () => {
+  let component: SupervisorsComponent;
+  let fixture: ComponentFixture<SupervisorsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [SubmitDocumentComponent]
+      declarations: [SupervisorsComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SubmitDocumentComponent);
+    fixture = TestBed.createComponent(SupervisorsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

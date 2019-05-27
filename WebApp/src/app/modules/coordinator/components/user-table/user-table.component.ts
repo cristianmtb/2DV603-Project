@@ -1,9 +1,8 @@
 import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
-import {UserService} from 'src/app/services/userService/user.service';
+import {UsersService} from 'src/app/services/userService/users.service';
 import {User} from "../../../../models/user";
 import {MdbTableDirective} from "angular-bootstrap-md";
-import {forEach} from "@angular/router/src/utils/collection";
-import {element} from "protractor";
+import {Observable} from "rxjs";
 
 
 @Component({
@@ -15,9 +14,10 @@ export class UserTableComponent implements OnInit {
   @ViewChild(MdbTableDirective) mdbTable: MdbTableDirective;
   searchText: string = '';
   previous: string;
-  private person = new User("", "", "", "", "", false, true, false, false, false);
+  private person = new User();
   show: boolean = false;
-  constructor(private uservice: UserService, private us: UserService) {
+
+  constructor(private usersService: UsersService, private us: UsersService) {
   }
 
   // @HostListener('input') oninput() {
@@ -29,15 +29,14 @@ export class UserTableComponent implements OnInit {
   personList: Array<User>;
 
 
-
   ngOnInit() {
-    this.uservice.getUsers().subscribe((data) => {
-      while (data == null) {
-        ;
-      }
-      this.personList = this.uservice.toUser(data);
-      console.log(data);
-    });
+    this.usersService.get()
+      .subscribe(
+        (data) => {
+          this.personList = data
+        }, (error) => {
+
+        });
 
 
   }
@@ -57,17 +56,14 @@ export class UserTableComponent implements OnInit {
   }
 
   confirmAdd(id: number) {
-    this.us.addUser(this.personList[id]).subscribe(
-      (data)=>{
-        console.log(data);
-      },
 
+    this.usersService.add(this.personList[id]).subscribe(
       (next) => {
 
       },
-     // (error) => {
+       (error) => {
 
-      //}
+      }
     );
   }
 
