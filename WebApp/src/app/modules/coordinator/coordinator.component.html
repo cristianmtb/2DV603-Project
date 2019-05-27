@@ -1,4 +1,9 @@
 <div class="page-content">
+  <app-breadcrumb></app-breadcrumb>
+  <div class="app-page-title">Dashboard</div>
+
+
+<div class="page-content">
   <div class="app-menu-container">
     <div *ngFor="let item of items" class="app-menu-item" (click)="navigate(item)">
       <i class="{{item.icon}}"></i>
@@ -13,4 +18,5 @@
     </div>
   </div>
 
+</div>
 </div>
