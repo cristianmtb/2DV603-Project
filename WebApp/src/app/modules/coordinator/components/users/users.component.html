@@ -1,18 +1,11 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 mx-auto">
-      <div class="md-form">
-        <input type="text" [(ngModel)]="searchText" class="form-control" id="search" mdbInput>
-        <label for="search">Search</label>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Editable table -->
-<div class="card">
-  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">USERS LIST</h3>
-  <div class="card-body">
-    <div id="table" class="table-editable">
+<div class="page-content">
+  <app-breadcrumb></app-breadcrumb>
+
+  <!-- Editable table -->
+  <div class="app-page-title">Coordinator</div>
+  <div class="card">
+    <div class="card-body">
+      <div id="table" class="table-editable">
       <span class="table-add float-right mb-3 mr-2">
 
 
@@ -24,39 +17,44 @@
 
       </span>
 
-      <table class="table table-bordered table-responsive-md table-striped text-center">
-        <tr>
-          <th class="text-center" [mdbTableSort]="personList" sortBy="id">ID</th>
-          <th [mdbTableSort]="personList" sortBy="username" class="text-center">UserName</th>
-          <th [mdbTableSort]="personList" sortBy="firstName" class="text-center">First Name</th>
-          <th [mdbTableSort]="personList" sortBy="lastName" class="text-center">Last Name</th>
-          <th [mdbTableSort]="personList" sortBy="email" class="text-center">Email Address</th>
+        <table class="table table-bordered table-responsive-md table-striped text-center">
+          <tr>
+            <th class="text-center" [mdbTableSort]="personList" sortBy="id">ID</th>
+            <th [mdbTableSort]="personList" sortBy="username" class="text-center">UserName</th>
+            <th [mdbTableSort]="personList" sortBy="firstName" class="text-center">First Name</th>
+            <th [mdbTableSort]="personList" sortBy="lastName" class="text-center">Last Name</th>
+            <th [mdbTableSort]="personList" sortBy="email" class="text-center">Email Address</th>
 
-        </tr>
-        <tr *ngFor="let person of personList; let id = index">
-          <td>
+          </tr>
+          <tr *ngFor="let person of personList; let id = index">
+            <td>
             <span
               contenteditable="false">{{person.id}}</span>
-          </td>
-          <td>
+            </td>
+            <td>
             <span
-                  contenteditable="true">{{person.username}}</span>
-          </td>
-          <td>
-            <span contenteditable="true" >{{person.firstName}}</span>
-          </td>
-          <td>
-            <span contenteditable="true" >{{person.lastName}}</span>
-          </td>
-          <td>
-            <span contenteditable="true" >{{person.email}}</span>
-          </td>
-        </tr>
-      </table>
+              contenteditable="true">{{person.username}}</span>
+            </td>
+            <td>
+              <span contenteditable="true" >{{person.firstName}}</span>
+            </td>
+            <td>
+              <span contenteditable="true" >{{person.lastName}}</span>
+            </td>
+            <td>
+              <span contenteditable="true" >{{person.email}}</span>
+            </td>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
+  <!-- Editable table -->
+
+
+
+
+
+
 </div>
-<!-- Editable table -->
-
-
 

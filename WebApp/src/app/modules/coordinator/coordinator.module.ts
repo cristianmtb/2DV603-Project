@@ -7,6 +7,7 @@ import { UsersComponent } from './components/users/users.component';
 import {MDBBootstrapModule} from "angular-bootstrap-md";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AddComponent} from "./components/add/add.component";
+import {SharedModule} from "../../shared.module";
 
 
 
@@ -22,7 +23,8 @@ import {AddComponent} from "./components/add/add.component";
     CoordinatorRoutingModule,
     MDBBootstrapModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
 })
 export class CoordinatorModule { }
