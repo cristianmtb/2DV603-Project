@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild, HostListener} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DocumentService} from 'src/app/services/documentService/document.service';
 import {Router} from "@angular/router";
 
@@ -20,33 +20,34 @@ class Item {
 
 @Component({
   selector: 'root',
-  templateUrl: './root.component.html',
-  styleUrls: ['./root.component.scss']
+  templateUrl: './student.component.html',
+  styleUrls: ['./student.component.scss']
 })
-export class RootComponent implements OnInit {
+export class StudentComponent implements OnInit {
 
   items: Item[] = [];
 
   constructor(private doc: DocumentService, private router: Router) {
-    this.items.push(new Item('Description', 'Project description', 'fas fa-file-alt', 'submit', false));
+    this.items.push(new Item('Description', 'Project description', 'fas fa-file-alt',
+      'submit', false));
     this.items.push(new Item('Supervisor', 'Pick a supervisor', 'fas fa-user-tie', ''));
     this.items.push(new Item('Project Plan', 'Project plan', '', 'plan'));
     this.items.push(new Item('Report', 'Project description', '', 'report'));
-    this.items.push(new Item('Final Report', 'Final report', '', 'finalreport'));
+    this.items.push(new Item('Final Report', 'Final report', '', 'final'));
   }
 
   ngOnInit(): void {
-    //this.doc.uploadDocument(142,"muie", "projectPlan", "adsfdsaasgddsf");
-    // this.doc.downloadDoc(1);
-
+    this.load();
   }
 
   navigate(item) {
     if (item.locked) {
       return;
     }
-    console.log(item)
-    this.router.navigate([ item.url]);
+    this.router.navigate([item.url]);
+  }
+
+  load() {
 
   }
 

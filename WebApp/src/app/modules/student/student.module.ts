@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {StudentRoutingModule} from './student-routing.module';
-import {RootComponent} from './components/root/root.component';
+import {StudentComponent} from './student.component';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {SubmitDocumentComponent} from './components/submit-document/submit-document.component';
 import {SupervisorsComponent} from './components/supervisors/supervisors.component';
@@ -13,7 +13,7 @@ import {DocumentService} from "../../services/documentService/document.service";
 
 @NgModule({
   declarations: [
-    RootComponent,
+    StudentComponent,
     SubmitDocumentComponent,
     SupervisorsComponent],
   imports: [

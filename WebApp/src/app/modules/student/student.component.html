@@ -5,20 +5,17 @@
     <mdb-breadcrumb-item class="active">Data</mdb-breadcrumb-item>
   </mdb-breadcrumb>
   <div class="app-page-title">Dashboard</div>
-  <div style="display: flex; flex-direction: row;">
-    <div style="margin: 2em; text-align: center;" *ngFor="let item of items" class="app-student"
-              (click)="navigate(item)">
-      <i class="{{item.icon}}" style="font-size: 5em; padding: .1em"></i>
+  <div class="app-menu-container">
+    <div *ngFor="let item of items" class="app-student" (click)="navigate(item)">
+      <i class="{{item.icon}}"></i>
       <mdb-card-body>
         <mdb-card-title>
           <h4>{{item.title}}</h4>
         </mdb-card-title>
         <mdb-card-text> {{item.description}}
         </mdb-card-text>
-        <a href="#" mdbBtn color="primary" mdbWavesEffect>Button</a>
+        <a href="#" mdbBtn color="primary" mdbWavesEffect>OPEN</a>
       </mdb-card-body>
     </div>
   </div>
-
-
 </div>

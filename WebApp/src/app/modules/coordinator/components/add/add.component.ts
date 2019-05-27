@@ -1,9 +1,6 @@
 import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UsersService} from "../../../../services/userService/users.service";
-import {AuthService} from "../../../../services/auth/auth.service";
-import {Router} from "@angular/router";
-import {validate} from "codelyzer/walkerFactory/walkerFn";
 import {User} from "../../../../models/user";
 
 @Component({
@@ -33,7 +30,6 @@ export class AddComponent implements OnInit {
 
   ngOnInit() {
   }
-
 
   save() {
     if (!this.form.valid) {

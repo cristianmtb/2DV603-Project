@@ -3,7 +3,24 @@
 .page-content {
   padding: 1em;
 }
+
 .app-page-title {
   font-size: 3em;
   font-weight: bold;
+}
+
+.app-menu-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  div {
+    margin: 2em;
+    text-align: center;
+
+    i {
+      font-size: 5em;
+      padding: .1em
+    }
+  }
 }
