@@ -8,14 +8,14 @@
   <div class="app-menu-container">
     <div *ngFor="let item of items" class="app-student" (click)="navigate(item)">
       <i class="{{item.icon}}"></i>
-      <mdb-card-body>
+      <div>
         <mdb-card-title>
           <h4>{{item.title}}</h4>
         </mdb-card-title>
         <mdb-card-text> {{item.description}}
         </mdb-card-text>
         <a href="#" mdbBtn color="primary" mdbWavesEffect>OPEN</a>
-      </mdb-card-body>
+      </div>
     </div>
   </div>
 </div>
