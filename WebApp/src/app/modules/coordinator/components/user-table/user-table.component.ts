@@ -2,6 +2,7 @@ import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import {UsersService} from 'src/app/services/userService/users.service';
 import {User} from "../../../../models/user";
 import {MdbTableDirective} from "angular-bootstrap-md";
+import {Observable} from "rxjs";
 
 
 @Component({
@@ -11,69 +12,78 @@ import {MdbTableDirective} from "angular-bootstrap-md";
 })
 export class UserTableComponent implements OnInit {
   @ViewChild(MdbTableDirective) mdbTable: MdbTableDirective;
-  headElements = ['ID', 'First', 'Last', 'Handle'];
   searchText: string = '';
   previous: string;
+  private person = new User();
+  show: boolean = false;
 
-  constructor(private uservice: UsersService) {
+  constructor(private usersService: UsersService) {
   }
 
-  @HostListener('input') oninput() {
-    this.searchItems();
-  }
+  // @HostListener('input') oninput() {
+  //   this.searchItems();
+  // }
 
 
   editField: string;
   personList: Array<User>;
 
-  awaitingPersonList: Array<any> = [];
-
 
   ngOnInit() {
-    this.uservice.get()
-      .subscribe((data) => {
-        this.personList = data;
-        console.log(data);
-      });
+    this.usersService.get()
+      .subscribe(
+        (data) => {
+          this.personList = data
+        }, (error) => {
+
+        });
+
 
   }
-
 
   updateList(id: number, property: string, event: any) {
     const editField = event.target.textContent;
     this.personList[id][property] = editField;
   }
 
-  remove(id: any) {
-    this.awaitingPersonList.push(this.personList[id]);
-    this.personList.splice(id, 1);
+  add() {
+
+    this.personList.push(this.person);
+
+    this.show = true;
+
+
   }
 
-  add() {
-    if (this.awaitingPersonList.length > 0) {
-      const person = this.awaitingPersonList[0];
-      this.personList.push(person);
-      this.awaitingPersonList.splice(0, 1);
-    }
+  confirmAdd(id: number) {
+
+    this.usersService.add(this.personList[id]).subscribe(
+      (next) => {
+
+      },
+       (error) => {
+
+      }
+    );
   }
 
   changeValue(id: number, property: string, event: any) {
     this.editField = event.target.textContent;
   }
 
-  searchItems() {
-    // const prev = this.mdbTable.getDataSource();
-
-    // if (!this.searchText) {
-    //   this.mdbTable.setDataSource(this.previous);
-    //   this.personList = this.mdbTable.getDataSource();
-    // }
-
-    // if (this.searchText) {
-    //   this.personList = this.mdbTable.searchLocalDataBy(this.searchText);
-    //   this.mdbTable.setDataSource(prev);
-    // }
-  }
+  // searchItems() {
+  //   const prev = this.mdbTable.getDataSource();
+  //
+  //   if (!this.searchText) {
+  //     this.mdbTable.setDataSource(this.previous);
+  //     this.personList = this.mdbTable.getDataSource();
+  //   }
+  //
+  //   if (this.searchText) {
+  //     this.personList = this.mdbTable.searchLocalDataBy(this.searchText);
+  //     this.mdbTable.setDataSource(prev);
+  //   }
+  // }
 
 
 }
