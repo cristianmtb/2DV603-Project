@@ -47,7 +47,9 @@ export class LoginComponent implements OnInit {
         if (next.isStudent()) {
           this.router.navigate(['student']);
         } else if (next.isCoordinator()) {
-          this.router.navigate(['']);
+          this.router.navigate(['coordinator']);
+        } else if (next.isReader()) {
+          this.router.navigate(['reader']);
         }
         // ToDo: add other routers
 
