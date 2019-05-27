@@ -1,12 +1,14 @@
-<div style="padding-top: 20px; padding-left: 5px; padding-right: 5px; padding-bottom: 10px">
-  <div class="row d-flex justify-content-center">
-    <div class="col-md-6">
-      <div class="card">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item" routerLink="users" mdbWavesEffect>View Users</li>
-          <li class="list-group-item" routerLink="">Dapibus ac facilisis in</li>
-          <li class="list-group-item" routerLink="">Vestibulum at eros</li>
-        </ul>
+<div class="page-content">
+  <div class="app-menu-container">
+    <div *ngFor="let item of items" class="app-menu-item" (click)="navigate(item)">
+      <i class="{{item.icon}}"></i>
+      <div>
+        <mdb-card-title>
+          <h4>{{item.title}}</h4>
+        </mdb-card-title>
+        <mdb-card-text> {{item.description}}
+        </mdb-card-text>
+        <a href="#" mdbBtn color="primary" mdbWavesEffect>OPEN</a>
       </div>
     </div>
   </div>
