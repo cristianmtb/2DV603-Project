@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     this.working = true;
 
 
-    this.auth.login(this.form.controls.username.value, this.form.controls.password.value)
+    this.auth.login(this.form.value)
       .then((next) => {
         this.working = false;
         if (next.isStudent()) {

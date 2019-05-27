@@ -7,8 +7,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {User} from 'src/app/models/user';
-import config from "../../../config.json";
 import {map} from "rxjs/operators";
+import {environment} from "../../../environments/environment";
+import {createParameters} from "../formData";
 
 @Injectable({
   providedIn: 'root'
@@ -42,9 +43,11 @@ export class AuthService {
     this.currentUser = null;
   }
 
-  login(username: string, password: string): Promise<User> {
+  login(args = null): Promise<User> {
     return new Promise((resolve, reject) => {
-      this.http.get<any>(`${config.serverUrl}/api/user/get/?username=${username}&password=${password}`)
+      this.http.get<any>(environment.serverUrl + '/api/user/get', {
+        params: createParameters(args)
+      })
         .pipe(map(
           actions => {
             return new User(actions.user);
