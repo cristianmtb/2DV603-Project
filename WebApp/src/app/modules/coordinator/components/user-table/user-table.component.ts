@@ -17,7 +17,7 @@ export class UserTableComponent implements OnInit {
   private person = new User();
   show: boolean = false;
 
-  constructor(private usersService: UsersService, private us: UsersService) {
+  constructor(private usersService: UsersService) {
   }
 
   // @HostListener('input') oninput() {

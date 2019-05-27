@@ -6,12 +6,14 @@ import { RootComponent } from './components/root/root.component';
 import { UserTableComponent } from './components/user-table/user-table.component';
 import {MDBBootstrapModule} from "angular-bootstrap-md";
 import {FormsModule} from "@angular/forms";
+import { AddUserComponent } from './components/add-user/add-user.component';
 
 
 @NgModule({
   declarations: [
     RootComponent,
     UserTableComponent,
+    AddUserComponent,
 
   ],
   imports: [
