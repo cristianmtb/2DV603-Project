@@ -14,7 +14,7 @@ export class AddComponent implements OnInit {
   working = false;
 
   @Output() userAdded = new EventEmitter<User>();
-  @ViewChild("basicModal") basicModal;
+  @ViewChild("userAdd") basicModal;
 
   constructor(private usersService: UsersService,
               private formBuilder: FormBuilder,
