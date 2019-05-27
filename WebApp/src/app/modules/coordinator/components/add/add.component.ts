@@ -44,7 +44,6 @@ export class AddComponent implements OnInit {
 
     this.usersServerice.add(this.form.value)
       .subscribe((next) => {
-          console.log(next);
           this.userAdded.emit(next.user);
           this.basicModal.hide();
         },
