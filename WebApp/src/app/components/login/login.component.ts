@@ -6,10 +6,10 @@ import {Router} from "@angular/router";
 
 @Component({
   selector: 'login-page',
-  templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css']
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class LoginPageComponent implements OnInit {
+export class LoginComponent implements OnInit {
   form: FormGroup;
   error = null;
   working = false;
@@ -39,6 +39,7 @@ export class LoginPageComponent implements OnInit {
     }
     this.error = null;
     this.working = true;
+
 
     this.auth.login(this.form.controls.username.value, this.form.controls.password.value)
       .then((next) => {

@@ -5,10 +5,10 @@ import {UserService} from "../../../../services/userService/user.service";
 
 @Component({
   selector: 'app-supervisor-table',
-  templateUrl: './supervisors.component.html',
-  styleUrls: ['./supervisors.component.scss']
+  templateUrl: './supervisor.component.html',
+  styleUrls: ['./supervisor.component.scss']
 })
-export class SupervisorsComponent implements OnInit {
+export class SupervisorComponent implements OnInit {
   personList: User[] = [];
 
   constructor(private usersService: UsersService,

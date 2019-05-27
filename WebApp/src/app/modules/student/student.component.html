@@ -1,9 +1,5 @@
 <div class="page-content">
-  <mdb-breadcrumb>
-    <mdb-breadcrumb-item class="blue-text">Home</mdb-breadcrumb-item>
-    <mdb-breadcrumb-item class="blue-text">Library</mdb-breadcrumb-item>
-    <mdb-breadcrumb-item class="active">Data</mdb-breadcrumb-item>
-  </mdb-breadcrumb>
+  <app-breadcrumb></app-breadcrumb>
   <div class="app-page-title">Dashboard</div>
   <div class="app-menu-container">
     <div *ngFor="let item of items" class="app-menu-item" (click)="navigate(item)">

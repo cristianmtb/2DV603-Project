@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {StudentComponent} from './student.component';
 import {SubmitDocumentComponent} from './components/submit-document/submit-document.component';
-import {SupervisorsComponent} from './components/supervisors/supervisors.component';
+import {SupervisorComponent} from './components/supervisor/supervisor.component';
 
 const routes: Routes = [
   {
@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'supervisor',
-    component: SupervisorsComponent
+    component: SupervisorComponent
   }
 ];
 

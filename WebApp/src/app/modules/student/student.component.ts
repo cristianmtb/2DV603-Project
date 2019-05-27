@@ -10,8 +10,9 @@ class Item {
   locked: boolean;
   step: number;
 
-  constructor(title, description, icon, url, locked = true) {
+  constructor(step, title, description, icon, url, locked = true) {
     this.title = title;
+    this.step = step;
     this.description = description;
     this.icon = icon;
     this.url = url;
@@ -20,7 +21,7 @@ class Item {
 }
 
 @Component({
-  selector: 'root',
+  selector: 'app-student',
   templateUrl: './student.component.html',
   styleUrls: ['./student.component.scss']
 })
@@ -30,15 +31,15 @@ export class StudentComponent implements OnInit {
 
   constructor(private doc: DocumentService, private router: Router) {
     this.items.push(new Item(
-      'Description', 'Project description', 'fas fa-file-alt', '/submit', false));
+      1,'Description', 'Project description', 'fas fa-file-alt', 'submit', false));
     this.items.push(new Item(
-      'Supervisor', 'Pick a supervisor', 'fas fa-user-tie', ''));
+      2,'Supervisor', 'Pick a supervisor', 'fas fa-user-tie', 'supervisor', false));
     this.items.push(new Item(
-      'Project Plan', 'Submit your project plan', 'fas fa-file', 'plan'));
+      3,'Project Plan', 'Submit your project plan', 'fas fa-file', 'plan'));
     this.items.push(new Item(
-      'Report', 'Submit your report', 'fas fa-file-alt', 'report'));
+      4,'Report', 'Submit your report', 'fas fa-file-alt', 'report'));
     this.items.push(new Item(
-      'Final Report', 'Submit your final report', 'fas fa-file-pdf', 'final'));
+      5,'Final Report', 'Submit your final report', 'fas fa-file-pdf', 'final'));
   }
 
   ngOnInit(): void {
@@ -49,7 +50,7 @@ export class StudentComponent implements OnInit {
     if (item.locked) {
       return;
     }
-    this.router.navigate([item.url]);
+    this.router.navigate(['/student/' + item.url]);
   }
 
   load() {
