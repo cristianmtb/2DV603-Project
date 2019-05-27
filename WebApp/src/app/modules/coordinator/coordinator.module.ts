@@ -5,22 +5,24 @@ import { CoordinatorRoutingModule } from './coordinator-routing.module';
 import { RootComponent } from './components/root/root.component';
 import { UserTableComponent } from './components/user-table/user-table.component';
 import {MDBBootstrapModule} from "angular-bootstrap-md";
-import {FormsModule} from "@angular/forms";
-import { AddUserComponent } from './components/add-user/add-user.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {AddComponent} from "./components/add/add.component";
+
 
 
 @NgModule({
   declarations: [
     RootComponent,
     UserTableComponent,
-    AddUserComponent,
+    AddComponent,
 
   ],
   imports: [
     CommonModule,
     CoordinatorRoutingModule,
     MDBBootstrapModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
 })
 export class CoordinatorModule { }

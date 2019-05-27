@@ -1,14 +1,12 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {User} from 'src/app/models/user';
 import config from "../../../config.json";
-import {createFormData, createParameters} from "../formData";
-import {map} from "rxjs/operators";
+import {createFormData} from "../formData";
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService {
+export class UserService {
   constructor(private http: HttpClient) {
   }
   public suggest(data) {

@@ -1,7 +1,7 @@
-import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UsersService} from 'src/app/services/userService/users.service';
-import {MdbTableDirective} from 'angular-bootstrap-md';
 import {User} from 'src/app/models/user';
+import {UserService} from "../../../../services/userService/user.service";
 
 @Component({
   selector: 'app-supervisor-table',
@@ -9,19 +9,12 @@ import {User} from 'src/app/models/user';
   styleUrls: ['./supervisors.component.scss']
 })
 export class SupervisorsComponent implements OnInit {
-  @ViewChild(MdbTableDirective) mdbTable: MdbTableDirective;
-  headElements = ['ID', 'First', 'Last', 'Handle'];
-  searchText: string = '';
-  previous: string;
+  personList: User[] = [];
 
-  constructor(private usersService: UsersService) {
+  constructor(private usersService: UsersService,
+              private userService: UserService,
+  ) {
   }
-
-  @HostListener('input') oninput() {
-    this.searchItems();
-  }
-
-  personList: Array<User>;
 
 
   ngOnInit() {
@@ -36,21 +29,14 @@ export class SupervisorsComponent implements OnInit {
   }
 
   suggest() {
+    this.userService.suggest(1)
+      .subscribe((next) => {
 
+      }, (error) => {
+        
+      })
 
   }
 
-  searchItems() {
-    // const prev = this.mdbTable.getDataSource();
 
-    // if (!this.searchText) {
-    //   this.mdbTable.setDataSource(this.previous);
-    //   this.personList = this.mdbTable.getDataSource();
-    // }
-
-    // if (this.searchText) {
-    //   this.personList = this.mdbTable.searchLocalDataBy(this.searchText);
-    //   this.mdbTable.setDataSource(prev);
-    // }
-  }
 }

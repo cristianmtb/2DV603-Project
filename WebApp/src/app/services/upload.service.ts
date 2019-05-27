@@ -15,7 +15,7 @@ export class UploadService {
     const formData = new FormData();
     formData.append('file', file);
 
-    const path = '/api/files';
+    const path = 'http://172.19.152.107:8080/api/document/add';
 
     return this.http.post(path, formData, {});
   }

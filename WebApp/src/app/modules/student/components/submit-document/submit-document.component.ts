@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {UploadService} from "../../../../services/upload.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {DocumentService} from "../../../../services/documentService/document.service";
+import {AuthService} from "../../../../services/auth/auth.service";
 
 @Component({
   selector: 'app-submit-document',
@@ -13,9 +15,14 @@ export class SubmitDocumentComponent implements OnInit {
   working = false;
 
   constructor(private formBuilder: FormBuilder,
-              private uploadService: UploadService) {
+              private uploadService: UploadService,
+              private documentService: DocumentService,
+              private authService: AuthService) {
     this.form = this.formBuilder.group({
       file: ['', [Validators.required]],
+      type: [2, [Validators.required]],
+      title: ['dfsdfsdf', [Validators.required]],
+      authorId: [authService.getCurrentUserId()],
     });
   }
 
@@ -40,7 +47,12 @@ export class SubmitDocumentComponent implements OnInit {
     this.working = true;
 
 
-    this.uploadService.upload(this.form.controls.file.value)
+    this.documentService.uploadDocument(this.form.value)
+      .subscribe((next) => {
+        console.log(next);
+      }, (error) => {
+
+      })
   }
 
 }

@@ -30,6 +30,7 @@ import { UsersService } from './services/userService/users.service';
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
     AppRoutingModule
+
   ],
   providers: [AuthService, UsersService],
   bootstrap: [AppComponent]
