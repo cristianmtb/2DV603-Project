@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {UsersService} from "../../../../../../services/userService/users.service";
+import {UsersService} from "../../../../../../services/user/users.service";
 import {User} from "../../../../../../models/user";
 
 @Component({

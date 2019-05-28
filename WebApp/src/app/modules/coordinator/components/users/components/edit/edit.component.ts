@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../../../../../models/user";
-import {SupervisorService} from "../../../../../../services/userService/supervisor.service";
+import {SupervisorService} from "../../../../../../services/user/supervisor.service";
 
 @Component({
   selector: 'app-coordinator-users-edit',

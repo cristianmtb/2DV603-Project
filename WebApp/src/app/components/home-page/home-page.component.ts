@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Deadline } from 'src/app/models/deadline';
-import { DocumentService } from 'src/app/services/documentService/document.service';
+import { DocumentService } from 'src/app/services/document/document.service';
 
 @Component({
   selector: 'home-page',

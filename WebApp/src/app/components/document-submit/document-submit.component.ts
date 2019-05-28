@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {DocumentService} from "../../services/documentService/document.service";
+import {DocumentService} from "../../services/document/document.service";
 import {AuthService} from "../../services/auth/auth.service";
 import {Document} from "../../models/document";
 

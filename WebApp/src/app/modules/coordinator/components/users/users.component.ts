@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {UsersService} from 'src/app/services/userService/users.service';
+import {UsersService} from 'src/app/services/user/users.service';
 import {User} from "../../../../models/user";
 import {MdbTableDirective} from "angular-bootstrap-md";
 
