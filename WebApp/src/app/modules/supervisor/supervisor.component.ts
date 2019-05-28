@@ -8,15 +8,14 @@ class Item {
   description: string;
   icon: string;
   url: string;
-  locked: boolean;
-  step: number;
+
 
   constructor(title, description, icon, url, locked = true) {
     this.title = title;
     this.description = description;
     this.icon = icon;
     this.url = url;
-    this.locked = locked;
+
   }
 }
 
@@ -32,11 +31,11 @@ export class SupervisorComponent implements OnInit {
   constructor(private auth: AuthService, private router: Router) {
 
     this.items.push(new Item(
-      'Project plan Feedback', 'project plan feedback', 'fas fa-file-alt', '', false));
+      'Project plan Feedback', 'project plan feedback', 'fas fa-file-alt', ''));
     this.items.push(new Item(
-      'Confirm Supervision', 'confirm students', "fas fa-check-circle", ''));
+      'Confirm Supervision', 'confirm confirms', "fas fa-check-circle", 'confirms'));
     this.items.push(new Item(
-      'Assessment', 'supervisor assessment', 'fas fa-percent', ''));
+      'Assessment', 'supervisor assessment', 'fas fa-chart-line', ''));
 
   }
 
