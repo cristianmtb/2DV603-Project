@@ -2,8 +2,6 @@ import {NgModule} from '@angular/core';
 import {StudentComponent} from './student.component';
 import {DocumentSubmitComponent} from '../../components/document-submit/document-submit.component';
 import {SupervisorComponent} from './components/supervisor/supervisor.component';
-import {UploadService} from "../../services/upload.service";
-import {UserService} from "../../services/userService/user.service";
 import {UsersService} from "../../services/userService/users.service";
 import {DocumentService} from "../../services/documentService/document.service";
 import {SharedModule} from "../../shared.module";
@@ -15,6 +13,7 @@ import {DescriptionComponent} from "./components/description/description.compone
 import { PlanComponent } from './components/plan/plan.component';
 import { ReportComponent } from './components/report/report.component';
 import { FinalComponent } from './components/final/final.component';
+import { SupervisorService } from 'src/app/services/userService/supervisor.service';
 
 @NgModule({
   declarations: [
@@ -36,8 +35,7 @@ import { FinalComponent } from './components/final/final.component';
     StudentRoutingModule,
   ],
   providers: [
-    UploadService,
-    UserService,
+    SupervisorService,
     UsersService,
     DocumentService
   ],

@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../../../../../models/user";
-import {UserService} from "../../../../../../services/userService/user.service";
+import {SupervisorService} from "../../../../../../services/userService/supervisor.service";
 
 @Component({
   selector: 'app-coordinator-users-edit',
@@ -18,7 +18,7 @@ export class EditComponent implements OnInit {
   @Output() userAdded = new EventEmitter<User>();
   @ViewChild("userEditModal") modal;
 
-  constructor(private userService: UserService,
+  constructor(private SupervisorService: SupervisorService,
               private formBuilder: FormBuilder,
   ) {
     this.form = this.formBuilder.group({

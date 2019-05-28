@@ -63,8 +63,7 @@ export class AuthService {
         )
     });
   }
-
-  isCoordinator() {
+ isCoordinator() {
     return this.isLoggedIn() && this.currentUser.isCoordinator();
   }
 
