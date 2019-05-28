@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {DocumentService} from "../../services/documentService/document.service";
+import {DocumentService} from "../../services/document/document.service";
 import {AuthService} from "../../services/auth/auth.service";
 import {Document} from "../../models/document";
 
@@ -56,7 +56,7 @@ export class DocumentSubmitComponent implements OnInit {
     }
     this.working = true;
 
-    this.documentService.uploadDocument(this.form.value)
+    this.documentService.upload(this.form.value)
       .subscribe((next) => {
         console.log(next);
         this.working = false;

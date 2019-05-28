@@ -2,8 +2,9 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import config from "../../../config.json";
 import {createFormData, createParameters} from "../formData";
-import { map } from 'rxjs/operators';
-import { Confirmation } from 'src/app/models/confirmation.js';
+import {map} from 'rxjs/operators';
+import {Confirmation} from 'src/app/models/confirmation.js';
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -11,17 +12,17 @@ import { Confirmation } from 'src/app/models/confirmation.js';
 export class SupervisorService {
   constructor(private http: HttpClient) {
   }
+
   public suggest(data) {
-    return this.http.post(`${config.serverUrl}/api/supervisor-confirmation/add`, createFormData(data));
+    return this.http.post(`${environment.serverUrl}/api/supervisor-confirmation/add`, createFormData(data));
   }
-  public getSuggestions(args = null)
-  {
-    return this.http.get<any>(`${config.serverUrl}/api/supervisor-confirmation/get/`,{
+
+  public getSuggestions(args = null) {
+    return this.http.get<any>(`${environment.serverUrl}/api/supervisor-confirmation/get/`, {
       params: createParameters(args)
-    }).pipe(map(actions=>{
+    }).pipe(map(actions => {
         console.log(actions);
-        return actions.confirmation.map(item=>
-        {
+        return actions.confirmation.map(item => {
           return new Confirmation(item);
         });
       }

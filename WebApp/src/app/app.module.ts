@@ -10,10 +10,10 @@ import {LoginComponent} from './components/login/login.component';
 import {HomePageComponent} from './components/home-page/home-page.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {AuthService} from './services/auth/auth.service';
-import {UsersService} from './services/userService/users.service';
+import {UsersService} from './services/user/users.service';
 import {SingupComponent} from "./components/signup/singup.component";
 import {SharedModule} from "./shared.module";
-import { SupervisorService } from './services/userService/supervisor.service';
+import { SupervisorService } from './services/user/supervisor.service';
 
 
 @NgModule({

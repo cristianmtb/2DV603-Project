@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SupervisorService } from 'src/app/services/userService/supervisor.service';
+import { SupervisorService } from 'src/app/services/user/supervisor.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Confirmation } from 'src/app/models/confirmation';
 import { Router } from '@angular/router';
