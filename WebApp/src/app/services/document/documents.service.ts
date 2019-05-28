@@ -13,7 +13,7 @@ export class DocumentsService {
   }
 
   public get(args = null) {
-    return this.http.get<any>(`${environment.serverUrl}/api/documents/get`, {
+    return this.http.get<any>(`${environment.serverUrl}/api/document/get`, {
       params: createParameters(args)
     })
       .pipe(map(actions => {
