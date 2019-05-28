@@ -49,7 +49,7 @@ export class CoordinatorComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.auth.isCoordinator() === false) {
+    if (!this.auth.isCoordinator() ) {
       this.router.navigate(["login"]);
     }
     this.load();

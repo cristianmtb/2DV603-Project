@@ -32,13 +32,11 @@ export class SupervisorComponent implements OnInit {
   constructor(private auth: AuthService, private router: Router) {
 
     this.items.push(new Item(
-      'Project plan Feedback', 'Add and Edit Users', 'fas fa-users', '/users', false));
+      'Project plan Feedback', 'project plan feedback', 'fas fa-file-alt', '', false));
     this.items.push(new Item(
-      'Confirm Supervision', 'Set Deadlines', "fas fa-clock", ''));
+      'Confirm Supervision', 'confirm students', "fas fa-check-circle", ''));
     this.items.push(new Item(
-      'Roles', 'Set Roles', 'fas fa-user-tag', ''));
-    this.items.push(new Item(
-      'Grade', 'Grade Final Report ', 'fas fa-user-tag', ''));
+      'Assessment', 'supervisor assessment', 'fas fa-percent', ''));
 
   }
 
