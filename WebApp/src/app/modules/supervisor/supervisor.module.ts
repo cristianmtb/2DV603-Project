@@ -4,15 +4,19 @@ import {CommonModule} from '@angular/common';
 import {SupervisorRoutingModule} from './supervisor-routing.module';
 import {SupervisorComponent} from './supervisor.component';
 import {SharedModule} from "../../shared.module";
-import {CardsFreeModule} from "angular-bootstrap-md";
+import {ButtonsModule, CardsFreeModule, TableModule, WavesModule} from "angular-bootstrap-md";
+import { ConfirmsComponent } from './components/confirms/confirms.component';
 
 @NgModule({
-  declarations: [SupervisorComponent],
+  declarations: [SupervisorComponent, ConfirmsComponent],
   imports: [
     CommonModule,
     SupervisorRoutingModule,
     SharedModule,
-    CardsFreeModule
+    CardsFreeModule,
+    ButtonsModule,
+    WavesModule,
+    TableModule
   ]
 })
 export class SupervisorModule {
