@@ -12,6 +12,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {MDBBootstrapModule} from "angular-bootstrap-md";
 import {DescriptionComponent} from "./components/description/description.component";
+import { PlanComponent } from './components/plan/plan.component';
+import { ReportComponent } from './components/report/report.component';
+import { FinalComponent } from './components/final/final.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import {DescriptionComponent} from "./components/description/description.compone
     DocumentSubmitComponent,
     DescriptionComponent,
     SupervisorComponent,
+    PlanComponent,
+    ReportComponent,
+    FinalComponent,
   ],
   imports: [
     FormsModule,

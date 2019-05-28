@@ -15,6 +15,7 @@ export class DescriptionComponent implements OnInit {
     {name: 'Status', value: 'Not submitted'},
     {name: 'Deadline', value: '-'},
     {name: 'File', value: '-'},
+    {name: 'Evaluation', value: '-'},
   ];
 
   constructor() {

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RootComponent } from './components/root/root.component';
+import { OpponentComponent } from './opponent.component';
 
 const routes: Routes = [{
   path: '',
-  component: RootComponent
+  component: OpponentComponent
 },];
 
 @NgModule({
