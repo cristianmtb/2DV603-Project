@@ -1,41 +1,38 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Document} from '../../models/document'
-import config from "../../../config.json";
-import {createFormData} from "../formData";
+import {createFormData, createParameters} from "../formData";
+import {environment} from "../../../environments/environment";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class DocumentService {
   constructor(private http: HttpClient) {
   }
 
-  public getDocuments(authorId) {
-    return this.http.get<Response>(`${config.serverUrl}/api/document/get/?authorId=${authorId}`);
+  public upload(data) {
+    return this.http.post<any>(`${environment.serverUrl}/api/document/add`, createFormData(data));
   }
 
-  public toDoc(res: Response): Document {
-    return res.document;
+  public get(args = null) {
+    return this.http.get<any>(`${environment.serverUrl}/api/document/get`, {
+      params: createParameters(args)
+    });
   }
 
-  public uploadDocument(data) {
-    return this.http.post<any>(`${config.serverUrl}/api/document/add`, createFormData(data));
-  }
-
-  public downloadDoc(docID) {
-    this.http.get(`${config.serverUrl}/api/document/download/?id=${docID}`, {responseType: "blob"}).subscribe((data) => {
-      //console.log(data);
-      var blob = new Blob([data], {type: 'application/pdf'});
-      var url = window.URL.createObjectURL(blob);
-      var pwa = window.open(url);
-      if (!pwa || pwa.closed || typeof pwa.closed == 'undefined') {
-        alert('Please disable your Pop-up blocker and try again.');
-      }
+  public download(args = null) {
+    this.http.get(`${environment.serverUrl}/api/document/download`, {
+      responseType: "blob",
+      params: createParameters(args)
     })
+      /*
+      * .subscribe((data) => {
+        var blob = new Blob([data], {type: 'application/pdf'});
+        var url = window.URL.createObjectURL(blob);
+        var pwa = window.open(url);
+        if (!pwa || pwa.closed || typeof pwa.closed == 'undefined') {
+          alert('Please disable your Pop-up blocker and try again.');
+        }
+      })
+      *
+      * */
   }
-}
-
-class Response {
-  document: Document;
 }

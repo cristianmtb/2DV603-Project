@@ -56,7 +56,7 @@ export class DocumentSubmitComponent implements OnInit {
     }
     this.working = true;
 
-    this.documentService.uploadDocument(this.form.value)
+    this.documentService.upload(this.form.value)
       .subscribe((next) => {
         console.log(next);
         this.working = false;

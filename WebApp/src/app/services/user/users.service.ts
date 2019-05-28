@@ -4,6 +4,7 @@ import {User} from 'src/app/models/user';
 import config from "../../../config.json";
 import {createFormData, createParameters} from "../formData";
 import {map} from "rxjs/operators";
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class UsersService {
   }
 
   public get(args = null) {
-    return this.http.get<any>(`${config.serverUrl}/api/users/get`, {
+    return this.http.get<any>(`${environment.serverUrl}/api/users/get`, {
       params: createParameters(args)
     })
       .pipe(map(actions => {
@@ -26,7 +27,7 @@ export class UsersService {
   }
 
   public add(data) {
-    return this.http.post<any>(`${config.serverUrl}/api/user/add/`, createFormData(data));
+    return this.http.post<any>(`${environment.serverUrl}/api/user/add/`, createFormData(data));
   }
 
 }

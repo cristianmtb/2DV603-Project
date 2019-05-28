@@ -4,6 +4,7 @@ import config from "../../../config.json";
 import {createFormData, createParameters} from "../formData";
 import {map} from 'rxjs/operators';
 import {Confirmation} from 'src/app/models/confirmation.js';
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +14,11 @@ export class SupervisorService {
   }
 
   public suggest(data) {
-    return this.http.post(`${config.serverUrl}/api/supervisor-confirmation/add`, createFormData(data));
+    return this.http.post(`${environment.serverUrl}/api/supervisor-confirmation/add`, createFormData(data));
   }
 
   public getSuggestions(args = null) {
-    return this.http.get<any>(`${config.serverUrl}/api/supervisor-confirmation/get/`, {
+    return this.http.get<any>(`${environment.serverUrl}/api/supervisor-confirmation/get/`, {
       params: createParameters(args)
     }).pipe(map(actions => {
         console.log(actions);

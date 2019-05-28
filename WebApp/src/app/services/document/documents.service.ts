@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Document} from 'src/app/models/document';
-import config from "../../../config.json";
-import {createFormData, createParameters} from "../formData";
+import {createParameters} from "../formData";
 import {map} from "rxjs/operators";
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class DocumentsService {
   }
 
   public get(args = null) {
-    return this.http.get<any>(`${config.serverUrl}/api/documents/get`, {
+    return this.http.get<any>(`${environment.serverUrl}/api/documents/get`, {
       params: createParameters(args)
     })
       .pipe(map(actions => {
