@@ -18,7 +18,7 @@ export class DocumentsService {
     })
       .pipe(map(actions => {
           console.log(actions);
-          return actions.documents.map(item => {
+          return actions.document.map(item => {
             return new Document(item);
           });
         }

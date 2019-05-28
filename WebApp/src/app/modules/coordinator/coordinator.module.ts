@@ -14,7 +14,6 @@ import { PlansComponent } from './components/plans/plans.component';
 import { FinalReportsComponent } from './components/final-reports/final-reports.component';
 
 
-
 @NgModule({
   declarations: [
     CoordinatorComponent,
