@@ -1,8 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {UploadService} from "../../../../services/upload.service";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {DocumentService} from "../../../../services/documentService/document.service";
-import {AuthService} from "../../../../services/auth/auth.service";
+import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-submit-document',
@@ -20,16 +17,8 @@ export class DescriptionComponent implements OnInit {
     {name: 'File', value: '-'},
   ];
 
-  constructor(private formBuilder: FormBuilder,
-              private uploadService: UploadService,
-              private documentService: DocumentService,
-              private authService: AuthService) {
-    this.form = this.formBuilder.group({
-      file: ['', [Validators.required]],
-      type: [2, [Validators.required]],
-      title: ['dfsdfsdf', [Validators.required]],
-      authorId: [authService.getCurrentUserId()],
-    });
+  constructor() {
+
   }
 
   ngOnInit() {
