@@ -15,13 +15,10 @@ export class DescriptionComponent implements OnInit {
   working = false;
 
   elements: any = [
-    {id: 1, first: 'Mark', last: 'Otto', handle: '@mdo'},
-    {id: 2, first: 'Jacob', last: 'Thornton', handle: '@fat'},
-    {id: 3, first: 'Larry', last: 'the Bird', handle: '@twitter'},
+    {name: 'Status', value: 'Not submitted'},
+    {name: 'Deadline', value: '-'},
+    {name: 'File', value: '-'},
   ];
-
-  headElements = ['ID', 'First', 'Last', 'Handle'];
-
 
   constructor(private formBuilder: FormBuilder,
               private uploadService: UploadService,
@@ -38,30 +35,8 @@ export class DescriptionComponent implements OnInit {
   ngOnInit() {
   }
 
-  onFileChange(event) {
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.form.get('file').setValue(file);
-    }
+  documentSubmitted(document) {
+    this.elements[0].value = 'Submitted for approval';
+    this.elements[2].value = document.title;
   }
-
-  upload() {
-    if (!this.form.valid) {
-      Object.keys(this.form.controls).forEach(field => {
-        const control = this.form.get(field);
-        control.markAsTouched({onlySelf: true});
-      });
-      return false;
-    }
-    this.working = true;
-
-
-    this.documentService.uploadDocument(this.form.value)
-      .subscribe((next) => {
-        console.log(next);
-      }, (error) => {
-
-      })
-  }
-
 }

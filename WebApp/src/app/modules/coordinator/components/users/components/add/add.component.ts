@@ -14,7 +14,7 @@ export class AddComponent implements OnInit {
   working = false;
 
   @Output() userAdded = new EventEmitter<User>();
-  @ViewChild("userAdd") basicModal;
+  @ViewChild("userAdd") modal;
 
   constructor(private usersService: UsersService,
               private formBuilder: FormBuilder,
@@ -45,7 +45,7 @@ export class AddComponent implements OnInit {
     this.usersService.add(this.form.value)
       .subscribe((next) => {
           this.userAdded.emit(next.user);
-          this.basicModal.hide();
+          this.modal.hide();
         },
         (error) => {
           this.error = 'invalid input';

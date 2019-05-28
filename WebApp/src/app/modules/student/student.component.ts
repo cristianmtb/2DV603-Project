@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {DocumentService} from 'src/app/services/documentService/document.service';
 import {Router} from "@angular/router";
+import {AuthService} from "../../services/auth/auth.service";
 
 class Item {
   title: string;
@@ -29,20 +29,24 @@ export class StudentComponent implements OnInit {
 
   items: Item[] = [];
 
-  constructor(private doc: DocumentService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router) {
     this.items.push(new Item(
-      1,'Description', 'Project description', 'fas fa-file-alt', 'description', false));
+      1, 'Description', 'Project description', 'fas fa-file-alt', 'description', false));
     this.items.push(new Item(
-      2,'Supervisor', 'Pick a supervisor', 'fas fa-user-tie', 'supervisor', false));
+      2, 'Supervisor', 'Pick a supervisor', 'fas fa-user-tie', 'supervisor', false));
     this.items.push(new Item(
-      3,'Project Plan', 'Submit your project plan', 'fas fa-file', 'plan'));
+      3, 'Project Plan', 'Submit your project plan', 'fas fa-file', 'plan'));
     this.items.push(new Item(
-      4,'Report', 'Submit your report', 'fas fa-file-alt', 'report'));
+      4, 'Report', 'Submit your report', 'fas fa-file-alt', 'report'));
     this.items.push(new Item(
-      5,'Final Report', 'Submit your final report', 'fas fa-file-pdf', 'final'));
+      5, 'Final Report', 'Submit your final report', 'fas fa-file-pdf', 'final'));
   }
 
   ngOnInit(): void {
+    if (!this.authService.isStudent()) {
+      this.router.navigate(["login"]);
+      return;
+    }
     this.load();
   }
 

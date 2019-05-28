@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {SubmitComponent} from './submit.component';
+import {DocumentSubmitComponent} from './document-submit.component';
 
 describe('SubmitDocumentComponent', () => {
-  let component: SubmitComponent;
-  let fixture: ComponentFixture<SubmitComponent>;
+  let component: DocumentSubmitComponent;
+  let fixture: ComponentFixture<DocumentSubmitComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [SubmitComponent]
+      declarations: [DocumentSubmitComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SubmitComponent);
+    fixture = TestBed.createComponent(DocumentSubmitComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

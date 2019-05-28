@@ -10,11 +10,16 @@
   padding-left: 1.25rem;
 }
 
+.app-page-content {
+  padding: .2em 1.25em .2em 1.25rem;
+}
+
 .app-menu-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+
 
   div {
     margin: 2em;
@@ -46,4 +51,35 @@
   padding-left: 1.25rem;
   padding-top: 0;
   padding-bottom: 0;
+}
+
+
+:host {
+  display: inline-block;
+}
+
+:host:not(.file-input-disabled) {
+  cursor: pointer;
+}
+
+.input-file {
+  width: 0px;
+  height: 0px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.input-file + label {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: black;
+  display: inline-block;
+}
+
+.input-file:focus + label,
+.input-file + label:hover {
+  background-color: red;
 }

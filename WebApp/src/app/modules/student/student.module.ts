@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {StudentComponent} from './student.component';
-import {SubmitComponent} from './components/submit/submit.component';
+import {DocumentSubmitComponent} from '../../components/document-submit/document-submit.component';
 import {SupervisorComponent} from './components/supervisor/supervisor.component';
 import {UploadService} from "../../services/upload.service";
 import {UserService} from "../../services/userService/user.service";
@@ -16,7 +16,7 @@ import {DescriptionComponent} from "./components/description/description.compone
 @NgModule({
   declarations: [
     StudentComponent,
-    SubmitComponent,
+    DocumentSubmitComponent,
     DescriptionComponent,
     SupervisorComponent,
   ],
