@@ -24,7 +24,4 @@ export class DocumentsService {
         }
       ));
   }
-
-
-
 }

@@ -19,7 +19,7 @@ export class UsersComponent implements OnInit {
   ) {
   }
 
-  personList: Array<User>;
+  users: Array<User>;
 
 
   ngOnInit() {
@@ -27,18 +27,17 @@ export class UsersComponent implements OnInit {
   }
 
   add(user) {
-    this.personList.push(user);
+    this.users.push(user);
   }
 
   get() {
     this.usersService.get()
       .subscribe(
         (data) => {
-          this.personList = data
+          this.users = data
         }, (error) => {
 
         });
-
   }
 
 
