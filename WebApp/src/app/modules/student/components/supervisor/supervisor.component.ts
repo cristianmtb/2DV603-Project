@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UsersService} from 'src/app/services/userService/users.service';
 import {User} from 'src/app/models/user';
-import {UserService} from "../../../../services/userService/user.service";
+import {SupervisorService} from "../../../../services/userService/supervisor.service";
 import {AuthService} from "../../../../services/auth/auth.service";
 
 @Component({
@@ -15,7 +15,7 @@ export class SupervisorComponent implements OnInit {
   error = null;
 
   constructor(private usersService: UsersService,
-              private userService: UserService,
+              private SupervisorService: SupervisorService,
               private authService: AuthService,
   ) {
   }
@@ -43,7 +43,7 @@ export class SupervisorComponent implements OnInit {
     }
     this.error = null;
 
-    this.userService.suggest({
+    this.SupervisorService.suggest({
       supervisorId: this.personId,
       studentId: this.authService.getCurrentUserId(),
     })

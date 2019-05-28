@@ -13,6 +13,7 @@ import {AuthService} from './services/auth/auth.service';
 import {UsersService} from './services/userService/users.service';
 import {SingupComponent} from "./components/signup/singup.component";
 import {SharedModule} from "./shared.module";
+import { SupervisorService } from './services/userService/supervisor.service';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {SharedModule} from "./shared.module";
   ],
   providers: [
     AuthService,
-    UsersService
+    UsersService,
+    SupervisorService
   ],
   exports: [],
   bootstrap: [AppComponent]

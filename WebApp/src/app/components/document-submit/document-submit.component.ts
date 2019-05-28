@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {UploadService} from "../../services/upload.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {DocumentService} from "../../services/documentService/document.service";
 import {AuthService} from "../../services/auth/auth.service";
@@ -25,14 +24,13 @@ export class DocumentSubmitComponent implements OnInit {
   @ViewChild("submitDocument") modal;
 
   constructor(private formBuilder: FormBuilder,
-              private uploadService: UploadService,
               private documentService: DocumentService,
               private authService: AuthService) {
     this.form = this.formBuilder.group({
       file: ['', [Validators.required]],
       type: [this.type, [Validators.required]],
       title: ['', [Validators.required]],
-      authorId: [authService.getCurrentUserId(), [Validators.required]],
+      authorId: [this.authService.getCurrentUserId(), [Validators.required]],
     });
   }
 
