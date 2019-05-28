@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../services/auth/auth.service";
 import {Router} from "@angular/router";
+
+
 class Item {
   title: string;
   description: string;
@@ -26,11 +28,11 @@ export class ReaderComponent implements OnInit {
   constructor(private auth: AuthService, private router: Router) {
 
     this.items.push(new Item(
-      'Bidding', 'Bid of a report', 'fas fa-file-alt', 'bid'));
+      'Bidding', 'Bid of a report', 'fas fa-coins', 'bid'));
     this.items.push(new Item(
-      'Feedback', 'confirm confirms', "fas fa-check-circle", 'feedback'));
+      'Feedback', 'confirm confirms', "far fa-comment-dots", 'feedback'));
     this.items.push(new Item(
-      'Final Evaluation', 'Final Evaluation', 'fas fa-chart-line', 'final'));
+      'Final Evaluation', 'Final Evaluation', 'fas fa-file-alt', 'final'));
 
   }
   ngOnInit() {
