@@ -15,6 +15,7 @@ import {DescriptionComponent} from "./components/description/description.compone
 import { PlanComponent } from './components/plan/plan.component';
 import { ReportComponent } from './components/report/report.component';
 import { FinalComponent } from './components/final/final.component';
+import { FeedbacksComponent } from './components/feedbacks/feedbacks.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FinalComponent } from './components/final/final.component';
     PlanComponent,
     ReportComponent,
     FinalComponent,
+    FeedbacksComponent,
   ],
   imports: [
     FormsModule,
