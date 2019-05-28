@@ -1,0 +1,35 @@
+<div class="page-content">
+  <app-breadcrumb></app-breadcrumb>
+  <div class="app-page-title">Project Plans</div>
+  <div>
+    <div class="card-body">
+      <div id="table" class="table-editable">
+        <table class="table table-bordered table-responsive-md table-striped text-center">
+          <tr>
+            <th class="text-center" [mdbTableSort]="documents" sortBy="id">ID</th>
+            <th [mdbTableSort]="documents" sortBy="username" class="text-center">Type</th>
+            <th [mdbTableSort]="documents" sortBy="firstName" class="text-center">Author Id</th>
+            <th class="text-center">Grade</th>
+          </tr>
+          <tr *ngFor="let document of documents; let id = index">
+            <td>
+            <span
+              contenteditable="false">{{document.id}}</span>
+            </td>
+            <td>
+            <span
+              contenteditable="false">{{document.type}}</span>
+            </td>
+            <td>
+              <span contenteditable="false">{{document.authorId}}</span>
+            </td>
+            <td>
+              <!--              <i class="fas fa-pen" (click)="openEditComponent(person)" ></i>-->
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
