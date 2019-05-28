@@ -26,7 +26,7 @@ export class UsersService {
   }
 
   public add(data) {
-    return this.http.post(`${config.serverUrl}/api/user/add/`, createFormData(data));
+    return this.http.post<any>(`${config.serverUrl}/api/user/add/`, createFormData(data));
   }
 
 }

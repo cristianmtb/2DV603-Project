@@ -10,7 +10,7 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
   public suggest(data) {
-    return this.http.post(`${config.serverUrl}/api/supervisor_confirmation/add/`, createFormData(data));
+    return this.http.post(`${config.serverUrl}/api/supervisor-confirmation/add`, createFormData(data));
   }
 
 }

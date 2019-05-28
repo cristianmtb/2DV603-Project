@@ -1,21 +1,36 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {RootComponent} from './components/root/root.component';
-import {SubmitDocumentComponent} from './components/submit-document/submit-document.component';
-import {SupervisorsComponent} from './components/supervisors/supervisors.component';
+import {StudentComponent} from './student.component';
+import {SupervisorComponent} from './components/supervisor/supervisor.component';
+import {DescriptionComponent} from "./components/description/description.component";
+import {PlanComponent} from "./components/plan/plan.component";
+import {ReportComponent} from "./components/report/report.component";
+import {FinalComponent} from "./components/final/final.component";
 
 const routes: Routes = [
   {
     path: '',
-    component: RootComponent
+    component: StudentComponent
   },
   {
-    path: 'submit',
-    component: SubmitDocumentComponent
+    path: 'description',
+    component: DescriptionComponent
+  },
+  {
+    path: 'final',
+    component: FinalComponent
+  },
+  {
+    path: 'plan',
+    component: PlanComponent
+  },
+  {
+    path: 'report',
+    component: ReportComponent
   },
   {
     path: 'supervisor',
-    component: SupervisorsComponent
+    component: SupervisorComponent
   }
 ];
 
