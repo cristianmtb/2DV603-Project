@@ -2,6 +2,9 @@
   <app-breadcrumb></app-breadcrumb>
   <div class="app-page-title">Supervisor</div>
   <div class="">
+    <div class="alert alert-danger" role="alert" *ngIf="error">
+      {{error}}
+    </div>
     <div class="card-body">
       <div>
         <table class="table table-responsive-md table-striped">
@@ -15,7 +18,7 @@
                 <div class="flex-row">
                   <div class="card-link">
                     <input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios"
-                           mdbInput>
+                           mdbInput (change)="onChecked(person)">
                     <label class="form-check-label" for="materialUnchecked"
                            style="font-weight: bold">{{person.getFullName()}}</label>
                   </div>

@@ -33,13 +33,13 @@ export class StudentComponent implements OnInit {
     this.items.push(new Item(
       1, 'Description', 'Project description', 'fas fa-file-alt', 'description', false));
     this.items.push(new Item(
-      2, 'Supervisor', 'Pick a supervisor', 'fas fa-user-tie', 'supervisor', false));
+      2, 'Project Plan', 'Submit your project plan', 'fas fa-file', 'plan', false));
     this.items.push(new Item(
-      3, 'Project Plan', 'Submit your project plan', 'fas fa-file', 'plan'));
+      3, 'Supervisor', 'Pick a supervisor', 'fas fa-user-tie', 'supervisor', false));
     this.items.push(new Item(
-      4, 'Report', 'Submit your report', 'fas fa-file-alt', 'report'));
+      4, 'Report', 'Submit your report', 'fas fa-file-alt', 'report', false));
     this.items.push(new Item(
-      5, 'Final Report', 'Submit your final report', 'fas fa-file-pdf', 'final'));
+      5, 'Final Report', 'Submit your final report', 'fas fa-file-pdf', 'final', false));
   }
 
   ngOnInit(): void {
