@@ -6,30 +6,30 @@
       <div id="table" class="table-editable">
         <table class="table table-bordered table-responsive-md table-striped text-center">
           <tr>
-            <th class="text-center" [mdbTableSort]="personList" sortBy="id">ID</th>
-            <th [mdbTableSort]="personList" sortBy="username" class="text-center">Supervisor Id</th>
-            <th [mdbTableSort]="personList" sortBy="firstName" class="text-center">Student Id</th>
-            <th [mdbTableSort]="personList" sortBy="lastName" class="text-center">Confirmed</th>
-            <th [mdbTableSort]="personList" sortBy="email" class="text-center">Project Plan Id</th>
+            <th class="text-center" [mdbTableSort]="confirmationList" sortBy="id">ID</th>
+            <th [mdbTableSort]="confirmationList" sortBy="username" class="text-center">Supervisor Id</th>
+            <th [mdbTableSort]="confirmationList" sortBy="firstName" class="text-center">Student Id</th>
+            <th [mdbTableSort]="confirmationList" sortBy="lastName" class="text-center">Confirmed</th>
+            <th [mdbTableSort]="confirmationList" sortBy="email" class="text-center">Project Plan Id</th>
             <th class="text-center">Confirm</th>
           </tr>
-          <tr *ngFor="let person of personList; let id = index">
+          <tr *ngFor="let person of confirmationList; let id = index">
             <td>
             <span
               contenteditable="false">{{person.id}}</span>
             </td>
             <td>
             <span
-              contenteditable="false">{{person.username}}</span>
+              contenteditable="false">{{person.supervisorId}}</span>
             </td>
             <td>
-              <span contenteditable="false">{{person.firstName}}</span>
+              <span contenteditable="false">{{person.studentId}}</span>
             </td>
             <td>
-              <span contenteditable="false">{{person.lastName}}</span>
+              <span contenteditable="false">{{person.confirmed}}</span>
             </td>
             <td>
-              <span contenteditable="false">{{person.email}}</span>
+              <span contenteditable="false">{{person.projectPlanId}}</span>
             </td>
             <td>
               <i class="fas fa-pen" (click)="openEditComponent(person)" ></i>
