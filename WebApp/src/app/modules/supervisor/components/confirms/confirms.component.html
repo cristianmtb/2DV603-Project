@@ -32,7 +32,7 @@
               <span contenteditable="false">{{person.projectPlanId}}</span>
             </td>
             <td>
-              <i class="fas fa-pen" (click)="openEditComponent(person)" ></i>
+              <button mdbBtn type="submit" color="blue" (click)='confirm()' value="confirm" mdbWaveEffect>Confirm</button>
             </td>
           </tr>
         </table>

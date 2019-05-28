@@ -32,4 +32,8 @@ export class ConfirmsComponent implements OnInit {
     }
     
   }
+
+  confirm() {
+
+  }
 }
