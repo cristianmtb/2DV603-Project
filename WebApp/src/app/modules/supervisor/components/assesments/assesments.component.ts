@@ -62,19 +62,6 @@ export class AssesmentsComponent implements OnInit {
     this.documentGrade.show(item);
   }
 
-  download(item) {
-    this.documentService.download({id: item.id})
-      .subscribe((data) => {
-        const url = window.URL.createObjectURL(new Blob([data], {type: 'application/pdf'}));
-        const pwa = window.open(url);
-        if (!pwa || pwa.closed || typeof pwa.closed == 'undefined') {
-          alert('Please disable your Pop-up blocker and try again.');
-        }
-      }, (error) => {
-        console.log(error);
-      });
-  }
-
   documentSubmitted(document) {
     this.elements[0].value = 'Submitted for Evaluation';
     this.elements[2].value = document.title;
