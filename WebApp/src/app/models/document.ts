@@ -59,4 +59,5 @@ export class Document {
     return environment.serverUrl + '/api/document/download?id=' + this.id;
   }
 
+
 }
