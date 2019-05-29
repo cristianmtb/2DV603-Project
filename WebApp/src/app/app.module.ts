@@ -16,6 +16,7 @@ import {SharedModule} from "./shared.module";
 import { SupervisorService } from './services/user/supervisor.service';
 import {DocumentsService} from "./services/document/documents.service";
 import {DocumentService} from "./services/document/document.service";
+import {CookieService} from "ngx-cookie-service";
 
 @NgModule({
   declarations: [
@@ -33,13 +34,14 @@ import {DocumentService} from "./services/document/document.service";
     SharedModule,
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
     AuthService,
     UsersService,
     SupervisorService,
     DocumentService,
+    CookieService,
   ],
   exports: [],
   bootstrap: [AppComponent]
