@@ -1,5 +1,6 @@
 <div class="page-content">
   <app-breadcrumb></app-breadcrumb>
+  <app-set-confirms #documentGrade (documentGraded)="setConfirm($event)"></app-set-confirms>
   <div class="app-page-title">Students</div>
   <div>
     <div class="card-body">
@@ -17,7 +18,7 @@
             <td>{{item.projectPlanId}}</td>
             <td>
               <i class="fas fa-check" *ngIf="item.confirmed > 0"></i>
-              <button *ngIf="item.confirmed == 0" mdbBtn type="submit" color="blue" (click)='confirm(item)'
+              <button *ngIf="item.confirmed == 0" mdbBtn type="submit" color="blue" (click)='openConfirmComponent(item)'
                       mdbWaveEffect>Confirm
               </button>
             </td>

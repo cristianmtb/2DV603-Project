@@ -35,7 +35,11 @@ export class ConfirmsComponent implements OnInit {
 
   }
 
-  confirm(item) {
+  openConfirmComponent(item) {
 
+  }
+
+  setConfirm($event: Document) {
+    
   }
 }
