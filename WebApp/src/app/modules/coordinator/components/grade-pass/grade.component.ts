@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {DocumentService} from "../../../../../services/document/document.service";
-import {Document} from "../../../../../models/document";
+import {DocumentService} from "../../../../services/document/document.service";
+import {Document} from "../../../../models/document";
 
 @Component({
   selector: 'app-coordinator-grade',
