@@ -31,11 +31,11 @@ export class SupervisorComponent implements OnInit {
   constructor(private auth: AuthService, private router: Router) {
 
     this.items.push(new Item(
-      'Project plan Feedback', 'project plan feedback', 'fas fa-file-alt', ''));
+      'Project plan Feedback', 'project plan feedback', 'fas fa-file-alt', 'plans'));
     this.items.push(new Item(
       'Confirm Supervision', 'confirm confirms', "fas fa-check-circle", 'confirms'));
     this.items.push(new Item(
-      'Assessment', 'supervisor assessment', 'fas fa-chart-line', ''));
+      'Assessment', 'supervisor assessment', 'fas fa-chart-line', 'assessments'));
 
   }
 

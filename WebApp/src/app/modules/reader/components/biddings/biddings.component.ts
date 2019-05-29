@@ -1,15 +1,15 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
+import {Document} from "../../../../models/document";
 import {MdbTableDirective} from "angular-bootstrap-md";
 import {DocumentsService} from "../../../../services/document/documents.service";
-import {Document} from "../../../../models/document";
 import {DocumentService} from "../../../../services/document/document.service";
 
 @Component({
-  selector: 'app-final-reports',
-  templateUrl: './final-reports.component.html',
-  styleUrls: ['./final-reports.component.scss']
+  selector: 'app-biddings',
+  templateUrl: './biddings.component.html',
+  styleUrls: ['./biddings.component.scss']
 })
-export class FinalReportsComponent implements OnInit {
+export class BiddingsComponent implements OnInit {
 
   documents: Document[] = [];
 
@@ -33,7 +33,7 @@ export class FinalReportsComponent implements OnInit {
   }
 
   get() {
-    this.documentsService.get({type: 4})
+    this.documentsService.get({type: 3})
       .subscribe(
         (data) => {
           this.documents = data;
@@ -44,7 +44,7 @@ export class FinalReportsComponent implements OnInit {
         });
   }
 
-  grade(document) {
+  set(document) {
 
   }
 

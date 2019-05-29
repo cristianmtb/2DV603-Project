@@ -6,9 +6,12 @@ import {SupervisorComponent} from './supervisor.component';
 import {SharedModule} from "../../shared.module";
 import {ButtonsModule, CardsFreeModule, TableModule, WavesModule} from "angular-bootstrap-md";
 import { ConfirmsComponent } from './components/confirms/confirms.component';
+import { PlansComponent } from './components/plans/plans.component';
+import { AssesmentsComponent } from './components/assesments/assesments.component';
+import {StudentModule} from "../student/student.module";
 
 @NgModule({
-  declarations: [SupervisorComponent, ConfirmsComponent],
+  declarations: [SupervisorComponent, ConfirmsComponent, PlansComponent, AssesmentsComponent],
   imports: [
     CommonModule,
     SupervisorRoutingModule,
@@ -16,7 +19,8 @@ import { ConfirmsComponent } from './components/confirms/confirms.component';
     CardsFreeModule,
     ButtonsModule,
     WavesModule,
-    TableModule
+    TableModule,
+    StudentModule
   ]
 })
 export class SupervisorModule {

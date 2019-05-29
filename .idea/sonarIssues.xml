@@ -8,7 +8,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/models/biddings.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/WebApp/src/app/models/document.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/models/feedbacks.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/models/roles.ts">
           <value>
             <set />
           </value>
@@ -33,12 +48,37 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/coordinator/components/deadlines/edit-deadline/edit-deadline.component.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/coordinator/components/deadlines/edit-deadline/set-deadline.component.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/coordinator/components/deadlines/set-deadline/set-deadline.component.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/coordinator/components/deadlines/set-deadline/set-deadline.component.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/WebApp/src/app/modules/coordinator/components/final-reports/final-reports.component.html">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/WebApp/src/app/modules/coordinator/components/final-reports/final-reports.component.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/coordinator/components/final-reports/grade-num/grade-num.component.html">
           <value>
             <set />
           </value>
@@ -103,12 +143,122 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/coordinator/components/users/users.component.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/WebApp/src/app/modules/coordinator/coordinator-routing.module.ts">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/WebApp/src/app/modules/coordinator/coordinator.component.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/coordinator/coordinator.module.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/opponent/components/feedbacks/feedbacks.component.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/opponent/components/feedbacks/feedbacks.component.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/opponent/opponent-routing.module.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/opponent/opponent.component.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/reader/components/biddings/biddings.component.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/reader/components/biddings/biddings.component.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/reader/components/biddings/set-bidding/set-bidding.component.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/reader/components/biddings/set-bidding/set-bidding.component.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/reader/components/feedbacks/feedbacks.component.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/reader/components/feedbacks/feedbacks.component.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/reader/components/final-evaluation/final-evaluation.component.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/reader/components/final-evaluation/final-evaluation.component.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/reader/reader-routing.module.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/reader/reader.module.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/supervisor/components/assesments/assesments.component.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/supervisor/components/assesments/assesments.component.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/supervisor/components/plans/plans.component.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/supervisor/components/plans/plans.component.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/supervisor/supervisor-routing.module.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/supervisor/supervisor.component.ts">
           <value>
             <set />
           </value>

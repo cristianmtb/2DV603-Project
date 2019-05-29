@@ -46,4 +46,9 @@ export class User {
   isCoordinator() {
     return this.roleId == 5;
   }
+
+  getRole() {
+    return this.roleId== 0 ? '' : this. isStudent() ? 'Student' : this.isOpponent() ? 'Opponent' :this.isSupervisor() ? 'Supervisor' : this.isReader() ? 'Reader' : this.isCoordinator() ? 'Coordinator' :  ""   ;
+  }
+
 }

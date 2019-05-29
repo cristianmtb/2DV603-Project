@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {User} from "../../../../models/user";
 
 @Component({
@@ -7,7 +7,7 @@ import {User} from "../../../../models/user";
   styleUrls: ['./deadlines.component.scss']
 })
 export class DeadlinesComponent implements OnInit {
-
+  @ViewChild("userEdit") userEdit;
   constructor() { }
 
   ngOnInit() {

@@ -41,6 +41,9 @@ import { SupervisorService } from 'src/app/services/user/supervisor.service';
     UsersService,
     DocumentService
   ],
+  exports: [
+    DocumentSubmitComponent
+  ],
   bootstrap: [
     StudentComponent,
   ]

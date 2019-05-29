@@ -19,6 +19,7 @@ import { RolesComponent } from './components/roles/roles.component';
 import { GradeNumComponent } from './components/final-reports/grade-num/grade-num.component';
 import { SetRolesComponent } from './components/roles/set-roles/set-roles.component';
 import { DeadlinesComponent } from './components/deadlines/deadlines.component';
+import { EditDeadlineComponent } from './components/deadlines/edit-deadline/edit-deadline.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { DeadlinesComponent } from './components/deadlines/deadlines.component';
     GradeNumComponent,
     SetRolesComponent,
     DeadlinesComponent,
+    EditDeadlineComponent,
 
   ],
   providers: [
