@@ -18,6 +18,12 @@ export class DocumentService {
     });
   }
 
+  public set(id, args = null) {
+    return this.http.post<any>(`${environment.serverUrl}/api/document/update/` + id, {
+      params: createFormData(args)
+    });
+  }
+
   public download(args = null) {
     return this.http.get(`${environment.serverUrl}/api/document/download`, {
       responseType: "blob",
