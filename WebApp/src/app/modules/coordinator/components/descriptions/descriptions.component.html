@@ -16,7 +16,7 @@
           <tr *ngFor="let document of documents; let id = index">
             <td>{{document.id}}</td>
             <td>{{document.authorId}}</td>
-            <td><i class="fas fa-download" style="cursor: pointer" (click)="download(document)"></i></td>
+            <td><i class="" style="cursor: pointer; color: darkblue" (click)="download(document)">{{document.title}}.pdf</i></td>
             <td>
               {{document.getPassOrFail()}}
             </td>
