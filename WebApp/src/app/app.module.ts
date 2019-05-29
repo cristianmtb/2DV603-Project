@@ -14,7 +14,7 @@ import {UsersService} from './services/user/users.service';
 import {SingupComponent} from "./components/signup/singup.component";
 import {SharedModule} from "./shared.module";
 import { SupervisorService } from './services/user/supervisor.service';
-
+import {DocumentsService} from "./services/document/documents.service";
 
 @NgModule({
   declarations: [
@@ -37,7 +37,8 @@ import { SupervisorService } from './services/user/supervisor.service';
   providers: [
     AuthService,
     UsersService,
-    SupervisorService
+    SupervisorService,
+    DocumentsService,
   ],
   exports: [],
   bootstrap: [AppComponent]

@@ -7,8 +7,8 @@
         <table class="table table-bordered table-responsive-md table-striped text-center">
           <tr>
             <th class="text-center" [mdbTableSort]="documents" sortBy="id">ID</th>
-            <th [mdbTableSort]="documents" sortBy="username" class="text-center">Type</th>
             <th [mdbTableSort]="documents" sortBy="firstName" class="text-center">Author Id</th>
+            <th [mdbTableSort]="documents" sortBy="firstName" class="text-center">Download</th>
             <th class="text-center">Grade</th>
           </tr>
           <tr *ngFor="let document of documents; let id = index">
@@ -17,8 +17,7 @@
               contenteditable="false">{{document.id}}</span>
             </td>
             <td>
-            <span
-              contenteditable="false">{{document.type}}</span>
+              <span contenteditable="false">{{document.authorId}}</span>
             </td>
             <td>
               <span contenteditable="false">{{document.authorId}}</span>

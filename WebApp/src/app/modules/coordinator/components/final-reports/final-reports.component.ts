@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MdbTableDirective} from "angular-bootstrap-md";
 import {DocumentsService} from "../../../../services/document/documents.service";
+import {Document} from "../../../../models/document";
 
 @Component({
   selector: 'app-final-reports',
@@ -9,15 +10,16 @@ import {DocumentsService} from "../../../../services/document/documents.service"
 })
 export class FinalReportsComponent implements OnInit {
 
+  documents: Document[] = [];
+
   @ViewChild(MdbTableDirective) mdbTable: MdbTableDirective;
   private document = new Document();
+
 
   constructor(
     private documentsService: DocumentsService
   ) {
   }
-
-  documents: Array<Document>;
 
 
   ngOnInit() {
@@ -32,7 +34,9 @@ export class FinalReportsComponent implements OnInit {
     this.documentsService.get({type: 4})
       .subscribe(
         (data) => {
-          this.documents = data
+          this.documents = data;
+          console.log(data);
+
         }, (error) => {
 
         });
