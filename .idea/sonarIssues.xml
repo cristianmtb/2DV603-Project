@@ -73,6 +73,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/WebApp/src/app/modules/coordinator/components/roles/set-roles/set-roles.component.html">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/WebApp/src/app/modules/coordinator/components/roles/set-roles/set-roles.component.ts">
           <value>
             <set />
