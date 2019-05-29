@@ -39,9 +39,9 @@ export class CoordinatorComponent implements OnInit {
     this.items.push(new Item(
       'Grade Final Report', 'Grade Final Report ', 'fas fa-file-pdf', '/finals'));
     this.items.push(new Item(
-      'Deadlines', 'Set Deadlines', "fas fa-clock", ''));
+      'Deadlines', 'Set Deadlines', "fas fa-clock", 'deadlines'));
     this.items.push(new Item(
-      'Roles', 'Set Roles', 'fas fa-user-tag', ''));
+      'Roles', 'Set Roles', 'fas fa-user-tag', '/roles'));
 
 
 

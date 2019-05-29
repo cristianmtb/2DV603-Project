@@ -49,4 +49,8 @@ export class Document {
     return this.gradePass == 0 ? '' : this.gradePass == 1 ? 'G' : 'U';
   }
 
+  getPassNum() {
+    return this.gradeNum== 0 ? '' : this.gradeNum == 1 ? 'A' : this.gradeNum == 2 ? 'B' :this.gradeNum == 3 ? 'C' : this.gradeNum == 4 ? 'D' : this.gradeNum == 5 ? 'E' :  "F"   ;
+  }
+
 }

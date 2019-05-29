@@ -14,7 +14,11 @@ import { PlansComponent } from './components/plans/plans.component';
 import { FinalReportsComponent } from './components/final-reports/final-reports.component';
 import {DocumentService} from "../../services/document/document.service";
 import {DocumentsService} from "../../services/document/documents.service";
-import {GradeComponent} from "./components/grade-pass/grade.component";
+import {GradePassComponent} from "./components/grade-pass/grade-pass.component";
+import { RolesComponent } from './components/roles/roles.component';
+import { GradeNumComponent } from './components/final-reports/grade-num/grade-num.component';
+import { SetRolesComponent } from './components/roles/set-roles/set-roles.component';
+import { DeadlinesComponent } from './components/deadlines/deadlines.component';
 
 
 @NgModule({
@@ -26,7 +30,11 @@ import {GradeComponent} from "./components/grade-pass/grade.component";
     DescriptionsComponent,
     PlansComponent,
     FinalReportsComponent,
-    GradeComponent,
+    GradePassComponent,
+    RolesComponent,
+    GradeNumComponent,
+    SetRolesComponent,
+    DeadlinesComponent,
 
   ],
   providers: [

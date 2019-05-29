@@ -1,19 +1,21 @@
 import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {DocumentService} from "../../../../services/document/document.service";
-import {Document} from "../../../../models/document";
+import {Document} from "../../../../../models/document";
+import {DocumentService} from "../../../../../services/document/document.service";
+import {User} from "../../../../../models/user";
 
 @Component({
-  selector: 'app-coordinator-grade',
-  templateUrl: './grade.component.html',
-  styleUrls: ['./grade.component.scss']
+  selector: 'app-set-roles',
+  templateUrl: './set-roles.component.html',
+  styleUrls: ['./set-roles.component.scss']
 })
-export class GradeComponent implements OnInit {
+export class SetRolesComponent implements OnInit {
+
   form: FormGroup;
   error = null;
   working = false;
 
-  @Output() documentGraded = new EventEmitter<Document>();
+  @Output() roleSet = new EventEmitter<User>();
   @ViewChild("userEditModal") modal;
 
   constructor(private documentService: DocumentService,
@@ -45,7 +47,7 @@ export class GradeComponent implements OnInit {
     this.error = null;
     this.working = true;
 
-    this.documentGraded.emit(new Document());
+    this.roleSet.emit(new User());
     this.modal.hide();
 
     /*
@@ -61,5 +63,6 @@ export class GradeComponent implements OnInit {
   */
 
   }
+
 
 }
