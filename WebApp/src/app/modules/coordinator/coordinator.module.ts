@@ -14,7 +14,7 @@ import { PlansComponent } from './components/plans/plans.component';
 import { FinalReportsComponent } from './components/final-reports/final-reports.component';
 import {DocumentService} from "../../services/document/document.service";
 import {DocumentsService} from "../../services/document/documents.service";
-import {GradeComponent} from "./components/descriptions/grade-pass/grade.component";
+import {GradeComponent} from "./components/grade-pass/grade.component";
 
 
 @NgModule({
