@@ -1,3 +1,5 @@
+import {environment} from "../../environments/environment.prod";
+
 export class Document {
   authorId: number;
   title: string;
@@ -50,7 +52,11 @@ export class Document {
   }
 
   getPassNum() {
-    return this.gradeNum== 0 ? '' : this.gradeNum == 1 ? 'A' : this.gradeNum == 2 ? 'B' :this.gradeNum == 3 ? 'C' : this.gradeNum == 4 ? 'D' : this.gradeNum == 5 ? 'E' :  "F"   ;
+    return this.gradeNum == 0 ? '' : this.gradeNum == 1 ? 'A' : this.gradeNum == 2 ? 'B' : this.gradeNum == 3 ? 'C' : this.gradeNum == 4 ? 'D' : this.gradeNum == 5 ? 'E' : "F";
+  }
+
+  getDownloadLink() {
+    return environment.serverUrl + '/api/document/download?id=' + this.id;
   }
 
 }

@@ -52,6 +52,8 @@ export class DescriptionsComponent implements OnInit {
     this.documentGrade.show(item);
   }
 
+
+
   download(item) {
     this.documentService.download({id: item.id})
       .subscribe((data) => {
