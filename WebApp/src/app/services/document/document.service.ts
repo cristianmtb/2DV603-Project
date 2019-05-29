@@ -24,10 +24,4 @@ export class DocumentService {
     });
   }
 
-  public download(args = null) {
-    return this.http.get(`${environment.serverUrl}/api/document/download`, {
-      responseType: "blob",
-      params: createParameters(args)
-    });
-  }
 }
