@@ -19,20 +19,9 @@ export class DocumentService {
   }
 
   public download(args = null) {
-    this.http.get(`${environment.serverUrl}/api/document/download`, {
+    return this.http.get(`${environment.serverUrl}/api/document/download`, {
       responseType: "blob",
       params: createParameters(args)
-    })
-      /*
-      * .subscribe((data) => {
-        var blob = new Blob([data], {type: 'application/pdf'});
-        var url = window.URL.createObjectURL(blob);
-        var pwa = window.open(url);
-        if (!pwa || pwa.closed || typeof pwa.closed == 'undefined') {
-          alert('Please disable your Pop-up blocker and try again.');
-        }
-      })
-      *
-      * */
+    });
   }
 }

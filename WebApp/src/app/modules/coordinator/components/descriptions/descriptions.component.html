@@ -1,5 +1,6 @@
 <div class="page-content">
   <app-breadcrumb></app-breadcrumb>
+  <app-coordinator-grade #documentGrade (documentGraded)="grade($event)"></app-coordinator-grade>
   <div class="app-page-title">Project Descriptions</div>
   <div>
     <div class="card-body">
@@ -8,23 +9,22 @@
           <tr>
             <th class="text-center" [mdbTableSort]="documents" sortBy="id">ID</th>
             <th [mdbTableSort]="documents" sortBy="firstName" class="text-center">Author Id</th>
-            <th [mdbTableSort]="documents" sortBy="firstName" class="text-center">Download</th>
+            <th [mdbTableSort]="documents" sortBy="firstName" class="text-center">File</th>
+            <th class="text-center">Passed</th>
             <th class="text-center">Grade</th>
           </tr>
           <tr *ngFor="let document of documents; let id = index">
+            <td>{{document.id}}</td>
+            <td>{{document.authorId}}</td>
+            <td><i class="fas fa-download" style="cursor: pointer" (click)="download(document)"></i></td>
             <td>
-            <span
-              contenteditable="false">{{document.id}}</span>
+              {{document.getPassOrFail()}}
             </td>
             <td>
-              <span contenteditable="false">{{document.authorId}}</span>
+              <button mdbBtn type="submit" color="blue" (click)='openGradeComponent(document)'
+                      mdbWaveEffect>Grade
+              </button>
             </td>
-            <td>
-              <span contenteditable="false">{{document.authorId}}</span>
-            </td>
-            <td>
-            </td>
-
           </tr>
         </table>
       </div>

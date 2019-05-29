@@ -12,6 +12,9 @@ import {EditComponent} from "./components/users/components/edit/edit.component";
 import { DescriptionsComponent } from './components/descriptions/descriptions.component';
 import { PlansComponent } from './components/plans/plans.component';
 import { FinalReportsComponent } from './components/final-reports/final-reports.component';
+import {DocumentService} from "../../services/document/document.service";
+import {DocumentsService} from "../../services/document/documents.service";
+import {GradeComponent} from "./components/descriptions/grade-pass/grade.component";
 
 
 @NgModule({
@@ -23,7 +26,12 @@ import { FinalReportsComponent } from './components/final-reports/final-reports.
     DescriptionsComponent,
     PlansComponent,
     FinalReportsComponent,
+    GradeComponent,
 
+  ],
+  providers: [
+    DocumentService,
+    DocumentsService,
   ],
   imports: [
     CommonModule,

@@ -13,9 +13,7 @@ export class EditComponent implements OnInit {
   error = null;
   working = false;
 
-
-  @Input() show;
-  @Output() userAdded = new EventEmitter<User>();
+  @Output() userEdited = new EventEmitter<User>();
   @ViewChild("userEditModal") modal;
 
   constructor(private SupervisorService: SupervisorService,
@@ -31,6 +29,15 @@ export class EditComponent implements OnInit {
   }
 
   ngOnInit() {
+
+  }
+
+  show(user: User) {
+    this.form.controls.username.setValue(user.username);
+    this.form.controls.firstName.setValue(user.firstName);
+    this.form.controls.lastName.setValue(user.lastName);
+    this.form.controls.email.setValue(user.email);
+    this.modal.show();
   }
 
   save() {
@@ -43,6 +50,9 @@ export class EditComponent implements OnInit {
     }
     this.error = null;
     this.working = true;
+
+    this.userEdited.emit(new User());
+    this.modal.hide();
 
     /*
     this.userService.add(this.form.value)

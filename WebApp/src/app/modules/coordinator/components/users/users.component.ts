@@ -11,15 +11,15 @@ import {MdbTableDirective} from "angular-bootstrap-md";
 })
 export class UsersComponent implements OnInit {
 
+  users: User[] = [];
+
   @ViewChild(MdbTableDirective) mdbTable: MdbTableDirective;
-  private person = new User();
+  @ViewChild("userEdit") userEdit;
 
   constructor(
     private usersService: UsersService
   ) {
   }
-
-  users: Array<User>;
 
 
   ngOnInit() {
@@ -28,6 +28,10 @@ export class UsersComponent implements OnInit {
 
   add(user) {
     this.users.push(user);
+  }
+
+  edit(user) {
+    console.log(user);
   }
 
   get() {
@@ -40,7 +44,7 @@ export class UsersComponent implements OnInit {
         });
   }
 
-  openEditComponent(person: User) {
-
+  openEditComponent(user: User) {
+      this.userEdit.show(user);
   }
 }

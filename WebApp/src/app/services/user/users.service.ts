@@ -18,7 +18,6 @@ export class UsersService {
       params: createParameters(args)
     })
       .pipe(map(actions => {
-          console.log(actions);
           return actions.users.map(item => {
             return new User(item);
           });

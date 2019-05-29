@@ -45,4 +45,8 @@ export class Document {
     return this.type == 3;
   }
 
+  getPassOrFail() {
+    return this.gradePass == 0 ? '' : this.gradePass == 1 ? 'G' : 'U';
+  }
+
 }
