@@ -16,7 +16,7 @@ import {SharedModule} from "./shared.module";
 import { SupervisorService } from './services/user/supervisor.service';
 import {DocumentsService} from "./services/document/documents.service";
 import {DocumentService} from "./services/document/document.service";
-import {CookieService} from "ngx-cookie-service";
+//import {CookieService} from "ngx-cookie-service";
 
 @NgModule({
   declarations: [
@@ -41,7 +41,7 @@ import {CookieService} from "ngx-cookie-service";
     UsersService,
     SupervisorService,
     DocumentService,
-    CookieService,
+    //CookieService,
   ],
   exports: [],
   bootstrap: [AppComponent]

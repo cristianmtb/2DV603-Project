@@ -28,5 +28,14 @@ export class UsersService {
   public add(data) {
     return this.http.post<any>(`${environment.serverUrl}/api/user/add/`, createFormData(data));
   }
+  public edit(id, data)
+  {
+    return this.http.post<any>(`${environment.serverUrl}/api/user/update/` + id,
+      createFormData(data)
+    ).pipe(map(actions => {
+      return new User(actions.user);
+      }
+    ));
+  }
 
 }

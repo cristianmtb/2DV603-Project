@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angula
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../../../../../models/user";
 import {SupervisorService} from "../../../../../../services/user/supervisor.service";
+import { UsersService } from 'src/app/services/user/users.service';
 
 @Component({
   selector: 'app-coordinator-users-edit',
@@ -9,15 +10,19 @@ import {SupervisorService} from "../../../../../../services/user/supervisor.serv
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
+  user : User = null
   form: FormGroup;
   error = null;
   working = false;
 
   @Output() userEdited = new EventEmitter<User>();
   @ViewChild("userEditModal") modal;
+  userAdded: any;
+  basicModal: any;
 
   constructor(private SupervisorService: SupervisorService,
               private formBuilder: FormBuilder,
+              private userService:UsersService
   ) {
     this.form = this.formBuilder.group({
       username: ['', [Validators.required, Validators.minLength(1)]],
@@ -33,6 +38,7 @@ export class EditComponent implements OnInit {
   }
 
   show(user: User) {
+    this.user = user;
     this.form.controls.username.setValue(user.username);
     this.form.controls.firstName.setValue(user.firstName);
     this.form.controls.lastName.setValue(user.lastName);
@@ -50,21 +56,18 @@ export class EditComponent implements OnInit {
     }
     this.error = null;
     this.working = true;
-
     this.userEdited.emit(new User());
     this.modal.hide();
-
-    /*
-    this.userService.add(this.form.value)
+    this.userService.edit(this.user.id ,this.form.value )
       .subscribe((next) => {
-          this.userAdded.emit(next.user);
+          this.userAdded.emit(next);
           this.basicModal.hide();
         },
         (error) => {
           this.error = 'invalid input';
         }
       )
-  */
+  
 
   }
 
