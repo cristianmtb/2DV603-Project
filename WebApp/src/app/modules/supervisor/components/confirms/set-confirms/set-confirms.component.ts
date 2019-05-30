@@ -1,7 +1,8 @@
 import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Document} from "../../../../../models/document";
-import {DocumentService} from "../../../../../services/document/document.service";
+import {SupervisorService} from "../../../../../services/user/supervisor.service";
+import {Confirmation} from "../../../../../models/confirmation";
 
 @Component({
   selector: 'app-set-confirms',
@@ -9,19 +10,19 @@ import {DocumentService} from "../../../../../services/document/document.service
   styleUrls: ['./set-confirms.component.scss']
 })
 export class SetConfirmsComponent implements OnInit {
-
+  confirmation: Confirmation = null;
   form: FormGroup;
   error = null;
   working = false;
 
-  @Output() documentGraded = new EventEmitter<Document>();
+  @Output() supervisorConfirmed = new EventEmitter<Confirmation>();
   @ViewChild("userEditModal") modal;
 
-  constructor(private documentService: DocumentService,
+  constructor(private supervisorService: SupervisorService,
               private formBuilder: FormBuilder,
   ) {
     this.form = this.formBuilder.group({
-      grade_pass: ['', [Validators.required]],
+      confirmed: [0, [Validators.required]],
     });
 
   }
@@ -30,8 +31,9 @@ export class SetConfirmsComponent implements OnInit {
 
   }
 
-  show(document: Document) {
-    this.form.controls.grade_pass.setValue(document.gradePass);
+  show(confirmation: Confirmation) {
+    this.confirmation = confirmation;
+    this.form.controls.confirmed.setValue(confirmation.confirmed);
     this.modal.show();
   }
 
@@ -46,21 +48,17 @@ export class SetConfirmsComponent implements OnInit {
     this.error = null;
     this.working = true;
 
-    this.documentGraded.emit(new Document());
-    this.modal.hide();
-
-    /*
-    this.userService.add(this.form.value)
+    this.supervisorService.confirm(this.confirmation.id, this.form.value)
       .subscribe((next) => {
-          this.userAdded.emit(next.user);
-          this.basicModal.hide();
+          this.supervisorConfirmed.emit(next);
+          this.modal.hide();
         },
         (error) => {
-          this.error = 'invalid input';
+          this.error =  error;
         }
-      )
-  */
+      );
 
+    return false;
   }
 
 }

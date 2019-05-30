@@ -14,24 +14,21 @@ export class ConfirmsComponent implements OnInit {
   error = null;
 
 
-
   @ViewChild("confirm") confirmSupervision;
 
   constructor(private supervisorService: SupervisorService,
               private auth: AuthService,
               private router: Router,
-              supervisorConfirm : SupervisorService
   ) {
   }
 
   ngOnInit() {
     if (!this.auth.isLoggedIn()) this.router.navigate(['login']);
     else {
-      this.supervisorService.getSuggestions(this.auth.getCurrentUserId())
+      this.supervisorService.getSuggestions({supervisorId: this.auth.getCurrentUserId()})
         .subscribe(
           (data) => {
             this.confirmationList = data;
-            console.log(this.confirmationList);
           }, (error) => {
             this.error = error;
           });
@@ -45,7 +42,10 @@ export class ConfirmsComponent implements OnInit {
 
   }
 
-  setConfirm(item) {
-    
+  setConfirm(confirmation) {
+    const i = this.confirmationList.map(x => x.id).indexOf(confirmation.id);
+    if (i >= 0) {
+      this.confirmationList.splice(i, 1, confirmation);
+    }
   }
 }

@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {createFormData, createParameters} from "../formData";
 import {environment} from "../../../environments/environment";
+import {map} from "rxjs/operators";
+import {Document} from "../../models/document";
 
 @Injectable()
 export class DocumentService {
@@ -21,7 +23,10 @@ export class DocumentService {
   public set(id, args = null) {
     return this.http.post<any>(`${environment.serverUrl}/api/document/update/` + id, {
       params: createFormData(args)
-    });
+    }).pipe(map(actions => {
+        return new Document(actions.document);
+      }
+    ));
   }
 
 }

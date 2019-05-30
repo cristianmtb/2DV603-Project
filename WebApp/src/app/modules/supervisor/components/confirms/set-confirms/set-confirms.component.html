@@ -14,8 +14,7 @@
         </div>
         <form [formGroup]="form" (keydown.enter)="save()">
           <div class="md-form">
-            <select class="browser-default custom-select">
-              <option selected>Select</option>
+            <select class="browser-default custom-select" [formControl]="form.controls.confirmed">
               <option value="1">Yes</option>
               <option value="0">No</option>
             </select>
