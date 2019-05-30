@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {SupervisorService} from 'src/app/services/user/supervisor.service';
 import {AuthService} from 'src/app/services/auth/auth.service';
 import {Confirmation} from 'src/app/models/confirmation';
@@ -13,9 +13,14 @@ export class ConfirmsComponent implements OnInit {
   confirmationList: Confirmation[] = [];
   error = null;
 
+
+
+  @ViewChild("confirm") confirmSupervision;
+
   constructor(private supervisorService: SupervisorService,
               private auth: AuthService,
-              private router: Router
+              private router: Router,
+              supervisorConfirm : SupervisorService
   ) {
   }
 
@@ -36,10 +41,11 @@ export class ConfirmsComponent implements OnInit {
   }
 
   openConfirmComponent(item) {
+    this.confirmSupervision.show((item));
 
   }
 
-  setConfirm($event: Document) {
+  setConfirm(item) {
     
   }
 }
