@@ -66,7 +66,7 @@ export class EditComponent implements OnInit {
         (error) => {
           this.error = 'invalid input';
         }
-      )
+      );
   
 
   }

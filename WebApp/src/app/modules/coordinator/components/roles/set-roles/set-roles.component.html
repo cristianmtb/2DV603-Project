@@ -14,13 +14,17 @@
         </div>
         <form [formGroup]="form" (keydown.enter)="save()">
           <div class="md-form">
-            <select class="browser-default custom-select">
+            <select class="browser-default custom-select" [formControl]="form.controls.roleId">
               <option selected>Select Role</option>
               <option value="1">Student</option>
               <option value="2">Opponent</option>
               <option value="3">Supervisor</option>
               <option value="4">Reader</option>
               <option value="5">Coordinator</option>
+              <option value="6">Student + Opponent</option>
+              <option value="7">Student + Reader</option>
+              <option value="8">Supervisor + Reader</option>
+              <option value="10">Reader + Opponent</option>
             </select>
           </div>
         </form>

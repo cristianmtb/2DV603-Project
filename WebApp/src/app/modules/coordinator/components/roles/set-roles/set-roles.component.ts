@@ -1,7 +1,5 @@
 import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Document} from "../../../../../models/document";
-import {DocumentService} from "../../../../../services/document/document.service";
 import {User} from "../../../../../models/user";
 import {UsersService} from "../../../../../services/user/users.service";
 
@@ -17,14 +15,14 @@ export class SetRolesComponent implements OnInit {
   user: User = null;
   @Output() roleSet = new EventEmitter<User>();
   @ViewChild("roleSet") modal;
+  userAdded: any;
+  basicModal: any;
 
-
-  constructor(private documentService: DocumentService,
-              private formBuilder: FormBuilder,
+  constructor(private formBuilder: FormBuilder,
               private userService: UsersService,
   ) {
     this.form = this.formBuilder.group({
-      role: ['', [Validators.required]],
+      roleId: ['', [Validators.required]],
     });
 
   }
@@ -34,7 +32,8 @@ export class SetRolesComponent implements OnInit {
   }
 
   show(user: User) {
-    this.form.controls.role.setValue(user.roleId);
+    this.user = user;
+    this.form.controls.roleId.setValue(user.roleId);
     this.modal.show();
   }
 
@@ -50,20 +49,17 @@ export class SetRolesComponent implements OnInit {
     this.working = true;
     this.roleSet.emit(new User());
     this.modal.hide();
+    console.log(this.form.value);
     this.userService.edit(this.user.id, this.form.value)
-
       .subscribe((next) => {
         console.log(next);
           this.roleSet.emit(next);
-          // this.userAdded.emit(next);
           this.modal.hide();
         },
         (error) => {
           this.error = 'invalid input';
         }
       );
-    return false;
-
   }
 
 
