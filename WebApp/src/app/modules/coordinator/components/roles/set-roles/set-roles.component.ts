@@ -61,8 +61,8 @@ export class SetRolesComponent implements OnInit {
         (error) => {
           this.error = 'invalid input';
         }
-      )
-
+      );
+    return false;
 
   }
 
