@@ -4,142 +4,84 @@
  * It has functions for login, logout, checking the user role and retrieving user information
 */
 
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { User } from 'src/app/models/user';
-import { Router } from '@angular/router';
-import config from "../../../config.json";
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {User} from 'src/app/models/user';
+import {map} from "rxjs/operators";
+import {environment} from "../../../environments/environment";
+import {createParameters} from "../formData";
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
   private currentUser: User = null;
-  private response:Response = null;
 
-  constructor(private http: HttpClient, private router: Router) { }
-
-
-  isLoggedIn()
-  {
-    if (this.currentUser == null) return false;
-    else return true;
+  constructor(private http: HttpClient) {
   }
-  getUserName()
-  {
-    if(this.isLoggedIn())
-    {
+
+  isLoggedIn() {
+    return this.currentUser != null;
+  }
+
+  getUserName() {
+    if (this.isLoggedIn()) {
       return this.currentUser.username
     }
   }
 
-  logout()
-  {
+  getCurrentUser() {
+    return this.currentUser;
+  }
+
+  getCurrentUserId() {
+    return this.currentUser.id;
+  }
+
+  logout() {
     this.currentUser = null;
   }
 
-  login(username: string, password: string)
-  {
-    this.getUser(username, password).subscribe((data) =>{
-      while(data == null)
-      {
-        ;
-      }
-      console.log(data);
-      this.response = data;
-      if(this.response.user.username == username && this.response.user.password == password)
-      {
-        this.currentUser = this.toUser(this.response);
-        console.log(this.currentUser);
-        this.router.navigate(['']);
-      } 
+  login(args = null): Promise<User> {
+    return new Promise((resolve, reject) => {
+      this.http.get<any>(environment.serverUrl + '/api/user/get', {
+        params: createParameters(args)
+      })
+        .pipe(map(
+          actions => {
+            return new User(actions.user);
+          }))
+        .subscribe(
+          (next) => {
+            this.currentUser = next;
+            resolve(next);
+          },
+          (error) => {
+            reject(error);
+          }
+        )
     });
   }
 
-
-  private getUser (username: string, password: string) 
-  {
-    return this.http.get<Response>(`${config.serverUrl}/api/user/get/?username=${username}&password=${password}`);
+  isCoordinator() {
+    return this.isLoggedIn() && this.currentUser.isCoordinator();
   }
 
-  public toUser(res: Response):User
-  {
-    let user:User = new User;
-    
-    user.username = res.user.username;
-    user.password = res.user.password;
-    user.roleID = res.user.roleId;
-    user.id = res.user.id;
-    user.name = res.user.firstName;
-    user.email = res.user.email;
-    switch(user.roleID)
-    {
-      case 1:
-        user.student = true;
-        break;
-      case 2:
-        user.opponent = true;
-        break;
-      case 3:
-        user.supervisor = true;
-        break;
-      case 4:
-        user.reader = true;
-        break;
-      case 5:
-        user.coordinator = true;
-        break;
-      case 6:
-        user.student = true;
-        user.opponent = true;
-        break;
-      default:
-        ;
-
-    }
-    return user;
+  isStudent() {
+    return this.isLoggedIn() && this.currentUser.isStudent();
   }
 
-  isCoordinator()
-  {
-    if(this.isLoggedIn() && this.currentUser.coordinator === true) return true;
-    return false;
+  isSupervisor() {
+    return this.isLoggedIn() && this.currentUser.isSupervisor();
   }
-  isStudent()
-  {
-    if(this.isLoggedIn() && this.currentUser.student === true) return true;
-    return false;
-  }
-  isSupervisor()
-  {
-    if(this.isLoggedIn() && this.currentUser.supervisor === true) return true;
-    return false;
-  }
-  isReader()
-  {
-    if(this.isLoggedIn() && this.currentUser.reader === true) return true;
-    return false;
-  }
-  isOpponent()
-  {
-    if(this.isLoggedIn() && this.currentUser.opponent === true) return true;
-    return false;
-  }
-}
 
-class Response{
-  user:UserRes;
+  isReader() {
+    return this.isLoggedIn() && this.currentUser.isReader();
+  }
 
-  
-}
-class UserRes{
-  username: string;
-  password: string;
-  roleId: number;
-  id;
-  email;
-  deleted;
-  singedIn;
-  firstName;
+  isOpponent() {
+    return this.isLoggedIn() && this.currentUser.isOpponent();
+  }
 }
 
