@@ -47,10 +47,8 @@ export class GradePassComponent implements OnInit {
     this.working = true;
     this.documentGraded.emit(new Document());
     this.modal.hide();
-    console.log(this.form.value);
     this.documentService.set( this.document.id,this.form.value)
       .subscribe((next) => {
-        console.log(next);
           this.documentGraded.emit(next);
           this.modal.hide();
         },

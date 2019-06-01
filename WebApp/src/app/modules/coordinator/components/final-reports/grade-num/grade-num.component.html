@@ -14,8 +14,7 @@
         </div>
         <form [formGroup]="form" (keydown.enter)="save()">
           <div class="md-form">
-            <select class="browser-default custom-select">
-              <option selected>Select grade</option>
+            <select class="browser-default custom-select" [formControl]="form.controls.gradeNum">
               <option value="1">A</option>
               <option value="2">B</option>
               <option value="3">C</option>
