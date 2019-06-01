@@ -47,7 +47,7 @@ export class SetRolesComponent implements OnInit {
     this.working = true;
     this.roleSet.emit(new User());
     this.modal.hide();
-    this.userService.edit(this.user.id, this.form.value)
+    this.userService.editRole(this.user.id, this.form.value)
       .subscribe((next) => {
           this.roleSet.emit(next);
           this.modal.hide();
