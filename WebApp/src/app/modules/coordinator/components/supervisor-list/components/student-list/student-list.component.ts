@@ -32,7 +32,7 @@ export class StudentListComponent implements OnInit {
       this.supervisorService.getSuggestions({supervisorId: this.auth.getCurrentUserId()})
         .subscribe(
           (data) => {
-           // this.confirmationList = data;
+
           }, (error) => {
             this.error = error;
           });
@@ -40,8 +40,9 @@ export class StudentListComponent implements OnInit {
     }
 
   }
-getSupervisorid(user : User){
 
-}
+  getSupervisorid(user: User) {
+
+  }
 
 }

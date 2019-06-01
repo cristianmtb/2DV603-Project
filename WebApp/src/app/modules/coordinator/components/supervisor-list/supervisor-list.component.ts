@@ -36,4 +36,11 @@ export class SupervisorListComponent implements OnInit {
   }
 
 
+  view($event: User) {
+
+  }
+
+  openStudentsListComponent(person: User) {
+    person.getRole()
+  }
 }
