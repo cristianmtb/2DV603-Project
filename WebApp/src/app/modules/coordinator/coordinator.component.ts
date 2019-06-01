@@ -43,6 +43,8 @@ export class CoordinatorComponent implements OnInit {
     this.items.push(new Item(
       'Roles', 'Set Roles', 'fas fa-user-tag', '/roles'));
 
+    this.items.push(new Item(
+      'Supervisor student list', 'check the student list under each supervisor', "fas fa-th-list", '/list'));
 
 
   }

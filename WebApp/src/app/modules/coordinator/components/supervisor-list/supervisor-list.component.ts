@@ -4,16 +4,15 @@ import {MdbTableDirective} from "angular-bootstrap-md";
 import {UsersService} from "../../../../services/user/users.service";
 
 @Component({
-  selector: 'app-roles',
-  templateUrl: './roles.component.html',
-  styleUrls: ['./roles.component.scss']
+  selector: 'app-supervisor-list',
+  templateUrl: './supervisor-list.component.html',
+  styleUrls: ['./supervisor-list.component.scss']
 })
-export class RolesComponent implements OnInit {
-
+export class SupervisorListComponent implements OnInit {
   users: User[] = [];
-  @ViewChild(MdbTableDirective) mdbTable: MdbTableDirective;
-  @ViewChild("roleSet") roleSet;
 
+  @ViewChild(MdbTableDirective) mdbTable: MdbTableDirective;
+  @ViewChild("userEdit") userEdit;
 
   constructor(
     private usersService: UsersService
@@ -25,8 +24,9 @@ export class RolesComponent implements OnInit {
     this.get();
   }
 
+
   get() {
-    this.usersService.get()
+    this.usersService.get({roleId: 3})
       .subscribe(
         (data) => {
           this.users = data
@@ -35,12 +35,5 @@ export class RolesComponent implements OnInit {
         });
   }
 
-  openSetComponent(user: User) {
-    this.roleSet.show(user);
-  }
 
-  set(user) {
-    console.log(user);
-
-  }
 }

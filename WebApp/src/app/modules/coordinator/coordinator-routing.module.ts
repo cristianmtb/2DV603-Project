@@ -7,6 +7,7 @@ import {DescriptionsComponent} from "./components/descriptions/descriptions.comp
 import {FinalReportsComponent} from "./components/final-reports/final-reports.component";
 import {RolesComponent} from "./components/roles/roles.component";
 import {DeadlinesComponent} from "./components/deadlines/deadlines.component";
+import {SupervisorListComponent} from "./components/supervisor-list/supervisor-list.component";
 
 
 const routes: Routes = [
@@ -38,6 +39,11 @@ const routes: Routes = [
   {
     path: 'deadlines',
     component: DeadlinesComponent
+  },
+
+  {
+    path: 'list',
+    component: SupervisorListComponent
   },
 ];
 

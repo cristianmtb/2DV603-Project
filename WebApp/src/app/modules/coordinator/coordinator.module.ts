@@ -20,6 +20,8 @@ import { GradeNumComponent } from './components/final-reports/grade-num/grade-nu
 import { SetRolesComponent } from './components/roles/set-roles/set-roles.component';
 import { DeadlinesComponent } from './components/deadlines/deadlines.component';
 import { EditDeadlineComponent } from './components/deadlines/edit-deadline/edit-deadline.component';
+import { SupervisorListComponent } from './components/supervisor-list/supervisor-list.component';
+import { StudentListComponent } from './components/supervisor-list/components/student-list/student-list.component';
 
 
 @NgModule({
@@ -37,6 +39,8 @@ import { EditDeadlineComponent } from './components/deadlines/edit-deadline/edit
     SetRolesComponent,
     DeadlinesComponent,
     EditDeadlineComponent,
+    SupervisorListComponent,
+    StudentListComponent,
 
   ],
   providers: [
