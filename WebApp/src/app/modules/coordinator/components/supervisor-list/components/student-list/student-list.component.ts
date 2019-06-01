@@ -4,7 +4,7 @@ import {MdbTableDirective} from "angular-bootstrap-md";
 import {UsersService} from "../../../../../../services/user/users.service";
 import {SupervisorService} from "../../../../../../services/user/supervisor.service";
 import {AuthService} from "../../../../../../services/auth/auth.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Confirmation} from "../../../../../../models/confirmation";
 
 @Component({
@@ -13,7 +13,7 @@ import {Confirmation} from "../../../../../../models/confirmation";
   styleUrls: ['./student-list.component.scss']
 })
 export class StudentListComponent implements OnInit {
-
+  supervisorId = 0;
   users: User[] = [];
   error = null;
 
@@ -21,28 +21,26 @@ export class StudentListComponent implements OnInit {
   @ViewChild("userEdit") userEdit;
 
   constructor(private supervisorService: SupervisorService,
+              private usersService: UsersService,
               private auth: AuthService,
-              private router: Router,
+              private activatedRoute: ActivatedRoute,
   ) {
+    this.supervisorId = parseInt(this.activatedRoute.snapshot.paramMap.get('id'), 10);
   }
 
   ngOnInit() {
-    if (!this.auth.isLoggedIn()) this.router.navigate(['login']);
-    else {
-      this.supervisorService.getSuggestions({supervisorId: this.auth.getCurrentUserId()})
-        .subscribe(
-          (data) => {
 
-          }, (error) => {
-            this.error = error;
-          });
+    this.usersService.get({supervisorId: this.supervisorId, roleId: 1})
+      .subscribe(
+        (data) => {
+          this.users = data;
+          console.log(data);
+        }, (error) => {
+          this.error = error;
+        });
 
-    }
-
-  }
-
-  getSupervisorid(user: User) {
 
   }
+
 
 }

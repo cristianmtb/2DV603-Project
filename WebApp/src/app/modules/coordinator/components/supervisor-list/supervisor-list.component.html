@@ -4,9 +4,7 @@
   <div>
     <div class="card-body">
       <div id="table" class="table-editable">
-      <span class="table-add float-right mb-3 mr-2">
-        <app-coordinator-users-edit #userEdit (userEdited)="view($event)" ></app-coordinator-users-edit>
-      </span>
+
         <table class="table table-bordered table-responsive-md table-striped text-center">
           <tr>
             <th class="text-center" [mdbTableSort]="users" sortBy="id">ID</th>
@@ -35,7 +33,7 @@
               <span contenteditable="false">{{person.email}}</span>
             </td>
             <td>
-              <i class="fas fa-list" style="cursor: pointer;" (click)="openStudentsListComponent(person)" ></i>
+              <i class="fas fa-list" style="cursor: pointer;" (click)="viewStudents(person)"></i>
             </td>
           </tr>
         </table>
