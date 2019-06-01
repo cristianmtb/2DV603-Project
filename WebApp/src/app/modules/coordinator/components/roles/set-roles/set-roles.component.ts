@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Document} from "../../../../../models/document";
 import {DocumentService} from "../../../../../services/document/document.service";
 import {User} from "../../../../../models/user";
+import {UsersService} from "../../../../../services/user/users.service";
 
 @Component({
   selector: 'app-set-roles',
@@ -10,19 +11,20 @@ import {User} from "../../../../../models/user";
   styleUrls: ['./set-roles.component.scss']
 })
 export class SetRolesComponent implements OnInit {
-
   form: FormGroup;
   error = null;
   working = false;
-
+  user: User = null;
   @Output() roleSet = new EventEmitter<User>();
-  @ViewChild("userEditModal") modal;
+  @ViewChild("roleSet") modal;
+
 
   constructor(private documentService: DocumentService,
               private formBuilder: FormBuilder,
+              private userService: UsersService,
   ) {
     this.form = this.formBuilder.group({
-      grade_pass: ['', [Validators.required]],
+      role: ['', [Validators.required]],
     });
 
   }
@@ -31,8 +33,8 @@ export class SetRolesComponent implements OnInit {
 
   }
 
-  show(document: Document) {
-    this.form.controls.grade_pass.setValue(document.gradePass);
+  show(user: User) {
+    this.form.controls.role.setValue(user.roleId);
     this.modal.show();
   }
 
@@ -46,21 +48,21 @@ export class SetRolesComponent implements OnInit {
     }
     this.error = null;
     this.working = true;
-
     this.roleSet.emit(new User());
     this.modal.hide();
+    this.userService.edit(this.user.id, this.form.value)
 
-    /*
-    this.userService.add(this.form.value)
       .subscribe((next) => {
-          this.userAdded.emit(next.user);
-          this.basicModal.hide();
+        console.log(next);
+          this.roleSet.emit(next);
+          // this.userAdded.emit(next);
+          this.modal.hide();
         },
         (error) => {
           this.error = 'invalid input';
         }
       )
-  */
+
 
   }
 

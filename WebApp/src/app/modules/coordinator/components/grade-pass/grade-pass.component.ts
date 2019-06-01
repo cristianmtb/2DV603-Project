@@ -2,6 +2,7 @@ import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core'
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {DocumentService} from "../../../../services/document/document.service";
 import {Document} from "../../../../models/document";
+import {User} from "../../../../models/user";
 
 @Component({
   selector: 'app-coordinator-grade',
@@ -12,7 +13,7 @@ export class GradePassComponent implements OnInit {
   form: FormGroup;
   error = null;
   working = false;
-
+  document : Document = null;
   @Output() documentGraded = new EventEmitter<Document>();
   @ViewChild("userEditModal") modal;
 
@@ -30,6 +31,7 @@ export class GradePassComponent implements OnInit {
   }
 
   show(document: Document) {
+    this.document= document;
     this.form.controls.grade_pass.setValue(document.gradePass);
     this.modal.show();
   }
@@ -48,17 +50,16 @@ export class GradePassComponent implements OnInit {
     this.documentGraded.emit(new Document());
     this.modal.hide();
 
-    /*
-    this.userService.add(this.form.value)
+    this.documentService.set( this.document.id,this.form.value)
       .subscribe((next) => {
-          this.userAdded.emit(next.user);
-          this.basicModal.hide();
+          this.documentGraded.emit(next);
+          this.modal.hide();
         },
         (error) => {
           this.error = 'invalid input';
         }
       )
-  */
+
 
   }
 

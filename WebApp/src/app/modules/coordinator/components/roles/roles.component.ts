@@ -34,12 +34,13 @@ export class RolesComponent implements OnInit {
 
         });
   }
-  openGradeComponent(item) {
-    this.roleSet.show(item);
+
+  openSetComponent(user: User[]) {
+    this.roleSet.show(user);
   }
 
   set(user) {
-
+    console.log(user);
   }
 
 }
