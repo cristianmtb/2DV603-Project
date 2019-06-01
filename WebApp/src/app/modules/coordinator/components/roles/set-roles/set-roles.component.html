@@ -15,7 +15,6 @@
         <form [formGroup]="form" (keydown.enter)="save()">
           <div class="md-form">
             <select class="browser-default custom-select" [formControl]="form.controls.roleId">
-              <option selected>Select Role</option>
               <option value="1">Student</option>
               <option value="2">Opponent</option>
               <option value="3">Supervisor</option>

@@ -2,7 +2,6 @@ import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core'
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {DocumentService} from "../../../../services/document/document.service";
 import {Document} from "../../../../models/document";
-import {User} from "../../../../models/user";
 
 @Component({
   selector: 'app-coordinator-grade',
@@ -21,7 +20,7 @@ export class GradePassComponent implements OnInit {
               private formBuilder: FormBuilder,
   ) {
     this.form = this.formBuilder.group({
-      grade_pass: ['', [Validators.required]],
+      gradePass: ['', [Validators.required]],
     });
 
   }
@@ -31,8 +30,8 @@ export class GradePassComponent implements OnInit {
   }
 
   show(document: Document) {
-    this.document= document;
-    this.form.controls.grade_pass.setValue(document.gradePass);
+    this.document = document;
+    this.form.controls.gradePass.setValue(document.gradePass);
     this.modal.show();
   }
 
@@ -46,12 +45,12 @@ export class GradePassComponent implements OnInit {
     }
     this.error = null;
     this.working = true;
-
     this.documentGraded.emit(new Document());
     this.modal.hide();
-
+    console.log(this.form.value);
     this.documentService.set( this.document.id,this.form.value)
       .subscribe((next) => {
+        console.log(next);
           this.documentGraded.emit(next);
           this.modal.hide();
         },

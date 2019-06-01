@@ -15,8 +15,6 @@ export class SetRolesComponent implements OnInit {
   user: User = null;
   @Output() roleSet = new EventEmitter<User>();
   @ViewChild("roleSet") modal;
-  userAdded: any;
-  basicModal: any;
 
   constructor(private formBuilder: FormBuilder,
               private userService: UsersService,
@@ -49,10 +47,8 @@ export class SetRolesComponent implements OnInit {
     this.working = true;
     this.roleSet.emit(new User());
     this.modal.hide();
-    console.log(this.form.value);
     this.userService.edit(this.user.id, this.form.value)
       .subscribe((next) => {
-        console.log(next);
           this.roleSet.emit(next);
           this.modal.hide();
         },

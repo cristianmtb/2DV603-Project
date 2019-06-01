@@ -20,10 +20,9 @@ export class DocumentService {
     });
   }
 
-  public set(id, args = null) {
-    return this.http.post<any>(`${environment.serverUrl}/api/document/update/` + id, {
-      params: createFormData(args)
-    }).pipe(map(actions => {
+  public set(id, args) {
+    return this.http.post<any>(`${environment.serverUrl}/api/document/update/` + id, createFormData(args)
+    ).pipe(map(actions => {
         return new Document(actions.document);
       }
     ));
