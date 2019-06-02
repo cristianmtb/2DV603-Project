@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DeadlineServiceService } from './deadline-service.service';
+import { SubmissionService } from './submission.service';
 
-describe('DeadlineServiceService', () => {
+describe('SubmissionService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: DeadlineServiceService = TestBed.get(DeadlineServiceService);
+    const service: SubmissionService = TestBed.get(SubmissionService);
     expect(service).toBeTruthy();
   });
 });

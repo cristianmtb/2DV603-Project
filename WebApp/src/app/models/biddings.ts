@@ -1,51 +1,50 @@
-export class Bid {
+export class Biddding {
+    id: number;
+    readerId: number;
+    reportId: number;
+    biddingNumber: number;
+    assigned: number;
 
-  id: number;
-  readerId: number;
-  reportId: number;
-  biddingNumber: number;
-  assigned: number;
-
-  constructor(bidding = null) {
-    if (bidding != null) {
-      this.fromDocument(bidding);
+    constructor(bidding = null) {
+        if (bidding != null) {
+            this.fromDocument(bidding);
+        }
     }
-  }
 
-  private fromDocument(bidding) {
-    this.id = bidding.id;
-    this.readerId = bidding.readerId;
-    this.reportId = bidding.reportId;
-    this.biddingNumber = bidding.biddingNumber;
-    this.assigned = bidding.assigned;
+    private fromDocument(bidding) {
+        this.id = bidding.id;
+        this.readerId = bidding.readerId;
+        this.reportId = bidding.reportId;
+        this.biddingNumber = bidding.biddingNumber;
+        this.assigned = bidding.assigned;
 
-  }
+    }
 
-  getId() {
-    return this.readerId;
-  }
-
-
-  getReportId() {
-    return this.readerId;
-  }
-
-  getReaderId() {
-    return this.reportId;
-  }
+    getId() {
+        return this.readerId;
+    }
 
 
-  getBiddingNumber() {
-    return this.biddingNumber;
-  }
+    getReportId() {
+        return this.readerId;
+    }
 
-  getAssigned() {
-    if (this.assigned == 1){
-      return 'Yes'
-    } else
-    return 'Available'
-  }
+    getReaderId() {
+        return this.reportId;
+    }
 
+
+    getBiddingNumber() {
+        return this.biddingNumber;
+    }
+
+    getAssigned() {
+        if (this.assigned === 1) {
+            return 'Yes';
+        } else {
+            return 'Available';
+        }
+    }
 }
 
 

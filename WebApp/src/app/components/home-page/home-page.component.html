@@ -1,47 +1,25 @@
 <div *ngIf="this.auth.isLoggedIn(); else elseBlock">
-  <div class="container">
-    <p class="text-uppercase" class="text-monospace"  class="font-weight-bold">Welcome {{userName}}.</p>
+    <div class="container">
+        <p class="text-uppercase" class="text-monospace" class="font-weight-bold">Welcome {{userName}}.</p>
 
-</div>
-
-  <div class="container">
-    <h3>Deadlines</h3>
-    <div class="list-group">
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start disabled">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">{{this.deadline.getDate()}}</h5>
-          <small>3 days ago</small>
-        </div>
-        <p class="mb-1">Project description .</p>
-        <small>Donec id elit non mi porta.</small>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">{{this.deadline.getDate()}}</h5>
-          <small class="text-muted">3 days ago</small>
-        </div>
-        <p class="mb-1">Project plan.</p>
-        <small class="text-muted">Donec id elit non mi porta.</small>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">{{this.deadline.getDate()}}</h5>
-          <small class="text-muted">3 days ago</small>
-        </div>
-        <p class="mb-1">Report Draft.</p>
-        <small class="text-muted">Donec id elit non mi porta.</small>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">{{this.deadline.getDate()}}</h5>
-          <small class="text-muted">3 days ago</small>
-        </div>
-        <p class="mb-1">Final Report.</p>
-        <small class="text-muted">Donec id elit non mi porta.</small>
-      </a>
     </div>
-  </div>
+
+    <div class="container">
+        <h3>Deadlines</h3>
+        <div class="list-group">
+            <!--
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start disabled">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{this.submission.getDeadline()}}</h5>
+                    <small>3 days ago</small>
+                </div>
+                <p class="mb-1">Project description .</p>
+                <small>Donec id elit non mi porta.</small>
+            </a>
+            -->
+        </div>
+    </div>
 </div>
 <ng-template #elseBlock>
-  <welcome-page></welcome-page>
+    <welcome-page></welcome-page>
 </ng-template>

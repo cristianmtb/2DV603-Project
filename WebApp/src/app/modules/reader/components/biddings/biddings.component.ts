@@ -1,62 +1,64 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Document} from "../../../../models/document";
-import {MdbTableDirective} from "angular-bootstrap-md";
-import {DocumentsService} from "../../../../services/document/documents.service";
-import {DocumentService} from "../../../../services/document/document.service";
-import {BiddingService} from "../../../../services/bidding/bidding.service";
-import {Bid} from "../../../../models/biddings";
+import {Document} from '../../../../models/document';
+import {MdbTableDirective} from 'angular-bootstrap-md';
+import {DocumentsService} from '../../../../services/document/documents.service';
+import {DocumentService} from '../../../../services/document/document.service';
+import {BiddingService} from '../../../../services/bidding/bidding.service';
+import {Biddding} from '../../../../models/biddings';
+import {environment} from '../../../../../environments/environment';
 
 @Component({
-  selector: 'app-biddings',
-  templateUrl: './biddings.component.html',
-  styleUrls: ['./biddings.component.scss']
+    selector: 'app-biddings',
+    templateUrl: './biddings.component.html',
+    styleUrls: ['./biddings.component.scss']
 })
 export class BiddingsComponent implements OnInit {
 
-  documents: Document[] = [];
-  bids: Bid[] = [];
+    documents: Document[] = [];
+    bids: Biddding[] = [];
 
-  @ViewChild(MdbTableDirective) mdbTable: MdbTableDirective;
-  @ViewChild("documentGrade") documentGrade;
-
-
-  constructor(
-    private documentsService: DocumentsService,
-    private bidingService : BiddingService
-
-  ) {
-  }
+    @ViewChild(MdbTableDirective) mdbTable: MdbTableDirective;
+    @ViewChild('documentGrade') documentGrade;
 
 
-  ngOnInit() {
-    this.get();
-  }
+    constructor(
+        private documentsService: DocumentsService,
+        private bidingService: BiddingService
+    ) {
+    }
 
-  add(bid) {
-    this.bids.push(bid);
-  }
+    getReportUrl(reportId) {
+        return environment.serverUrl + '/api/document/download?id=' + reportId;
+    }
 
-  get() {
-    this.bidingService.get()
-      .subscribe(
-        (data) => {
-          this.bids = data;
-          console.log(data);
+    ngOnInit() {
+        this.get();
+    }
 
-        }, (error) => {
+    add(bid) {
+        this.bids.push(bid);
+    }
 
-        });
-  }
+    get() {
+        this.bidingService.get()
+            .subscribe(
+                (data) => {
+                    this.bids = data;
+                }, (error) => {
 
-  set(document) {
+                });
+    }
 
-  }
+    set(document) {
 
-  openGradeComponent(item) {
-    this.documentGrade.show(item);
-  }
+    }
+
+    openGradeComponent(item) {
+        this.documentGrade.show(item);
+    }
 
 }
+
 // add(bids) {
 //   this.bids.push(bids);
 // }

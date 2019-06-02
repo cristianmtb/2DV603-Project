@@ -1,33 +1,30 @@
-export class Deadline {
-  private id: number;
-  private deadline: Date;
-  private step: number;
+export class Submission {
+    private id: number;
+    private deadline: Date;
+    private step: number;
 
-  constructor(submission = null) {
-    if (submission != null) {
-      this.fromDocument(submission);
+    constructor(submission = null) {
+        if (submission != null) {
+            this.fromDocument(submission);
+        }
     }
-  }
 
+    private fromDocument(submission) {
+        this.id = submission.id;
+        this.deadline = submission.deadline;
+        this.step = submission.step;
 
-  private fromDocument(submission) {
-    this.id = submission.id;
-    this.deadline = submission.deadline;
-    this.step = submission.step;
+    }
 
-  }
+    public getId() {
+        return this.id;
+    }
 
-  public getId() {
-    return this.id;
-  }
+    public getDeadline() {
+        return this.deadline;
+    }
 
-  public getDeadline() {
-    return this.deadline;
-  }
-
-  public getStep() {
-    return this.step;
-  }
-
-
+    public getStep() {
+        return this.step;
+    }
 }

@@ -3,37 +3,38 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {createFormData, createParameters} from '../formData';
 import {map} from 'rxjs/operators';
-import {Biddding} from '../../models/biddings';
+import {Submission} from '../../models/deadline';
 
 @Injectable({
     providedIn: 'root'
 })
-export class BiddingService {
+export class SubmissionService {
+
 
     constructor(private http: HttpClient) {
     }
 
     public get(args = null) {
-        return this.http.get<any>(`${environment.serverUrl}/api/biddings/get`, {
+        return this.http.get<any>(`${environment.serverUrl}/api/submission/get`, {
             params: createParameters(args)
         })
             .pipe(map(actions => {
-                    return actions.bidding.map(item => {
-                        return new Biddding(item);
+                    return actions.submission.map(item => {
+                        return new Submission(item);
                     });
                 }
             ));
     }
 
     public add(data) {
-        return this.http.post<any>(`${environment.serverUrl}/api/biddings/add`, createFormData(data));
+        return this.http.post<any>(`${environment.serverUrl}/api/submission/add`, createFormData(data));
     }
 
     public edit(id, data) {
-        return this.http.post<any>(`${environment.serverUrl}/api/biddings/update/` + id,
+        return this.http.post<any>(`${environment.serverUrl}/api/submission/update/` + id,
             createFormData(data)
         ).pipe(map(actions => {
-                return new Biddding(actions.bid);
+                return new Submission(actions.bid);
             }
         ));
     }
