@@ -46,7 +46,6 @@ export class DocumentSubmitComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.form.value);
     if (!this.form.valid) {
       Object.keys(this.form.controls).forEach(field => {
         const control = this.form.get(field);
@@ -58,7 +57,6 @@ export class DocumentSubmitComponent implements OnInit {
 
     this.documentService.upload(this.form.value)
       .subscribe((next) => {
-        console.log(next);
         this.working = false;
         this.documentSubmitted.emit(next.document);
         this.modal.hide();

@@ -54,7 +54,6 @@ export class FeedbackSubmitComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.form.value);
     if (!this.form.valid) {
       Object.keys(this.form.controls).forEach(field => {
         const control = this.form.get(field);
@@ -66,7 +65,6 @@ export class FeedbackSubmitComponent implements OnInit {
 
     this.feedbacksService.add(this.form.value)
       .subscribe((next) => {
-        console.log(next);
         this.working = false;
         this.feedbackSubmitted.emit(next.feedback);
         this.modal.hide();

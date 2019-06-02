@@ -37,8 +37,6 @@ export class DescriptionsComponent implements OnInit {
       .subscribe(
         (data) => {
           this.documents = data;
-          console.log(data);
-
         }, (error) => {
 
         });

@@ -32,7 +32,6 @@ export class SupervisorListComponent implements OnInit {
       .subscribe(
         (data) => {
           this.users = data;
-          console.log(data)
         }, (error) => {
 
         });

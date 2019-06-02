@@ -37,8 +37,6 @@ export class FinalReportsComponent implements OnInit {
       .subscribe(
         (data) => {
           this.documents = data;
-          console.log(data);
-
         }, (error) => {
 
         });

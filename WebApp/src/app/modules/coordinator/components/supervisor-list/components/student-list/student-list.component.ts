@@ -34,7 +34,6 @@ export class StudentListComponent implements OnInit {
       .subscribe(
         (data) => {
           this.users = data;
-          console.log(data);
         }, (error) => {
           this.error = error;
         });
