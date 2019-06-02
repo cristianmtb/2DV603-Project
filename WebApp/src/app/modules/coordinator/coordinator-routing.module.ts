@@ -8,6 +8,7 @@ import {FinalReportsComponent} from "./components/final-reports/final-reports.co
 import {RolesComponent} from "./components/roles/roles.component";
 import {DeadlinesComponent} from "./components/deadlines/deadlines.component";
 import {SupervisorListComponent} from "./components/supervisor-list/supervisor-list.component";
+import {StudentListComponent} from "./components/supervisor-list/components/student-list/student-list.component";
 
 
 const routes: Routes = [
@@ -42,8 +43,12 @@ const routes: Routes = [
   },
 
   {
-    path: 'list',
+    path: 'supervisors',
     component: SupervisorListComponent
+  },
+  {
+    path: 'supervisors/:id/students',
+    component: StudentListComponent
   },
 ];
 

@@ -3,6 +3,8 @@ import {Document} from "../../../../models/document";
 import {MdbTableDirective} from "angular-bootstrap-md";
 import {DocumentsService} from "../../../../services/document/documents.service";
 import {DocumentService} from "../../../../services/document/document.service";
+import {BiddingService} from "../../../../services/bidding/bidding.service";
+import {Bid} from "../../../../models/biddings";
 
 @Component({
   selector: 'app-biddings',
@@ -12,6 +14,7 @@ import {DocumentService} from "../../../../services/document/document.service";
 export class BiddingsComponent implements OnInit {
 
   documents: Document[] = [];
+  bids: Bid[] = [];
 
   @ViewChild(MdbTableDirective) mdbTable: MdbTableDirective;
   @ViewChild("documentGrade") documentGrade;
@@ -19,7 +22,8 @@ export class BiddingsComponent implements OnInit {
 
   constructor(
     private documentsService: DocumentsService,
-    private documentService: DocumentService,
+    private bidingService : BiddingService
+
   ) {
   }
 
@@ -28,15 +32,15 @@ export class BiddingsComponent implements OnInit {
     this.get();
   }
 
-  add(document) {
-    this.documents.push(document);
+  add(bid) {
+    this.bids.push(bid);
   }
 
   get() {
-    this.documentsService.get({type: 3})
+    this.bidingService.get()
       .subscribe(
         (data) => {
-          this.documents = data;
+          this.bids = data;
           console.log(data);
 
         }, (error) => {
@@ -53,3 +57,33 @@ export class BiddingsComponent implements OnInit {
   }
 
 }
+// add(bids) {
+//   this.bids.push(bids);
+// }
+//
+// get() {
+//   this.biddingService.get()
+//     .subscribe(
+//       (data) => {
+//         this.bids = data
+//       }, (error) => {
+//
+//       });
+// }
+
+
+// add(document) {
+//   this.documents.push(document);
+// }
+//
+// get() {
+//   this.documentsService.get({type: 3})
+//     .subscribe(
+//       (data) => {
+//         this.documents = data;
+//         console.log(data);
+//
+//       }, (error) => {
+//
+//       });
+// }

@@ -13,15 +13,16 @@ export class GradeNumComponent implements OnInit {
   form: FormGroup;
   error = null;
   working = false;
-
+  document: Document = null;
   @Output() documentGraded = new EventEmitter<Document>();
   @ViewChild("userEditModal") modal;
 
-  constructor(private documentService: DocumentService,
-              private formBuilder: FormBuilder,
+
+  constructor(private formBuilder: FormBuilder,
+              private documentService: DocumentService
   ) {
     this.form = this.formBuilder.group({
-      grade_pass: ['', [Validators.required]],
+      gradeNum: ['', [Validators.required]],
     });
 
   }
@@ -31,7 +32,8 @@ export class GradeNumComponent implements OnInit {
   }
 
   show(document: Document) {
-    this.form.controls.grade_pass.setValue(document.gradePass);
+    this.document = document;
+    this.form.controls.gradeNum.setValue(document.gradeNum);
     this.modal.show();
   }
 
@@ -45,22 +47,19 @@ export class GradeNumComponent implements OnInit {
     }
     this.error = null;
     this.working = true;
-
     this.documentGraded.emit(new Document());
     this.modal.hide();
-
-    /*
-    this.userService.add(this.form.value)
+    console.log(this.form.value);
+    this.documentService.set(this.document.id, this.form.value)
       .subscribe((next) => {
-          this.userAdded.emit(next.user);
-          this.basicModal.hide();
+        console.log(next);
+          this.documentGraded.emit(next);
+          this.modal.hide();
         },
         (error) => {
           this.error = 'invalid input';
         }
       )
-  */
-
   }
 
 

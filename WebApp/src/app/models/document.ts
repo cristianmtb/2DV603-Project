@@ -48,7 +48,7 @@ export class Document {
   }
 
   getPassOrFail() {
-    return this.gradePass == 0 ? '' : this.gradePass == 1 ? 'G' : 'U';
+    return this.gradePass == 0 ? '' : this.gradePass == 1 ? 'Pass' : 'Fail';
   }
 
   getPassNum() {

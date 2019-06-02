@@ -41,6 +41,5 @@ export class RolesComponent implements OnInit {
 
   set(user) {
     console.log(user);
-
   }
 }

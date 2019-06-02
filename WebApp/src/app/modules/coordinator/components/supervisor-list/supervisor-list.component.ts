@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {User} from "../../../../models/user";
 import {MdbTableDirective} from "angular-bootstrap-md";
 import {UsersService} from "../../../../services/user/users.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-supervisor-list',
@@ -15,7 +16,8 @@ export class SupervisorListComponent implements OnInit {
   @ViewChild("userEdit") userEdit;
 
   constructor(
-    private usersService: UsersService
+    private usersService: UsersService,
+    private router: Router,
   ) {
   }
 
@@ -36,11 +38,8 @@ export class SupervisorListComponent implements OnInit {
   }
 
 
-  view($event: User) {
-
+  viewStudents(element) {
+    this.router.navigate(['/coordinator/supervisors/' + element.id + '/students']);
   }
 
-  openStudentsListComponent(person: User) {
-    person.getRole()
-  }
 }
