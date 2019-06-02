@@ -31,7 +31,10 @@ export class UsersComponent implements OnInit {
   }
 
   edit(user) {
-    this.users.push(user);
+    const i = this.users.map(x => x.id).indexOf(user.id);
+    if (i >= 0) {
+      this.users.splice(i, 1, user);
+    }
   }
 
   get() {
@@ -45,6 +48,6 @@ export class UsersComponent implements OnInit {
   }
 
   openEditComponent(user: User) {
-      this.userEdit.show(user);
+    this.userEdit.show(user);
   }
 }
