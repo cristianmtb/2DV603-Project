@@ -29,7 +29,10 @@ export class DeadlinesComponent implements OnInit {
   }
 
   edit(item) {
-
+    const i = this.elements.map(x => x.id).indexOf(item.id);
+    if (i >= 0) {
+      this.elements.splice(i, 1, item);
+    }
   }
 
   get() {

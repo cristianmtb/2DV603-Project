@@ -16,35 +16,38 @@ import {SharedModule} from './shared.module';
 import {SupervisorService} from './services/user/supervisor.service';
 import {DocumentService} from './services/document/document.service';
 import {AuthInterceptor} from './services/auth/auth.intercepter';
+import {OwlDateTimeModule, OwlNativeDateTimeModule} from "ng-pick-datetime";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        WelcomePageComponent,
-        LoginComponent,
-        SingupComponent,
-        HomePageComponent,
-        NavbarComponent,
-    ],
-    imports: [
-        ReactiveFormsModule,
-        BrowserModule,
-        FormsModule,
-        SharedModule,
-        MDBBootstrapModule.forRoot(),
-        HttpClientModule,
-        AppRoutingModule,
-    ],
-    providers: [
-        AuthService,
-        UsersService,
-        SupervisorService,
-        DocumentService,
-        {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
-    ],
-    exports: [],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    WelcomePageComponent,
+    LoginComponent,
+    SingupComponent,
+    HomePageComponent,
+    NavbarComponent,
+  ],
+  imports: [
+    ReactiveFormsModule,
+    BrowserModule,
+    FormsModule,
+    SharedModule,
+    MDBBootstrapModule.forRoot(),
+    HttpClientModule,
+    AppRoutingModule,
+
+  ],
+  providers: [
+    AuthService,
+    UsersService,
+    SupervisorService,
+    DocumentService,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ],
+  exports: [],
+  bootstrap: [AppComponent]
 })
 
 

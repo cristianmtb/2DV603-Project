@@ -15,13 +15,14 @@ export class SubmissionsEditComponent implements OnInit {
   working = false;
 
   @Output() submissionsEdited = new EventEmitter<Submission>();
-  @ViewChild("userEditModal") modal;
+  @ViewChild("submissionEditModal") modal;
 
   constructor(private submissionService: SubmissionService,
               private formBuilder: FormBuilder,
   ) {
     this.form = this.formBuilder.group({
       title: ['', [Validators.required, Validators.minLength(1)]],
+      deadline: ['', [Validators.required, Validators.minLength(1)]],
     });
 
   }
@@ -50,7 +51,7 @@ export class SubmissionsEditComponent implements OnInit {
 
     this.submissionService.edit(this.submission.id, this.form.value)
       .subscribe((next) => {
-          this.submissionsEdited.emit(next.submission);
+          this.submissionsEdited.emit(next);
           this.modal.hide();
         },
         (error) => {
