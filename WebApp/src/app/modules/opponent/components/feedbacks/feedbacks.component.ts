@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormGroup} from "@angular/forms";
+import {DocumentsService} from "../../../../services/document/documents.service";
+import {DocumentService} from "../../../../services/document/document.service";
+import {Document} from "../../../../models/document";
+import {MdbTableDirective} from "angular-bootstrap-md";
 
 @Component({
   selector: 'app-feedbacks',
@@ -7,28 +11,42 @@ import {FormGroup} from "@angular/forms";
   styleUrls: ['./feedbacks.component.scss']
 })
 export class FeedbacksComponent implements OnInit {
-
-  form: FormGroup;
-  error = null;
-  working = false;
-
-  elements: any = [
-    {name: 'Status', value: 'Not submitted'},
-    {name: 'Deadline', value: '-'},
-    {name: 'File', value: '-'},
-    {name: 'Evaluation', value: '-'},
-  ];
-
-  constructor() {
-
+  constructor(
+    private documentsService: DocumentsService,
+    private documentService: DocumentService,
+  ) {
   }
+  documents: Document[] = [];
+
+  @ViewChild(MdbTableDirective) mdbTable: MdbTableDirective;
+  @ViewChild("documentGrade") documentGrade;
 
   ngOnInit() {
+    this.get();
   }
 
-  documentSubmitted(document) {
-    this.elements[0].value = 'Submitted';
-    this.elements[2].value = document.title;
+  add(document) {
+    this.documents.push(document);
+  }
+
+  get() {
+    this.documentsService.get({type: 2})
+      .subscribe(
+        (data) => {
+          this.documents = data;
+          console.log(data);
+
+        }, (error) => {
+
+        });
+  }
+
+  grade(document) {
+
+  }
+
+  openGradeComponent(item) {
+    this.documentGrade.show(item);
   }
 
 
