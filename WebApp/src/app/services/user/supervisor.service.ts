@@ -20,6 +20,7 @@ export class SupervisorService {
     return this.http.get<any>(`${environment.serverUrl}/api/supervisor-confirmation/get/`, {
       params: createParameters(args)
     }).pipe(map(actions => {
+        console.log(actions);
         return actions.confirmation.map(item => {
           return new Confirmation(item);
         });
