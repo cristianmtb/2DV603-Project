@@ -1,7 +1,8 @@
 export class Submission {
-    private id: number;
-    private deadline: Date;
-    private step: number;
+    id: number;
+    deadline: Date;
+    step: number;
+    title: string;
 
     constructor(submission = null) {
         if (submission != null) {
@@ -13,19 +14,7 @@ export class Submission {
         this.id = submission.id;
         this.deadline = submission.deadline;
         this.step = submission.step;
+        this.title = submission.title;
 
-    }
-
-    public getId() {
-        return this.id;
-    }
-
-    public getDeadline() {
-        return this.deadline;
-    }
-
-
-    public getStep() {
-        return this.step;
     }
 }

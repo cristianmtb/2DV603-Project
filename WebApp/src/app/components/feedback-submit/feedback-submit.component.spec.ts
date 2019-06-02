@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {GradePassComponent} from './grade-pass.component';
+import {FeedbackSubmitComponent} from './feedback-submit.component';
 
-describe('SubmissionsAddComponent', () => {
-  let component: GradePassComponent;
-  let fixture: ComponentFixture<GradePassComponent>;
+describe('SubmitDocumentComponent', () => {
+  let component: FeedbackSubmitComponent;
+  let fixture: ComponentFixture<FeedbackSubmitComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [GradePassComponent]
+      declarations: [FeedbackSubmitComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GradePassComponent);
+    fixture = TestBed.createComponent(FeedbackSubmitComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

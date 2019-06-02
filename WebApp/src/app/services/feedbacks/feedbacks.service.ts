@@ -12,7 +12,6 @@ export class FeedbacksService {
 
   constructor(private http: HttpClient) { }
 
-
   public get(args = null) {
     return this.http.get<any>(`${environment.serverUrl}/api/feedbacks/get`, {
       params: createParameters(args)

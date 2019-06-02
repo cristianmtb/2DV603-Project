@@ -19,9 +19,10 @@ import { RolesComponent } from './components/roles/roles.component';
 import { GradeNumComponent } from './components/final-reports/grade-num/grade-num.component';
 import { SetRolesComponent } from './components/roles/set-roles/set-roles.component';
 import { DeadlinesComponent } from './components/deadlines/deadlines.component';
-import { EditDeadlineComponent } from './components/deadlines/edit-deadline/edit-deadline.component';
+import { SubmissionsEditComponent } from './components/deadlines/edit/submissions-edit.component';
 import { SupervisorListComponent } from './components/supervisor-list/supervisor-list.component';
 import { StudentListComponent } from './components/supervisor-list/components/student-list/student-list.component';
+import {SubmissionsAddComponent} from "./components/deadlines/add/submissions-add.component";
 
 
 @NgModule({
@@ -38,10 +39,10 @@ import { StudentListComponent } from './components/supervisor-list/components/st
     GradeNumComponent,
     SetRolesComponent,
     DeadlinesComponent,
-    EditDeadlineComponent,
+    SubmissionsEditComponent,
     SupervisorListComponent,
     StudentListComponent,
-
+    SubmissionsAddComponent,
   ],
   providers: [
     DocumentService,

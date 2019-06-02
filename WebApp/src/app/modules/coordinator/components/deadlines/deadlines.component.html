@@ -1,28 +1,31 @@
 <div class="page-content">
   <app-breadcrumb></app-breadcrumb>
-  <div class="app-page-title">Users</div>
+
+
+  <app-submissions-edit #submissionsEdit (submissionsEdited)="edit($event)"></app-submissions-edit>
+
+  <div class="app-page-title">Deadline</div>
   <div>
     <div class="card-body">
       <div id="table" class="table-editable">
       <span class="table-add float-right mb-3 mr-2">
-        <app-edit-deadline #userEdit (userEdited)="edit($event)"></app-edit-deadline>
+        <app-submissions-add #submissionsAdd (submissionsAdded)="add($event)"></app-submissions-add>
       </span>
         <table class="table table-bordered table-responsive-md table-striped text-center">
           <tr>
-            <th [mdbTableSort]="users" sortBy="username" class="text-center">Document</th>
-            <th [mdbTableSort]="users" sortBy="firstName" class="text-center">Deadline</th>
+            <th class="text-center">Title</th>
+            <th class="text-center">Deadline</th>
             <th class="text-center">Edit</th>
           </tr>
-          <tr *ngFor="let person of users; let id = index">
+          <tr *ngFor="let elem of elements; let id = index">
             <td>
-            <td>
-              <span contenteditable="false">{{person.lastName}}</span>
+              <span contenteditable="false">{{elem.title}}</span>
             </td>
             <td>
-              <span contenteditable="false">{{person.email}}</span>
+              <span contenteditable="false">{{elem.deadline}}</span>
             </td>
             <td>
-              <i class="fas fa-pen" style="cursor: pointer;" (click)="openEditComponent(person)" ></i>
+              <i class="fas fa-pen" style="cursor: pointer;" (click)="openEditComponent(elem)"></i>
             </td>
           </tr>
         </table>
