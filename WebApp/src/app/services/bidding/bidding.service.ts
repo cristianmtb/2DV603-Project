@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {createFormData, createParameters} from '../formData';
 import {map} from 'rxjs/operators';
-import {Biddding} from '../../models/biddings';
+import {Bidding} from '../../models/biddings';
 
 @Injectable({
     providedIn: 'root'
@@ -19,7 +19,7 @@ export class BiddingService {
         })
             .pipe(map(actions => {
                     return actions.bidding.map(item => {
-                        return new Biddding(item);
+                        return new Bidding(item);
                     });
                 }
             ));
@@ -33,9 +33,8 @@ export class BiddingService {
         return this.http.post<any>(`${environment.serverUrl}/api/biddings/update/` + id,
             createFormData(data)
         ).pipe(map(actions => {
-                return new Biddding(actions.bid);
+                return new Bidding(actions.bid);
             }
         ));
     }
-
 }

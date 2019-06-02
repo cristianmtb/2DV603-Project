@@ -1,4 +1,4 @@
-export class Biddding {
+export class Bidding {
     id: number;
     readerId: number;
     reportId: number;

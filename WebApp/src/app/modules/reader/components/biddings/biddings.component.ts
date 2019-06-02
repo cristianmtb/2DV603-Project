@@ -2,9 +2,8 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Document} from '../../../../models/document';
 import {MdbTableDirective} from 'angular-bootstrap-md';
 import {DocumentsService} from '../../../../services/document/documents.service';
-import {DocumentService} from '../../../../services/document/document.service';
 import {BiddingService} from '../../../../services/bidding/bidding.service';
-import {Biddding} from '../../../../models/biddings';
+import {Bidding} from '../../../../models/biddings';
 import {environment} from '../../../../../environments/environment';
 
 @Component({
@@ -15,10 +14,10 @@ import {environment} from '../../../../../environments/environment';
 export class BiddingsComponent implements OnInit {
 
     documents: Document[] = [];
-    bids: Biddding[] = [];
+    bids: Bidding[] = [];
 
     @ViewChild(MdbTableDirective) mdbTable: MdbTableDirective;
-    @ViewChild('documentGrade') documentGrade;
+    @ViewChild('bidSet') bidSet;
 
 
     constructor(
@@ -48,44 +47,12 @@ export class BiddingsComponent implements OnInit {
 
                 });
     }
-
-    set(document) {
+    openBidComponent(item:Bidding) {
+        this.bidSet.show(item);
+    }
+    set(bidding)
+    {
 
     }
-
-    openGradeComponent(item) {
-        this.documentGrade.show(item);
-    }
-
 }
 
-// add(bids) {
-//   this.bids.push(bids);
-// }
-//
-// get() {
-//   this.biddingService.get()
-//     .subscribe(
-//       (data) => {
-//         this.bids = data
-//       }, (error) => {
-//
-//       });
-// }
-
-
-// add(document) {
-//   this.documents.push(document);
-// }
-//
-// get() {
-//   this.documentsService.get({type: 3})
-//     .subscribe(
-//       (data) => {
-//         this.documents = data;
-//         console.log(data);
-//
-//       }, (error) => {
-//
-//       });
-// }

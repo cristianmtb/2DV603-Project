@@ -3,7 +3,6 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {createFormData, createParameters} from "../formData";
 import {map} from "rxjs/operators";
-import {Biddding} from "../../models/biddings";
 import {Feedback} from "../../models/feedbacks";
 
 @Injectable({

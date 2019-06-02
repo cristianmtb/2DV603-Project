@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Document} from "../../../../../models/document";
-import {DocumentService} from "../../../../../services/document/document.service";
+import { Bidding } from 'src/app/models/biddings';
+import { BiddingService } from 'src/app/services/bidding/bidding.service';
 
 @Component({
   selector: 'app-set-bidding',
@@ -13,15 +13,15 @@ export class SetBiddingComponent implements OnInit {
   form: FormGroup;
   error = null;
   working = false;
+  bidding: Bidding = null;
+  @Output() bided = new EventEmitter<Bidding>();
+  @ViewChild("bidSet") modal;
 
-  @Output() documentGraded = new EventEmitter<Document>();
-  @ViewChild("userEditModal") modal;
-
-  constructor(private documentService: DocumentService,
+  constructor(private biddingService: BiddingService,
               private formBuilder: FormBuilder,
   ) {
     this.form = this.formBuilder.group({
-      grade_pass: ['', [Validators.required]],
+      biddingNumber: ['', [Validators.required]],
     });
 
   }
@@ -30,8 +30,9 @@ export class SetBiddingComponent implements OnInit {
 
   }
 
-  show(document: Document) {
-    this.form.controls.grade_pass.setValue(document.gradePass);
+  show(bidding: Bidding) {
+    this.bidding = bidding;
+    this.form.controls.biddingNumber.setValue(bidding.biddingNumber);
     this.modal.show();
   }
 
@@ -45,21 +46,17 @@ export class SetBiddingComponent implements OnInit {
     }
     this.error = null;
     this.working = true;
-
-    this.documentGraded.emit(new Document());
+    this.bided.emit(new Bidding());
     this.modal.hide();
-
-    /*
-    this.userService.add(this.form.value)
+    this.biddingService.edit(this.bidding.id, this.form.value)
       .subscribe((next) => {
-          this.userAdded.emit(next.user);
-          this.basicModal.hide();
+          this.bided.emit(next);
+          this.modal.hide();
         },
         (error) => {
           this.error = 'invalid input';
         }
-      )
-  */
+      );
 
   }
 

@@ -38,8 +38,4 @@ export class RolesComponent implements OnInit {
   openSetComponent(user: User) {
     this.roleSet.show(user);
   }
-
-  set(user) {
-    console.log(user);
-  }
 }
