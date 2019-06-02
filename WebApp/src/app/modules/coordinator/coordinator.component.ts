@@ -39,19 +39,19 @@ export class CoordinatorComponent implements OnInit {
     this.items.push(new Item(
       'Grade Final Report', 'Grade Final Report ', 'fas fa-file-pdf', '/finals'));
     this.items.push(new Item(
-      'Deadlines', 'Set Deadlines', "fas fa-clock", 'deadlines'));
+      'Deadlines', 'Set Deadlines', 'fas fa-clock', 'deadlines'));
     this.items.push(new Item(
       'Roles', 'Set Roles', 'fas fa-user-tag', '/roles'));
 
     this.items.push(new Item(
-      'Supervisor student list', 'check the student list under each supervisor', "fas fa-th-list", '/list'));
+      'Supervisor student list', 'check the student list under each supervisor', 'fas fa-th-list', '/list'));
 
 
   }
 
   ngOnInit() {
     if (!this.auth.isCoordinator() ) {
-      this.router.navigate(["login"]);
+      this.router.navigate(['login']);
     }
     this.load();
   }

@@ -31,7 +31,7 @@ export class GradePassComponent implements OnInit {
   }
 
   show(document: Document) {
-    this.document= document;
+    this.document = document;
     this.form.controls.grade_pass.setValue(document.gradePass);
     this.modal.show();
   }

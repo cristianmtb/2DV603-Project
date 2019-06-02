@@ -14,13 +14,15 @@ export class AddComponent implements OnInit {
   working = false;
 
   @Output() userAdded = new EventEmitter<User>();
-  @ViewChild("userAdd") modal;
+  @ViewChild('userAdd') modal;
 
   constructor(private usersService: UsersService,
               private formBuilder: FormBuilder,
   ) {
     this.form = this.formBuilder.group({
       username: ['', [Validators.required, Validators.minLength(1)]],
+      password: ['', [Validators.required, Validators.minLength(1)]],
+      roleId: [0, [Validators.required, Validators.minLength(1)]],
       firstName: ['', [Validators.required, Validators.minLength(1)]],
       lastName: ['', [Validators.required, Validators.minLength(1)]],
       email: ['', [Validators.required, Validators.email, Validators.minLength(1)]],

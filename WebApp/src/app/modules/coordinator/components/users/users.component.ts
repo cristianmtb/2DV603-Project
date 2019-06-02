@@ -31,7 +31,7 @@ export class UsersComponent implements OnInit {
   }
 
   edit(user) {
-    console.log(user);
+    this.users.push(user);
   }
 
   get() {

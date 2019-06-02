@@ -7,81 +7,84 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {User} from 'src/app/models/user';
-import {map} from "rxjs/operators";
-import {environment} from "../../../environments/environment";
-import {createParameters} from "../formData";
+import {environment} from '../../../environments/environment';
+import {createParameters} from '../formData';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 
 export class AuthService {
-  private currentUser: User = null;
+    private currentUser: User = null;
+    private token = null;
 
-  constructor(private http: HttpClient) {
-  }
-
-  isLoggedIn() {
-    return this.currentUser != null;
-  }
-
-  getUserName() {
-    if (this.isLoggedIn()) {
-      return this.currentUser.username
+    constructor(private http: HttpClient) {
+        this.token = localStorage.getItem('token');
+        if (this.token != null) {
+            this.currentUser = new User(JSON.parse(localStorage.getItem('user')));
+        }
     }
-  }
 
-  getCurrentUser() {
-    return this.currentUser;
-  }
+    isLoggedIn() {
+        return this.currentUser != null;
+    }
 
-  getCurrentUserId() {
-    return this.currentUser.id;
-  }
+    getUserName() {
+        if (this.isLoggedIn()) {
+            return this.currentUser.username;
+        }
+    }
 
-  logout() {
-    this.currentUser = null;
-  }
+    getCurrentUser() {
+        return this.currentUser;
+    }
 
-  login(args = null): Promise<User> {
-    return new Promise((resolve, reject) => {
-      this.http.get<any>(environment.serverUrl + '/api/user/get', {
-        params: createParameters(args)
-      })
-        .pipe(map(
-          actions => {
-            return new User(actions.user);
-          }))
-        .subscribe(
-          (next) => {
-            this.currentUser = next;
-            resolve(next);
-          },
-          (error) => {
-            reject(error);
-          }
-        )
-    });
-  }
+    getCurrentUserId() {
+        return this.currentUser.id;
+    }
 
-  isCoordinator() {
-    return this.isLoggedIn() && this.currentUser.isCoordinator();
-  }
+    logout() {
+        localStorage.clear();
+        this.currentUser = null;
+    }
 
-  isStudent() {
-    return this.isLoggedIn() && this.currentUser.isStudent();
-  }
+    login(args = null): Promise<User> {
+        return new Promise((resolve, reject) => {
+            this.http.post<any>(environment.serverUrl + '/login', {},
+                {params: createParameters(args)})
+                .subscribe(
+                    (next) => {
+                        this.currentUser = new User(next.user);
+                        localStorage.setItem('token', next.token);
+                        localStorage.setItem('user', JSON.stringify(this.currentUser));
+                        resolve(this.currentUser);
+                    },
+                    (error) => {
+                        console.log(error);
+                        reject(error);
+                    }
+                );
+        });
+    }
 
-  isSupervisor() {
-    return this.isLoggedIn() && this.currentUser.isSupervisor();
-  }
+    isCoordinator() {
+        return this.isLoggedIn() && this.currentUser.isCoordinator();
+    }
 
-  isReader() {
-    return this.isLoggedIn() && this.currentUser.isReader();
-  }
+    isStudent() {
+        return this.isLoggedIn() && this.currentUser.isStudent();
+    }
 
-  isOpponent() {
-    return this.isLoggedIn() && this.currentUser.isOpponent();
-  }
+    isSupervisor() {
+        return this.isLoggedIn() && this.currentUser.isSupervisor();
+    }
+
+    isReader() {
+        return this.isLoggedIn() && this.currentUser.isReader();
+    }
+
+    isOpponent() {
+        return this.isLoggedIn() && this.currentUser.isOpponent();
+    }
 }
 

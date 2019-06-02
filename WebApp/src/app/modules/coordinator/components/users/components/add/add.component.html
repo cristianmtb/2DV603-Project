@@ -26,6 +26,24 @@
             </mdb-error>
           </div>
           <div class="md-form">
+            <label for="password">Password</label>
+            <input mdbInput mdbValidate type="text" [formControl]="form.controls.password" id="password"
+                   class="form-control form-control-sm">
+            <mdb-error
+                    *ngIf="form.controls.password.invalid && (form.controls.password.dirty || form.controls.password.touched)"
+            >Input invalid
+            </mdb-error>
+          </div>
+          <div class="md-form">
+            <select class="browser-default custom-select"  [formControl]="form.controls.roleId">
+              <option value="1">Student</option>
+              <option value="2">Opponent</option>
+              <option value="3">Supervisor</option>
+              <option value="4">Reader</option>
+              <option value="5">Coordinator</option>
+            </select>
+          </div>
+          <div class="md-form">
             <label for="firstName">First Name</label>
             <input mdbInput mdbValidate type="text" [formControl]="form.controls.firstName" id="firstName"
                    class="form-control form-control-sm">
