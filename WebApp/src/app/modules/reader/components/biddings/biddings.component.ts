@@ -22,7 +22,7 @@ export class BiddingsComponent implements OnInit {
 
   constructor(
     private documentsService: DocumentsService,
-    private bidiingService : BiddingService
+    private bidingService : BiddingService
 
   ) {
   }
@@ -37,7 +37,7 @@ export class BiddingsComponent implements OnInit {
   }
 
   get() {
-    this.bidiingService.get()
+    this.bidingService.get()
       .subscribe(
         (data) => {
           this.bids = data;
