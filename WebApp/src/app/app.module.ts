@@ -16,8 +16,6 @@ import {SharedModule} from './shared.module';
 import {SupervisorService} from './services/user/supervisor.service';
 import {DocumentService} from './services/document/document.service';
 import {AuthInterceptor} from './services/auth/auth.intercepter';
-import {OwlDateTimeModule, OwlNativeDateTimeModule} from "ng-pick-datetime";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 @NgModule({

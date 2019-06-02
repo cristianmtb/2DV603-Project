@@ -43,7 +43,10 @@ export class DescriptionsComponent implements OnInit {
   }
 
   grade(document) {
-
+    const i = this.documents.map(x => x.id).indexOf(document.id);
+    if (i >= 0) {
+      this.documents.splice(i, 1, document);
+    }
   }
 
   openGradeComponent(item) {
