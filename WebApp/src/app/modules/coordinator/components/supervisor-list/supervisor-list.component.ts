@@ -31,7 +31,8 @@ export class SupervisorListComponent implements OnInit {
     this.usersService.get({roleId: 3})
       .subscribe(
         (data) => {
-          this.users = data
+          this.users = data;
+          console.log(data)
         }, (error) => {
 
         });
