@@ -24,6 +24,7 @@ export class Submission {
         return this.deadline;
     }
 
+
     public getStep() {
         return this.step;
     }
