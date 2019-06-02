@@ -46,7 +46,6 @@ export class CoordinatorComponent implements OnInit {
     this.items.push(new Item(
       'Supervisor student list', 'check the student list under each supervisor', "fas fa-th-list", '/supervisors'));
 
-
   }
 
   ngOnInit() {

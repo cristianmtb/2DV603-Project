@@ -45,7 +45,7 @@ export class AuthService {
 
   login(args = null): Promise<User> {
     return new Promise((resolve, reject) => {
-      this.http.get<any>(environment.serverUrl + '/api/user/get', {
+      this.http.get<any>(environment.serverUrl + '/auth/login', {
         params: createParameters(args)
       })
         .pipe(map(

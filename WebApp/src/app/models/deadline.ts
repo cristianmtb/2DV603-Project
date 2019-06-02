@@ -1,32 +1,33 @@
-import { Time } from '@angular/common';
+export class Deadline {
+  private id: number;
+  private deadline: Date;
+  private step: number;
 
-export class Deadline
-{
-    private date: Date;
-    private time: Time;
-    private description: string //name of the submission
+  constructor(submission = null) {
+    if (submission != null) {
+      this.fromDocument(submission);
+    }
+  }
 
-    public constructor(date:Date, description:string)
-    {
-        this.date = date;
-        this.description = description;
-    }
 
-    public setDate(date:Date)
-    {
-        this.date = date;
-    }
-    public setDescription(description:string)
-    {
-        this.description = description;
-    }
-    public getDate():Date
-    {
-        return this.date;
-    }
-    public getDescription():string
-    {
-        return this.description;
-    }
-    
+  private fromDocument(submission) {
+    this.id = submission.id;
+    this.deadline = submission.deadline;
+    this.step = submission.step;
+
+  }
+
+  public getId() {
+    return this.id;
+  }
+
+  public getDeadline() {
+    return this.deadline;
+  }
+
+  public getStep() {
+    return this.step;
+  }
+
+
 }
