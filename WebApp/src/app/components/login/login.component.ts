@@ -55,8 +55,6 @@ export class LoginComponent implements OnInit {
         }else if (next.isOpponent()) {
           this.router.navigate(['opponent']);
         }
-        // ToDo: add other routers
-
       })
       .catch((error) => {
         this.error = 'user not found';

@@ -3,6 +3,7 @@ import {UsersService} from 'src/app/services/user/users.service';
 import {User} from 'src/app/models/user';
 import {SupervisorService} from "../../../../services/user/supervisor.service";
 import {AuthService} from "../../../../services/auth/auth.service";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-supervisor-table',
@@ -17,6 +18,7 @@ export class SupervisorComponent implements OnInit {
   constructor(private usersService: UsersService,
               private SupervisorService: SupervisorService,
               private authService: AuthService,
+              private router:Router,
   ) {
   }
 
@@ -48,8 +50,7 @@ export class SupervisorComponent implements OnInit {
       studentId: this.authService.getCurrentUserId(),
     })
       .subscribe((next) => {
-
-
+        this.router.navigate(['/student']);
       }, (error) => {
         this.error = error;
       });

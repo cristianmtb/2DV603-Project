@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../../services/auth/auth.service";
-import {Router} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from '../../services/auth/auth.service';
+import {Router} from '@angular/router';
 
 
 class Item {
@@ -15,9 +15,9 @@ class Item {
     this.description = description;
     this.icon = icon;
     this.url = url;
-
   }
 }
+
 @Component({
   selector: 'app-reader',
   templateUrl: './reader.component.html',
@@ -25,19 +25,21 @@ class Item {
 })
 export class ReaderComponent implements OnInit {
   items: Item[] = [];
+
   constructor(private auth: AuthService, private router: Router) {
 
     this.items.push(new Item(
-      'Bidding', 'Bid of a report', 'fas fa-coins', 'bid'));
+      'Bidding', 'Biddding of a report', 'fas fa-coins', 'bid'));
     this.items.push(new Item(
-      'Feedback', 'confirm confirms', "far fa-comment-dots", 'feedback'));
+      'Feedback', 'confirm confirms', 'far fa-comment-dots', 'feedback'));
     this.items.push(new Item(
       'Final Evaluation', 'Final Evaluation', 'fas fa-file-alt', 'final'));
 
   }
+
   ngOnInit() {
     if (!this.auth.isReader()) {
-      this.router.navigate(["login"]);
+      this.router.navigate(['login']);
     }
     this.load();
   }

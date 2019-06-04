@@ -17,7 +17,6 @@ export class DocumentsService {
       params: createParameters(args)
     })
       .pipe(map(actions => {
-          console.log(actions);
           return actions.document.map(item => {
             return new Document(item);
           });

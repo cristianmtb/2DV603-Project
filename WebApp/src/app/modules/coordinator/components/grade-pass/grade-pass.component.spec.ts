@@ -2,7 +2,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {GradePassComponent} from './grade-pass.component';
 
-describe('AddComponent', () => {
+describe('SubmissionsAddComponent', () => {
   let component: GradePassComponent;
   let fixture: ComponentFixture<GradePassComponent>;
 

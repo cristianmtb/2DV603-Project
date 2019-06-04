@@ -4,6 +4,7 @@ import {MdbTableDirective} from "angular-bootstrap-md";
 import {FormGroup} from "@angular/forms";
 import {DocumentsService} from "../../../../services/document/documents.service";
 import {DocumentService} from "../../../../services/document/document.service";
+import {FeedbacksService} from "../../../../services/feedbacks/feedbacks.service";
 
 @Component({
   selector: 'app-assesments',
@@ -15,7 +16,7 @@ export class AssesmentsComponent implements OnInit {
   documents: Document[] = [];
 
   @ViewChild(MdbTableDirective) mdbTable: MdbTableDirective;
-  @ViewChild("documentGrade") documentGrade;
+  @ViewChild("feedbackSubmit") feedbackSubmit;
   form: FormGroup;
   error = null;
   working = false;
@@ -29,7 +30,7 @@ export class AssesmentsComponent implements OnInit {
 
   constructor(
     private documentsService: DocumentsService,
-    private documentService: DocumentService,
+    private feedbackService: FeedbacksService,
   ) {
   }
 
@@ -47,8 +48,6 @@ export class AssesmentsComponent implements OnInit {
       .subscribe(
         (data) => {
           this.documents = data;
-          console.log(data);
-
         }, (error) => {
 
         });
@@ -58,12 +57,12 @@ export class AssesmentsComponent implements OnInit {
 
   }
 
-  openGradeComponent(item) {
-    this.documentGrade.show(item);
+  openFeedbackSubmitComponent(item) {
+    this.feedbackSubmit.show(item);
   }
 
-  documentSubmitted(document) {
-    this.elements[0].value = 'Submitted for Evaluation';
+  feedbackSubmitted(document) {
+    this.elements[0].value = 'Submitted';
     this.elements[2].value = document.title;
   }
 

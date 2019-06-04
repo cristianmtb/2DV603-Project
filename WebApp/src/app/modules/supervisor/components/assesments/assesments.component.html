@@ -1,6 +1,7 @@
 <div class="page-content">
   <app-breadcrumb></app-breadcrumb>
-  <!--  <app-coordinator-grade #documentGrade (documentGraded)="grade($event)"></app-coordinator-grade>-->
+
+  <app-feedback-submit #feedbackSubmit (feedbackSubmitted)="feedbackSubmitted($event)"></app-feedback-submit>
 
   <div class="app-page-title">Report Assessments</div>
   <div>
@@ -20,11 +21,13 @@
             <td>{{document.authorId}}</td>
             <td>  <a style="color: darkblue" href="{{document.getDownloadLink()}}" target="_blank">{{document.title}}.pdf</a></td>
             <!--            <td style="font-weight: bold">{{el.name}}</td>-->
-            <td></td>
+            <td>  </td>
             <td></td>
             <!--            <td>{{el.value}}</td>-->
             <td>
-              <app-document-submit [type]="2" (documentSubmitted)="documentSubmitted($event)"></app-document-submit>
+              <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="openFeedbackSubmitComponent(document)"
+                      mdbWavesEffect>Feedback</button>
+
             </td>
           </tr>
         </table>
